@@ -107,7 +107,10 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <img class="hero-bg-img" src="/assets/img/hero-photo.jpg" alt="Equipe da Bétula reunida em um processo de seleção" width="1920" height="1080" fetchpriority="high" />
+    <picture>
+      <source media="(max-width:760px)" srcset="/assets/img/hero-photo-mobile.jpg" width="900" height="1200" />
+      <img class="hero-bg-img" src="/assets/img/hero-photo.jpg" alt="Equipe da Bétula reunida em um processo de seleção" width="1920" height="1080" fetchpriority="high" />
+    </picture>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-copy reveal">
@@ -324,7 +327,10 @@
 
       <div class="partner reveal">
         <span class="partner-logo"><img src="/assets/img/cli-rhege.png" alt="RHEGE Consultoria em RH" width="120" height="83" loading="lazy" /></span>
-        <p><strong>Parceria Bétula:</strong> consultoria especializada em estruturação de Recursos Humanos, desenvolvimento organizacional, implantação de ferramentas de gestão e facilitação de processos de mudança.</p>
+        <div class="partner-body">
+          <span class="partner-tag">Empresa parceira</span>
+          <p>A <strong>RHEGE</strong> é a parceira da Bétula em estruturação de Recursos Humanos, desenvolvimento organizacional, implantação de ferramentas de gestão e facilitação de processos de mudança.</p>
+        </div>
       </div>
     </div>
   </section>
