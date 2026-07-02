@@ -1,0 +1,14 @@
+{
+  "name": "Bétula Recrutamento e Seleção",
+  "short_name": "Bétula RH",
+  "description": "Recrutamento e seleção humanizado, ágil e assertivo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF6EE",
+  "theme_color": "#1E3A32",
+  "icons": [
+    { "src": "/assets/img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

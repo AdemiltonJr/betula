@@ -1,0 +1,12 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Imagens-fonte originais (não publicar)
+assets/ref/
+
+# Ferramentas locais / documentos internos
+.claude/
+docs/
+assets/_*.png
