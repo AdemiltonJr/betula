@@ -53,6 +53,7 @@ em{font-style:italic}
 
 .container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.15rem,4vw,2.5rem)}
 .section{padding-block:clamp(4rem,8vw,7.5rem)}
+[id]{scroll-margin-top:24px}
 
 .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:.7rem 1rem;z-index:200;border-radius:0 0 8px 0}
 .skip-link:focus{left:0}
@@ -232,15 +233,25 @@ em{font-style:italic}
 /* ==========================================================================
    Equipe
    ========================================================================== */
-.equipe{background:linear-gradient(180deg,var(--sand),var(--cream))}
-.team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem}
-.team-card{flex:0 1 calc(25% - 1.05rem);max-width:290px;margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
-.team-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.team-card img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center top}
-.team-card figcaption{padding:1.15rem 1.25rem 1.4rem}
-.team-card h3{font-size:1.2rem;margin-bottom:.15rem}
-.team-card .role{display:block;font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.team-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+.equipe{background:linear-gradient(180deg,var(--sand),var(--cream));position:relative;overflow:hidden}
+.equipe .section-head{max-width:46rem}
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;align-items:stretch}
+.team-card{
+  margin:0;background:rgba(255,255,255,.82);border:1px solid rgba(23,21,15,.1);
+  border-radius:16px;overflow:hidden;box-shadow:none;display:flex;flex-direction:column;
+  min-height:100%;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s,background .3s;
+}
+.team-card:first-child{grid-column:span 2;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(184,134,59,.3);background:#fff}
+.team-card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;background:var(--sand)}
+.team-card:first-child img{height:100%;aspect-ratio:auto}
+.team-card figcaption{padding:1.05rem 1.1rem 1.2rem;display:flex;flex:1;flex-direction:column}
+.team-card:first-child figcaption{justify-content:center;padding:1.2rem 1.3rem}
+.team-card h3{font-size:1.12rem;margin-bottom:.15rem}
+.team-card:first-child h3{font-size:1.36rem}
+.team-card .role{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.62rem}
+.team-card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.55}
+.team-card:first-child p{font-size:.95rem}
 
 /* ==========================================================================
    Depoimentos (dark)
@@ -330,11 +341,34 @@ em{font-style:italic}
   .grid-2{grid-template-columns:1fr}
   .cards-grid{grid-template-columns:repeat(2,1fr)}
   .dif-grid{grid-template-columns:1fr}
-  .team-card{flex-basis:calc(33.333% - .94rem)}
+  .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .team-card:first-child{grid-column:1/-1}
   .depo-grid{columns:2}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
+  .hero{
+    display:block;min-height:0;background:linear-gradient(180deg,var(--evergreen-deep),var(--bark) 72%,var(--bark));
+    color:var(--cream);
+  }
+  .hero picture{
+    position:relative;display:block;height:clamp(255px,42vh,360px);overflow:hidden;z-index:0;
+  }
+  .hero picture::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(10,20,15,.04) 0%,rgba(10,20,15,.08) 48%,rgba(10,20,15,.72) 100%),
+      linear-gradient(90deg,rgba(10,20,15,.2) 0%,rgba(10,20,15,0) 54%);
+  }
+  .hero-bg-img{position:relative;inset:auto;width:100%;height:100%;object-fit:cover;object-position:center 34%}
+  .hero-scrim{display:none}
+  .hero-inner{padding-block:2rem 3.4rem}
+  .hero-copy{max-width:none}
+  .hero .eyebrow{background:rgba(250,246,238,.12);border:1px solid rgba(250,246,238,.14)}
+  .hero-copy h1{font-size:2.18rem;line-height:1.06;margin-bottom:1.1rem;text-shadow:none}
+  .lead{font-size:1rem;color:rgba(250,246,238,.82);margin-bottom:1.55rem}
+  .hero-actions{margin-bottom:1.7rem}
+  .hero-trust{display:grid;grid-template-columns:1fr;gap:.75rem;padding-top:1.25rem}
   .nav,.header-cta{display:none}
   .nav-toggle{display:flex;margin-left:auto}
   .site-header.menu-open .nav{
@@ -345,15 +379,20 @@ em{font-style:italic}
   .site-header.menu-open .nav-list{flex-direction:column;gap:.2rem}
   .site-header.menu-open .nav-list a{display:block;padding:.85rem 0;border-bottom:1px solid var(--line);font-size:1.05rem}
   .steps{grid-template-columns:1fr;gap:0}
-  .team-card{flex-basis:calc(50% - .7rem)}
-  .hero-bg-img{object-position:center 42%}
-  .hero-scrim{background:linear-gradient(180deg,rgba(10,20,15,.80) 0%,rgba(10,20,15,.6) 42%,rgba(10,20,15,.92) 100%)}
+  .team-card:first-child{display:flex}
+  .team-card:first-child img{aspect-ratio:4/5;height:auto}
 }
 @media (max-width:560px){
   .cards-grid{grid-template-columns:1fr}
-  .team-card{flex-basis:100%;max-width:none;display:flex;align-items:center;text-align:left}
-  .team-card img{width:40%;max-width:150px;aspect-ratio:4/5}
-  .team-card figcaption{flex:1;padding:1rem 1.15rem 1.05rem}
+  .team-grid{grid-template-columns:1fr;gap:.85rem}
+  .team-card,.team-card:first-child{
+    display:grid;grid-template-columns:92px minmax(0,1fr);grid-column:auto;align-items:stretch;text-align:left;
+  }
+  .team-card img,.team-card:first-child img{width:100%;height:100%;min-height:118px;aspect-ratio:4/5}
+  .team-card figcaption,.team-card:first-child figcaption{padding:.9rem 1rem;justify-content:flex-start}
+  .team-card h3,.team-card:first-child h3{font-size:1.05rem}
+  .team-card .role{font-size:.68rem;margin-bottom:.4rem}
+  .team-card p,.team-card:first-child p{font-size:.82rem;line-height:1.45}
   .depo-grid{columns:1}
   .partner{flex-direction:column;align-items:flex-start}
   .footer-grid{grid-template-columns:1fr}
