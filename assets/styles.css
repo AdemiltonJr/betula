@@ -190,8 +190,9 @@ a{color:inherit;text-decoration:none}
 .wa-float svg{width:32px;height:32px;fill:#fff}
 
 /* ---------- Reveal ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
+/* Only hide when JS is active (html.js) — content stays visible if the script fails to load */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
 /* =========================================================
