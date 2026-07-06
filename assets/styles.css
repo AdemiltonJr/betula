@@ -134,8 +134,8 @@ a{color:inherit;text-decoration:none}
 /* ---------- Depoimentos ---------- */
 .depoimentos{
   background-color:var(--cream);
-  background-image:url('img/bg-birch.svg');
-  background-repeat:no-repeat;background-position:center top;background-size:cover;
+  background-image:url('img/bg-depoimentos.jpg');
+  background-repeat:no-repeat;background-position:center;background-size:cover;
 }
 /* Slider */
 .depo-slider{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
