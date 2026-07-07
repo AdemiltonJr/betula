@@ -125,6 +125,7 @@ em{font-style:italic}
 .hero-copy{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(1.4rem,3vw,2.8rem);width:100%;max-width:none}
 .hero-text{flex:1 1 32rem;max-width:46rem}
 .hero-text .lead{margin-bottom:0}
+.hero .eyebrow{display:none}
 .hero-copy h1{font-size:clamp(2.1rem,1.3rem + 3.3vw,3.5rem);font-weight:800;margin-bottom:1.1rem;color:#fff;letter-spacing:-.02em;line-height:1.08;text-shadow:0 2px 24px rgba(0,0,0,.28)}
 .hero-copy h1 em{color:var(--malva);font-style:italic}
 .lead{font-size:clamp(1.02rem,1rem + .4vw,1.18rem);color:rgba(255,255,255,.92);max-width:46ch;margin-bottom:1.8rem}
@@ -301,7 +302,8 @@ em{font-style:italic}
   .hero-bg-img{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9;object-position:50% 28%}
   .hero-scrim{display:none}
   .hero-inner{padding-block:clamp(1.9rem,6vw,2.6rem)}
-  .hero-copy{max-width:none}
+  .hero-copy{max-width:none;flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .hero .eyebrow{display:inline-flex}
 }
 @media (max-width:760px){
   .method-branch{max-width:520px}
@@ -311,7 +313,6 @@ em{font-style:italic}
   .depo-card{flex-basis:100%}
 }
 @media (max-width:600px){
-  .hero-copy{flex-direction:column;align-items:flex-start;gap:1.5rem}
   .clients-grid{grid-template-columns:repeat(2,1fr)}
   .diff-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:380px;margin-inline:auto}
