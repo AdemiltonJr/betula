@@ -148,4 +148,24 @@
   /* Ano no rodapé */
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = String(new Date().getFullYear());
+
+  /* Formulário de contato → WhatsApp */
+  var waForm = document.querySelector('[data-wa-form]');
+  if (waForm) {
+    waForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var get = function (n) {
+        var el = waForm.querySelector('[name="' + n + '"]');
+        return el ? el.value.trim() : '';
+      };
+      var nome = get('nome'), empresa = get('empresa'), contato = get('contato'), mensagem = get('mensagem');
+      var linhas = ['Olá! Vim pelo site da Bétula RH.'];
+      if (nome) linhas.push('Nome: ' + nome);
+      if (empresa) linhas.push('Empresa: ' + empresa);
+      if (contato) linhas.push('Contato: ' + contato);
+      if (mensagem) linhas.push('Mensagem: ' + mensagem);
+      var url = 'https://api.whatsapp.com/send?phone=5519983631912&text=' + encodeURIComponent(linhas.join('\n'));
+      window.open(url, '_blank', 'noopener');
+    });
+  }
 })();
