@@ -139,11 +139,14 @@ em{font-style:italic}
 /* ==========================================================================
    Clients
    ========================================================================== */
-.clients{padding-block:clamp(2rem,4vw,2.8rem);border-block:1px solid var(--line);background:var(--cream)}
-.clients-title{text-align:center;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);font-weight:700;margin-bottom:1.5rem}
-.clients-track{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.6rem 2.6rem}
-.clients-track img{height:42px;width:auto;opacity:.72;filter:saturate(.6);transition:opacity .3s,filter .3s}
-.clients-track img:hover{opacity:1;filter:none}
+.clients{padding-block:clamp(3.2rem,6vw,5rem);background:var(--cream)}
+.clients-head{text-align:center;max-width:640px;margin:0 auto clamp(1.8rem,3vw,2.6rem)}
+.clients-head h2{font-size:clamp(1.5rem,1.1rem + 1.5vw,2.2rem)}
+.clients-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.client-cell{background:var(--cream);display:grid;place-items:center;padding:1.5rem 1rem;min-height:104px;transition:background .3s}
+.client-cell:hover{background:#fff}
+.client-cell img{max-height:40px;max-width:120px;width:auto;opacity:.62;filter:saturate(.45);transition:opacity .3s,filter .3s}
+.client-cell:hover img{opacity:1;filter:none}
 
 /* ==========================================================================
    Propósito
@@ -152,8 +155,10 @@ em{font-style:italic}
 .prop-copy h2{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.5rem);margin-bottom:1.3rem}
 .prop-copy p{color:var(--muted);margin-bottom:1.15rem}
 .prop-copy .btn{margin-top:.6rem}
-.prop-figure{margin:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);position:relative}
-.prop-figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/4.3}
+.prop-note{border-left:3px solid var(--malva);padding-left:1.1rem;color:var(--ink);font-style:italic;font-size:1rem;line-height:1.6;margin:1.5rem 0 1.9rem}
+.prop-figure{margin:0;position:relative;isolation:isolate}
+.prop-birch{position:absolute;right:-20px;bottom:-22px;width:64%;height:70%;border-radius:var(--radius-lg);background:var(--malva) url('img/bg-depoimentos.jpg') center/cover;z-index:0}
+.prop-figure img{position:relative;z-index:1;width:100%;object-fit:cover;aspect-ratio:4/4.6;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
 
 /* ==========================================================================
    Diferenciais (faixa teal)
@@ -163,7 +168,8 @@ em{font-style:italic}
 .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
 .diff-card{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:1.9rem 1.6rem;box-shadow:var(--shadow);transition:transform .3s var(--ease)}
 .diff-card:hover{transform:translateY(-6px)}
-.diff-ico{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--teal-tint);font-size:1.5rem;margin-bottom:1.1rem}
+.diff-ico{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:var(--teal-tint);margin-bottom:1.2rem}
+.diff-ico svg{width:26px;height:26px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .diff-card h3{font-size:1.18rem;margin-bottom:.5rem}
 .diff-card p{color:var(--muted);font-size:.96rem;margin:0}
 
@@ -285,6 +291,7 @@ em{font-style:italic}
   .site-header.menu-open .nav-list a::after{display:none}
   .prop-grid{grid-template-columns:1fr}
   .prop-figure{order:-1;max-width:520px;margin-inline:auto}
+  .clients-grid{grid-template-columns:repeat(4,1fr)}
   .diff-grid{grid-template-columns:repeat(2,1fr)}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -298,6 +305,7 @@ em{font-style:italic}
   .depo-card{flex-basis:100%}
 }
 @media (max-width:600px){
+  .clients-grid{grid-template-columns:repeat(2,1fr)}
   .diff-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:380px;margin-inline:auto}
   .parceria-card{grid-template-columns:1fr;text-align:center}
