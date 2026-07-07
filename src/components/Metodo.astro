@@ -1,0 +1,46 @@
+---
+const waIniciar =
+  'https://api.whatsapp.com/send?phone=5519983631912&text=Ol%C3%A1!%20Quero%20iniciar%20um%20processo%20de%20recrutamento%20e%20sele%C3%A7%C3%A3o.';
+
+const etapas = [
+  { titulo: 'Alinhamento de perfil', texto: 'Entendemos a estratégia, a cultura e os pré-requisitos da vaga antes de começar.' },
+  { titulo: 'Recrutamento e triagem', texto: 'Busca ativa e triagem dos candidatos com maior aderência ao perfil.' },
+  { titulo: 'Avaliação técnica e comportamental', texto: 'Entrevistas e avaliações para medir competências técnicas e fit cultural.' },
+  { titulo: 'Apresentação de finalistas', texto: 'Um shortlist objetivo, alinhado aos pré-requisitos, para otimizar o tempo da diretoria.' },
+  { titulo: 'Pareceres técnicos', texto: 'Relatórios com informações e pareceres para uma decisão segura.' },
+  { titulo: 'Gestão de agenda', texto: 'Organizamos as entrevistas dos finalistas com o cliente, sem fricção.' },
+  { titulo: 'Fechamento e retorno', texto: 'Conclusão do processo com retorno a todos os participantes e follow-up da adaptação.' },
+];
+---
+
+<section class="section metodo" id="metodo">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="kicker">Como atuamos</span>
+      <h2>Um processo claro, em <span class="hl">7 etapas</span>, do alinhamento ao retorno.</h2>
+      <p class="section-sub">
+        Como a bétula, cada processo tem raiz na cultura do cliente e cresce etapa a etapa, até
+        conectar a pessoa certa à vaga certa.
+      </p>
+    </header>
+    <ol class="method-branch">
+      {
+        etapas.map((e, i) => (
+          <li class="step reveal">
+            <span class="step-num">{i + 1}</span>
+            <div class="step-body">
+              <h3>{e.titulo}</h3>
+              <p>{e.texto}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="method-cta reveal">
+      <a class="btn btn-wa" href={waIniciar} target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.14.82.84-3.06-.2-.31a8.18 8.18 0 1 1 7.18 3.87Z"></path></svg>
+        Iniciar um processo
+      </a>
+    </div>
+  </div>
+</section>

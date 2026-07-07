@@ -1,0 +1,60 @@
+---
+const cards = [
+  {
+    titulo: 'Solução integral em recrutamento',
+    texto: 'Atendimento a todas as demandas de contratação, do operacional à gestão.',
+    icon: '<rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/>',
+  },
+  {
+    titulo: 'Abrangência territorial',
+    texto:
+      'Base operacional em Campinas-SP e metodologia para processos presenciais ou virtuais em diferentes regiões e estados.',
+    icon: '<path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
+  },
+  {
+    titulo: 'Alinhamento e cultural fit',
+    texto:
+      'Investigação minuciosa da cultura organizacional para mitigar riscos de rotatividade (turnover).',
+    icon: '<circle cx="9" cy="12" r="5.2"/><circle cx="15" cy="12" r="5.2"/>',
+  },
+  {
+    titulo: 'Assertividade e eficiência',
+    texto:
+      'Otimização do tempo dos gestores com um shortlist objetivo e alinhado aos pré-requisitos da vaga.',
+    icon: '<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>',
+  },
+  {
+    titulo: 'Preservação da marca empregadora',
+    texto:
+      'Atuamos como extensão da imagem do cliente, com uma jornada de candidato respeitosa e transparente.',
+    icon: '<path d="M12 3l7 3v5c0 4.6-3 8.2-7 10-4-1.8-7-5.4-7-10V6l7-3Z"/><path d="M9.2 12l1.9 1.9 3.7-3.8"/>',
+  },
+  {
+    titulo: 'Acompanhamento pós-admissão',
+    texto: 'Follow-up programado da adaptação do profissional nos primeiros meses de contratação.',
+    icon: '<path d="M12 21v-8"/><path d="M12 13c0-3.3-2.7-6-6-6 0 3.3 2.7 6 6 6Z"/><path d="M12 15c0-2.8 2.2-5 5-5 0 2.8-2.2 5-5 5Z"/>',
+  },
+];
+---
+
+<section class="section diferenciais" id="diferenciais">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="kicker light">Diferenciais estratégicos</span>
+      <h2>O que torna a contratação mais segura e eficiente.</h2>
+    </header>
+    <div class="diff-grid">
+      {
+        cards.map((c) => (
+          <article class="diff-card reveal">
+            <span class="diff-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" set:html={c.icon} />
+            </span>
+            <h3>{c.titulo}</h3>
+            <p>{c.texto}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

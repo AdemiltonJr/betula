@@ -1,0 +1,39 @@
+---
+const time = [
+  {
+    img: 'team-luciana-alvim.jpg',
+    nome: 'Luciana Alvim',
+    bio: 'Psicóloga, fundadora da Bétula e especialista em seleção. Responsável pela estratégia, métodos e processos, novos negócios, conexões e relações com os clientes.',
+  },
+  {
+    img: 'team-georgia-frattini.jpg',
+    nome: 'Georgia Frattini',
+    bio: 'Administradora com experiência no desenvolvimento de pessoas e especialista no recrutamento e seleção.',
+  },
+  {
+    img: 'team-vanessa-luiz.jpg',
+    nome: 'Vanessa Luiz',
+    bio: 'Administradora com carreira consolidada em Recursos Humanos. Responsável pela operação da Bétula, conduzindo processos seletivos e gerenciando os indicadores da consultoria.',
+  },
+];
+---
+
+<section class="section equipe" id="equipe">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="kicker">Time Bétula</span>
+      <h2>Gente que entende de gente.</h2>
+    </header>
+    <div class="team-grid team-grid-3">
+      {
+        time.map((p) => (
+          <article class="team-card reveal">
+            <img src={`/assets/img/${p.img}`} alt={p.nome} loading="lazy" width="400" height="400" />
+            <h3>{p.nome}</h3>
+            <p>{p.bio}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

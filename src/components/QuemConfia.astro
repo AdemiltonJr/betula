@@ -1,0 +1,101 @@
+---
+const logos = [
+  { src: 'cli-bollhoff.png', alt: 'Böllhoff' },
+  { src: 'cli-dellys.png', alt: "Delly's" },
+  { src: 'cli-enxuto.png', alt: 'Enxuto' },
+  { src: 'cli-eucatex.png', alt: 'Eucatex' },
+  { src: 'cli-grancoffee.png', alt: 'Gran Coffee' },
+  { src: 'cli-livre-sofia.png', alt: 'Escola Livre Sofia' },
+  { src: 'cli-osteopatia-madrid.png', alt: 'Escola de Osteopatia de Madrid' },
+  { src: 'cli-renova.png', alt: 'Renova' },
+  { src: 'cli-tecnopav.png', alt: 'Tecnopav' },
+  { src: 'cli-telashop.png', alt: 'Telashop' },
+  { src: 'cli-tso.png', alt: 'TSO' },
+  { src: 'cli-vetnil.png', alt: 'Vetnil' },
+  { src: 'cli-waldorf-acalanto.png', alt: 'Escola Waldorf Acalanto' },
+  { src: 'cli-wgk.png', alt: 'WGK' },
+];
+
+const depoimentos = [
+  {
+    quote:
+      'De vários processos seletivos que passei com diversas empresas de recrutamento e seleção, sem dúvida, a Bétula se destaca sobretudo no respeito e atenção conosco, pessoas candidatas. Solícitas, pontuais e legitimamente preocupadas em oferecer devolutivas e colher feedbacks dos processos.',
+    nome: 'Bruno Canova',
+    cargo: 'Candidato',
+  },
+  {
+    quote:
+      'Assertiva, inteligente e muito transparente, Luciana teve a capacidade de me atrair para um processo de seleção em um momento em que eu não buscava recolocação, e teve a correta percepção de que eu me encaixaria à oportunidade. Desde então, virou grande conselheira e referência.',
+    nome: 'Fernanda Francabandiera',
+    cargo: 'Gerente Sênior de RH',
+  },
+  {
+    quote:
+      'Excelente profissional, dedicada, atenciosa, transparente e muito correta em todas suas atividades de recrutamento e seleção. Me mostrou o quão humano e sincero todos os processos devem ser. Parabéns pela carreira e prestígio alcançado!',
+    nome: 'Guilherme Lorensani',
+    cargo: 'Gerente de Planejamento Estratégico',
+  },
+  {
+    quote:
+      'Graças à Luciana Alvim da Bétula, pude explorar mais do universo de tecnologia e empreendedorismo. Consegui me encontrar com pessoas incríveis e criar ótimas relações que já me geraram ótimos frutos. Ela me ajudou a me entender melhor como profissional.',
+    nome: 'Felipe Lima',
+    cargo: 'UX/UI & Product Designer',
+  },
+  {
+    quote:
+      'Luciana tem verdadeiro comprometimento e muita empatia no trabalho que desenvolve. Sua escuta ativa, assertividade no diálogo e experiência resultam em orientações extremamente pertinentes para a tomada de decisão. Muito importante para otimizar nosso recrutamento.',
+    nome: 'Camila Horiye Rodrigues',
+    cargo: 'Diretora Adjunta do ICV',
+  },
+  {
+    quote:
+      'Parabenizo a forma com que foi conduzido o processo seletivo, estruturado, com foco no candidato e na empresa cliente. E uma parte super importante: o feedback final ao candidato, quando negativo, mencionando o motivo. O atendimento da equipe recrutadora também muito bom.',
+    nome: 'Maria Ieda Tyska Danoski',
+    cargo: 'Gerente de Recursos Humanos',
+  },
+];
+---
+
+<section class="section quem-confia" id="quem-confia">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="kicker">Quem confia</span>
+      <h2>Empresas e pessoas que já viveram o processo Bétula.</h2>
+    </header>
+
+    <div class="clients-grid reveal">
+      {
+        logos.map((l) => (
+          <div class="client-cell">
+            <img src={`/assets/img/${l.src}`} alt={l.alt} loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="depo-slider reveal">
+      <button class="depo-arrow depo-prev" type="button" aria-label="Depoimento anterior" data-depo-prev>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div class="depo-viewport">
+        <div class="depo-track" data-depo-track>
+          {
+            depoimentos.map((d) => (
+              <figure class="depo-card">
+                <blockquote>{d.quote}</blockquote>
+                <figcaption>
+                  <strong>{d.nome}</strong>
+                  <span>{d.cargo}</span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+      <button class="depo-arrow depo-next" type="button" aria-label="Próximo depoimento" data-depo-next>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+      <div class="depo-dots" data-depo-dots role="group" aria-label="Navegação dos depoimentos"></div>
+    </div>
+  </div>
+</section>

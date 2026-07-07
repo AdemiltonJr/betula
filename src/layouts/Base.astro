@@ -1,0 +1,145 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Bétula RH · Recrutamento e Seleção em Campinas-SP | Solução integral',
+  description = 'Solução integral em recrutamento e seleção. Conectamos a estratégia e a cultura das organizações a profissionais alinhados a cada contexto, do operacional à gestão. Há mais de 20 anos, com base em Campinas-SP e atuação em todo o Brasil.',
+} = Astro.props;
+
+const canonical = 'https://betularh.com.br/';
+const ogImage = 'https://betularh.com.br/assets/img/og-cover.jpg';
+
+const proService = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Bétula Recrutamento e Seleção',
+  alternateName: 'Bétula RH',
+  description:
+    'Solução integral em recrutamento e seleção, conectando a estratégia e a cultura das organizações a profissionais alinhados a cada contexto.',
+  url: canonical,
+  image: ogImage,
+  logo: 'https://betularh.com.br/assets/img/icon-512.png',
+  telephone: '+55-19-98363-1912',
+  email: 'luciana@betularh.com.br',
+  priceRange: '$$',
+  areaServed: { '@type': 'Country', name: 'Brasil' },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Campinas',
+    addressRegion: 'SP',
+    addressCountry: 'BR',
+  },
+  knowsAbout: [
+    'Recrutamento e Seleção',
+    'Hunting de Executivos',
+    'Cultural Fit',
+    'Avaliação Comportamental',
+    'Consultoria de RH',
+    'Seleção por Competências',
+  ],
+  sameAs: [
+    'https://www.instagram.com/betularh/',
+    'https://www.linkedin.com/company/betularecrutamentoeselecao',
+  ],
+};
+
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Quais tipos de vaga a Bétula RH atende?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Atendemos todas as demandas de contratação, do operacional à gestão, para organizações de todos os portes e segmentos: indústrias, empresas de serviços, startups, grupos de investidores, instituições de ensino e profissionais liberais.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'A Bétula RH atende empresas fora de Campinas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sim. A estrutura operacional fica em Campinas-SP e a metodologia permite conduzir processos presenciais ou virtuais em diferentes regiões e estados.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Como a Bétula RH reduz a rotatividade nas contratações?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Investigamos a fundo a cultura organizacional para garantir o cultural fit e enviamos um shortlist objetivo, alinhado aos pré-requisitos da vaga, o que aumenta a assertividade e reduz o turnover.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'A Bétula RH acompanha o profissional após a contratação?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sim. Fazemos um follow-up programado da adaptação do profissional nos primeiros meses de contratação.',
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#094447" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Bétula Recrutamento e Seleção" />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Bétula RH" />
+    <meta property="og:title" content="Bétula RH · Solução integral em recrutamento e seleção" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bétula RH · Solução integral em recrutamento e seleção" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify(proService)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faq)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <slot />
+    <script>
+      import '../scripts/main.ts';
+    </script>
+  </body>
+</html>
