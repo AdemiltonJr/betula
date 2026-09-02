@@ -196,7 +196,7 @@ if (parallaxBg && parallaxSec && !window.matchMedia('(prefers-reduced-motion: re
   const updateParallax = () => {
     const rect = parallaxSec.getBoundingClientRect();
     const progress = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
-    parallaxBg.style.transform = `translate3d(0, ${(progress * 46).toFixed(1)}px, 0)`;
+    parallaxBg.style.transform = `translate3d(0, ${(progress * 92).toFixed(1)}px, 0)`;
   };
   window.addEventListener('scroll', updateParallax, { passive: true });
   window.addEventListener('resize', updateParallax);
