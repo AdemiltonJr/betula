@@ -160,18 +160,20 @@ em{font-style:italic}
 .hero-trust strong{font-family:var(--title);font-size:.98rem;color:#fff;font-weight:700}
 .hero-trust span{font-size:.8rem;color:rgba(255,255,255,.72)}
 
-/* ---------- Hero de bétula (arte vetorial autoral, viva) ---------- */
-.hero-birch{
+/* ---------- Hero de bétula (foto tratada na marca + folhas vivas) ---------- */
+.hero-birch{background:var(--teal-deep)}
+.hero-birch .hero-bg-img{z-index:0;object-position:58% 44%}
+/* brilho quente de cobre atrás das bétulas (profundidade + acento) */
+.hero-glow{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;
   background:
-    radial-gradient(58% 52% at 80% 14%,rgba(248,214,196,.16),transparent 62%),
-    radial-gradient(120% 96% at 84% 10%,#0a6e77 0%,#03474f 44%,var(--teal-deep) 80%),
-    var(--teal-deep);
-}
-.hero-art{position:absolute;inset:0;z-index:0;overflow:hidden}
+    radial-gradient(44% 52% at 82% 64%,rgba(156,90,38,.32),rgba(156,90,38,0) 62%),
+    radial-gradient(38% 40% at 78% 42%,rgba(248,214,196,.18),transparent 66%)}
+.hero-art{position:absolute;inset:0;z-index:2;overflow:hidden}
 .hero-art svg{width:100%;height:100%;display:block}
-.hero-birch .hero-scrim{background:
-  linear-gradient(to top,rgba(1,34,38,.9) 0%,rgba(1,40,44,.58) 30%,rgba(1,46,50,.14) 56%,rgba(1,46,50,0) 76%),
-  linear-gradient(100deg,rgba(1,34,38,.5) 0%,rgba(1,34,38,.08) 46%,rgba(1,34,38,0) 70%)}
+.hero-birch .hero-scrim{z-index:3;background:
+  linear-gradient(to top,rgba(1,34,38,.92) 0%,rgba(1,40,44,.66) 28%,rgba(1,46,50,.2) 54%,rgba(1,46,50,0) 76%),
+  linear-gradient(100deg,rgba(1,34,38,.62) 0%,rgba(1,34,38,.16) 44%,rgba(1,34,38,0) 68%)}
+.hero-birch .hero-inner{z-index:4}
 
 /* camadas reagem ao cursor (--mx/--my) e ao scroll (--wind) — sem translate-parallax de fundo */
 .bx-layer{transition:transform .35s cubic-bezier(.22,.61,.36,1)}
