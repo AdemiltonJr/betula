@@ -189,6 +189,20 @@ if (form) {
   });
 }
 
+/* Parallax da seção do bosque de bétulas */
+const parallaxBg = document.querySelector<HTMLElement>('[data-parallax]');
+const parallaxSec = parallaxBg?.closest('.bosque') as HTMLElement | null;
+if (parallaxBg && parallaxSec && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const updateParallax = () => {
+    const rect = parallaxSec.getBoundingClientRect();
+    const progress = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+    parallaxBg.style.transform = `translate3d(0, ${(progress * 46).toFixed(1)}px, 0)`;
+  };
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+}
+
 /* Ano no rodapé */
 const y = document.querySelector('[data-year]');
 if (y) y.textContent = String(new Date().getFullYear());
