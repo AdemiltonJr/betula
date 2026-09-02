@@ -16,7 +16,8 @@ const ogImage = 'https://betularh.com.br/assets/img/og-cover.jpg';
 
 const proService = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
+  '@type': ['ProfessionalService', 'EmploymentAgency'],
+  '@id': 'https://betularh.com.br/#organizacao',
   name: 'Bétula Recrutamento e Seleção',
   alternateName: 'Bétula RH',
   description:
@@ -27,7 +28,13 @@ const proService = {
   telephone: '+55-19-98138-9865',
   email: 'luciana@betularh.com.br',
   priceRange: '$$',
-  areaServed: { '@type': 'Country', name: 'Brasil' },
+  currenciesAccepted: 'BRL',
+  areaServed: [
+    { '@type': 'City', name: 'Campinas' },
+    { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Campinas' },
+    { '@type': 'State', name: 'São Paulo' },
+    { '@type': 'Country', name: 'Brasil' },
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Rua Paulo César Fidelis, 39, Sala 311, Villa Bella',
@@ -35,6 +42,19 @@ const proService = {
     addressRegion: 'SP',
     addressCountry: 'BR',
   },
+  founder: {
+    '@type': 'Person',
+    name: 'Luciana Alvim',
+    jobTitle: 'Fundadora',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+55-19-98138-9865',
+    contactType: 'customer service',
+    areaServed: 'BR',
+    availableLanguage: ['Portuguese'],
+  },
+  knowsLanguage: 'pt-BR',
   knowsAbout: [
     'Recrutamento e Seleção',
     'Hunting de Executivos',

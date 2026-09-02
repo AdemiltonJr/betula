@@ -54,6 +54,18 @@ const depoimentos = [
     cargo: 'Gerente de Recursos Humanos',
   },
 ];
+
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://betularh.com.br/#organizacao',
+  name: 'Bétula RH',
+  review: depoimentos.map((d) => ({
+    '@type': 'Review',
+    reviewBody: d.quote,
+    author: { '@type': 'Person', name: d.nome, jobTitle: d.cargo },
+  })),
+};
 ---
 
 <section class="section quem-confia" id="quem-confia">
@@ -98,4 +110,5 @@ const depoimentos = [
       <div class="depo-dots" data-depo-dots role="group" aria-label="Navegação dos depoimentos"></div>
     </div>
   </div>
+  <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
 </section>
