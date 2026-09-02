@@ -170,7 +170,7 @@ em{font-style:italic}
 .prop-note{border-left:3px solid var(--malva);padding-left:1.1rem;color:var(--ink);font-style:italic;font-size:1rem;line-height:1.6;margin:1.5rem 0 1.9rem}
 .prop-figure{margin:0;position:relative;isolation:isolate}
 .prop-birch{position:absolute;right:-20px;bottom:-22px;width:64%;height:70%;border-radius:var(--radius-lg);background:var(--malva) url('/assets/img/bg-depoimentos.jpg') center/cover;z-index:0}
-.prop-figure img{position:relative;z-index:1;width:100%;object-fit:cover;aspect-ratio:4/4.6;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
+.prop-figure img{position:relative;z-index:1;width:100%;object-fit:cover;aspect-ratio:4/3.1;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
 .mission-card{margin-top:1.7rem;background:var(--teal);color:#fff;border-radius:var(--radius);padding:1.4rem 1.5rem;box-shadow:var(--shadow)}
 .mission-label{display:block;font-family:var(--sans);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--malva);margin-bottom:.5rem}
 .mission-card p{margin:0;color:rgba(255,255,255,.92);font-size:.97rem;line-height:1.6}
