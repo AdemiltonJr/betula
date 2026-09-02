@@ -19,3 +19,4 @@ assets/ref/
 .claude/
 docs/
 assets/_*.png
+build.log

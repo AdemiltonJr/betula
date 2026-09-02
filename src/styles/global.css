@@ -1,44 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --color-teal: #094447;
-  --color-teal-deep: #063033;
-  --color-rust: #661900;
-  --color-brown: #391205;
-  --color-malva: #dccbc5;
-  --color-cream: #f8f3f1;
-  --font-title: "Assistant", system-ui, sans-serif;
+  --color-teal: #005b65;
+  --color-teal-deep: #01353a;
+  --color-peach: #f8d6c4;
+  --color-cream: #fbf7f3;
+  --font-title: "Quicksand", system-ui, sans-serif;
   --font-sans: "Mulish", system-ui, sans-serif;
 }
 
-/* ===== Design system portado do site estático ===== */
+/* ===== Design system — identidade real da marca (teal-petróleo + pêssego) ===== */
 /* ==========================================================================
-   Bétula RH — Releitura moderna (identidade real) · Design System
+   Bétula RH · Design System (alinhado ao material institucional)
    ========================================================================== */
 :root{
-  --teal:#094447;
-  --teal-deep:#063033;
-  --teal-700:#0c565a;
-  --teal-tint:#e6efee;
-  --rust:#661900;
-  --brown:#391205;
-  --malva:#dccbc5;
-  --malva-soft:#ede3de;
-  --cream:#f8f3f1;
-  --ink:#2c211c;
-  --muted:#6f625b;
-  --muted-2:#8a7d75;
-  --line:rgba(57,18,5,.13);
-  --line-light:rgba(248,243,241,.18);
+  --teal:#005b65;
+  --teal-deep:#01353a;
+  --teal-700:#0a6e77;
+  --teal-tint:#e3efee;
+  --rust:#005b65;          /* a marca não usa rust; mapeado para teal */
+  --brown:#01353a;         /* seções escuras = teal profundo (não marrom) */
+  --malva:#f8d6c4;         /* pêssego/nude — acento da marca */
+  --malva-soft:#fcebe1;    /* pêssego claro (faixas suaves) */
+  --cream:#fbf7f3;         /* branco quente */
+  --ink:#173b3e;           /* texto — teal bem escuro */
+  --muted:#5f6d6c;
+  --muted-2:#8a9695;
+  --line:rgba(1,53,58,.13);
+  --line-light:rgba(251,247,243,.18);
   --wa:#25D366;
 
   --container:1180px;
   --radius:16px;
   --radius-lg:24px;
-  --shadow-sm:0 2px 12px rgba(44,33,28,.06);
-  --shadow:0 22px 55px -24px rgba(9,68,71,.30);
+  --shadow-sm:0 2px 12px rgba(1,53,58,.07);
+  --shadow:0 22px 55px -24px rgba(0,91,101,.28);
 
-  --title:'Assistant',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --title:'Quicksand',system-ui,-apple-system,'Segoe UI',sans-serif;
   --sans:'Mulish',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 
   --ease:cubic-bezier(.22,.61,.36,1);
@@ -59,7 +57,7 @@ body{
 }
 img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{font-family:var(--title);font-weight:700;line-height:1.12;letter-spacing:-.01em;margin:0;color:var(--ink)}
+h1,h2,h3,h4{font-family:var(--title);font-weight:700;line-height:1.14;letter-spacing:-.005em;margin:0;color:var(--teal)}
 p{margin:0 0 1rem}
 em{font-style:italic}
 
@@ -96,7 +94,7 @@ em{font-style:italic}
 /* ---------- Kicker / eyebrow / highlight ---------- */
 .kicker{display:inline-block;font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:.9rem}
 .kicker.light{color:var(--malva)}
-.hl{color:var(--rust);font-style:italic}
+.hl{color:var(--teal);font-style:italic;background:linear-gradient(transparent 58%,var(--malva) 58%);padding:0 .08em;border-radius:2px}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);padding:.42rem .9rem;border-radius:100px;margin-bottom:1.3rem}
 .eyebrow .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--malva);box-shadow:0 0 0 4px rgba(220,203,197,.25)}
 
@@ -133,8 +131,8 @@ em{font-style:italic}
 .hero{position:relative;overflow:hidden;min-height:clamp(520px,74vh,700px);display:flex;align-items:flex-end;color:#fff;background:var(--teal-deep)}
 .hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:0}
 .hero-scrim{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(to top,rgba(5,28,30,.95) 3%,rgba(6,34,36,.82) 22%,rgba(9,68,71,.44) 44%,rgba(9,68,71,.12) 60%,rgba(9,68,71,0) 75%),
-  linear-gradient(100deg,rgba(5,28,30,.5) 0%,rgba(5,28,30,.12) 40%,rgba(5,28,30,0) 62%)}
+  linear-gradient(to top,rgba(1,38,42,.94) 3%,rgba(1,45,49,.8) 22%,rgba(0,75,82,.46) 44%,rgba(0,75,82,.14) 60%,rgba(0,75,82,0) 76%),
+  linear-gradient(100deg,rgba(1,38,42,.52) 0%,rgba(1,38,42,.12) 42%,rgba(1,38,42,0) 64%)}
 .hero-inner{position:relative;z-index:2;width:100%;padding-block:clamp(2.4rem,4.5vw,3.6rem)}
 .hero-copy{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(1.4rem,3vw,2.8rem);width:100%;max-width:none}
 .hero-text{flex:1 1 32rem;max-width:46rem}
@@ -284,7 +282,7 @@ em{font-style:italic}
 /* ==========================================================================
    Footer
    ========================================================================== */
-.site-footer{background:#2a0e04;color:rgba(248,243,241,.75)}
+.site-footer{background:var(--teal-deep);color:rgba(251,247,243,.75)}
 .footer-base{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.1rem 2rem;padding-block:1.9rem}
 .footer-logo img{height:38px;width:auto}
 .footer-nav{display:flex;flex-wrap:wrap;gap:1rem 1.3rem}

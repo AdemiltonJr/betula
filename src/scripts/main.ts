@@ -157,7 +157,7 @@ if (form) {
     if (val('empresa')) linhas.push('Empresa: ' + val('empresa'));
     if (val('contato')) linhas.push('Contato: ' + val('contato'));
     if (val('mensagem')) linhas.push('Mensagem: ' + val('mensagem'));
-    return 'https://api.whatsapp.com/send?phone=5519983631912&text=' + encodeURIComponent(linhas.join('\n'));
+    return 'https://api.whatsapp.com/send?phone=5519981389865&text=' + encodeURIComponent(linhas.join('\n'));
   };
 
   form.querySelector('[data-wa-btn]')?.addEventListener('click', () => {
