@@ -203,6 +203,37 @@ if (parallaxBg && parallaxSec && !window.matchMedia('(prefers-reduced-motion: re
   updateParallax();
 }
 
+/* Hero de bétula — reage ao cursor e ao scroll (vento), sem parallax de fundo */
+const heroArt = document.querySelector<HTMLElement>('[data-hero-art]');
+const heroSec = heroArt?.closest('.hero') as HTMLElement | null;
+if (heroArt && heroSec && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let mx = 0;
+  let my = 0;
+  let wind = 0;
+  let raf = 0;
+  const apply = () => {
+    raf = 0;
+    heroArt.style.setProperty('--mx', mx.toFixed(3));
+    heroArt.style.setProperty('--my', my.toFixed(3));
+    heroArt.style.setProperty('--wind', wind.toFixed(3));
+  };
+  const schedule = () => { if (!raf) raf = requestAnimationFrame(apply); };
+  heroSec.addEventListener('pointermove', (e) => {
+    const r = heroSec.getBoundingClientRect();
+    mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    my = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    schedule();
+  });
+  heroSec.addEventListener('pointerleave', () => { mx = 0; my = 0; schedule(); });
+  const onWind = () => {
+    const r = heroSec.getBoundingClientRect();
+    wind = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
+    schedule();
+  };
+  window.addEventListener('scroll', onWind, { passive: true });
+  onWind();
+}
+
 /* Ano no rodapé */
 const y = document.querySelector('[data-year]');
 if (y) y.textContent = String(new Date().getFullYear());

@@ -1,18 +1,85 @@
 ---
 const waContratar =
   'https://api.whatsapp.com/send?phone=5519981389865&text=Ol%C3%A1!%20Quero%20contratar%20um%20processo%20de%20recrutamento%20e%20sele%C3%A7%C3%A3o.';
+
+// Troncos de bétula (sutis, ao fundo) — x, largura e marcas horizontais
+const troncos = [
+  { x: 902, w: 40, marks: [140, 250, 360, 470, 560, 650] },
+  { x: 1012, w: 30, marks: [90, 200, 300, 400, 520, 610] },
+  { x: 1118, w: 22, marks: [160, 270, 380, 500, 600] },
+];
+
+// Folhas/pétalas — posição no viewBox, rotação, escala, cor
+const folhas = [
+  { x: 980, y: 92, r: 16, s: 1.05, c: 'c-copper' },
+  { x: 1082, y: 150, r: -22, s: 0.8, c: 'c-peach' },
+  { x: 900, y: 182, r: 30, s: 0.92, c: 'c-soft' },
+  { x: 1030, y: 262, r: 8, s: 1.12, c: 'c-copper' },
+  { x: 862, y: 300, r: -16, s: 0.74, c: 'c-peach' },
+  { x: 1122, y: 322, r: 24, s: 0.86, c: 'c-soft' },
+  { x: 784, y: 150, r: 40, s: 0.7, c: 'c-copper' },
+  { x: 952, y: 360, r: -30, s: 0.96, c: 'c-peach' },
+  { x: 1080, y: 424, r: 4, s: 0.82, c: 'c-copper' },
+  { x: 702, y: 240, r: 20, s: 0.66, c: 'c-soft' },
+  { x: 624, y: 152, r: -26, s: 0.72, c: 'c-peach' },
+  { x: 842, y: 432, r: 34, s: 0.82, c: 'c-copper' },
+  { x: 1152, y: 222, r: -10, s: 0.76, c: 'c-soft' },
+  { x: 732, y: 360, r: 15, s: 0.72, c: 'c-peach' },
+  { x: 566, y: 262, r: 28, s: 0.6, c: 'c-soft' },
+  { x: 904, y: 96, r: -18, s: 0.7, c: 'c-copper' },
+];
 ---
 
-<section class="hero">
-  <img
-    class="hero-bg-img"
-    src="/assets/img/hero-photo.jpg"
-    alt="Equipe da Bétula RH durante um processo de recrutamento e seleção"
-    width="1920"
-    height="1080"
-    fetchpriority="high"
-  />
+<section class="hero hero-birch">
+  <div class="hero-art" data-hero-art aria-hidden="true">
+    <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" role="presentation">
+      <defs>
+        <g id="bx-leaf">
+          <path class="bx-leaf-blade" d="M0 0 C10 -9 11 -24 0 -33 C-11 -24 -10 -9 0 0 Z" />
+          <path class="bx-leaf-vein" d="M0 -3 L0 -29" />
+        </g>
+      </defs>
+
+      <!-- Troncos de bétula (fundo, camada lenta) -->
+      <g class="bx-layer bx-trunks">
+        {
+          troncos.map((t) => (
+            <g class="bx-trunk">
+              <rect x={t.x} y="-10" width={t.w} height="740" rx={t.w / 2} class="bx-trunk-body" />
+              {t.marks.map((m) => (
+                <rect x={t.x + t.w * 0.12} y={m} width={t.w * 0.76} height="7" rx="3.5" class="bx-trunk-mark" />
+              ))}
+            </g>
+          ))
+        }
+      </g>
+
+      <!-- Galho que se desenha (camada média) -->
+      <g class="bx-layer bx-branch">
+        <path class="bx-draw" pathLength="1" d="M1215 44 C1052 74 918 66 760 132 C688 162 636 150 566 214" />
+        <path class="bx-draw bx-twig" pathLength="1" style="animation-delay:.5s" d="M948 92 C934 132 928 168 946 206" />
+        <path class="bx-draw bx-twig" pathLength="1" style="animation-delay:.72s" d="M804 118 C784 150 776 182 792 220" />
+        <path class="bx-draw bx-twig" pathLength="1" style="animation-delay:.94s" d="M672 176 C650 206 642 236 660 272" />
+        <path class="bx-draw bx-twig" pathLength="1" style="animation-delay:1.12s" d="M1066 84 C1058 120 1056 152 1074 186" />
+      </g>
+
+      <!-- Folhas flutuantes (camada rápida, reage ao cursor/scroll) -->
+      <g class="bx-layer bx-leaves">
+        {
+          folhas.map((f, i) => (
+            <g transform={`translate(${f.x} ${f.y})`}>
+              <g class="bx-leaf-float" style={`animation-delay:${(-i * 0.47).toFixed(2)}s;animation-duration:${(6 + (i % 5)).toFixed(1)}s`}>
+                <use href="#bx-leaf" class={f.c} transform={`rotate(${f.r}) scale(${f.s})`} />
+              </g>
+            </g>
+          ))
+        }
+      </g>
+    </svg>
+  </div>
+
   <div class="hero-scrim" aria-hidden="true"></div>
+
   <div class="container hero-inner">
     <div class="hero-copy reveal">
       <div class="hero-text">
