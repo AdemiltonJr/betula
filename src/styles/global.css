@@ -103,6 +103,9 @@ em{font-style:italic}
 .kicker.light{color:var(--malva)}
 .kicker.light::before{background:var(--malva)}
 .hl{color:var(--teal);font-style:italic;background:linear-gradient(transparent 56%,var(--malva) 56%);padding:0 .1em;border-radius:2px}
+/* Símbolo da bétula como marca recorrente acima dos títulos de seção */
+.section-head::before{content:"";display:block;width:46px;height:46px;margin:0 auto .85rem;background:url('/assets/img/emblem-ink.png') center/contain no-repeat;opacity:.82}
+.diferenciais .section-head::before{background-image:url('/assets/img/emblem-cream.png');opacity:.9}
 /* Pincelada de pêssego sob os títulos de seção — identidade da marca */
 .section-head h2{position:relative;display:inline-block}
 .section-head h2::after{content:"";display:block;width:64px;height:9px;margin:.85rem auto 0;border-radius:100px;background:var(--malva);opacity:.9}
@@ -319,7 +322,10 @@ em{font-style:italic}
 /* ==========================================================================
    CTA final
    ========================================================================== */
-.contato{background:var(--brown);color:#fff;padding-block:clamp(3.4rem,7vw,5.5rem)}
+.contato{position:relative;overflow:hidden;background:var(--brown);color:#fff;padding-block:clamp(3.4rem,7vw,5.5rem)}
+.contato::before{content:"";position:absolute;inset:0;background:url('/assets/img/texture-birch-cream.png') center/cover no-repeat;opacity:.07;pointer-events:none}
+.contato::after{content:"";position:absolute;right:-100px;bottom:-120px;width:480px;height:480px;background:url('/assets/img/emblem-cream.png') center/contain no-repeat;opacity:.07;pointer-events:none}
+.contato > .container{position:relative;z-index:1}
 .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
 .contato-copy h2{color:#fff;font-size:clamp(1.7rem,1.3rem + 1.6vw,2.4rem);margin-bottom:1rem}
 .contato-copy > p{color:rgba(248,243,241,.82);margin-bottom:1.6rem}
@@ -344,7 +350,9 @@ em{font-style:italic}
 /* ==========================================================================
    Footer
    ========================================================================== */
-.site-footer{background:var(--teal-deep);color:rgba(251,247,243,.75)}
+.site-footer{position:relative;overflow:hidden;background:var(--teal-deep);color:rgba(251,247,243,.75)}
+.site-footer::before{content:"";position:absolute;inset:0;background:url('/assets/img/texture-birch-cream.png') center/cover no-repeat;opacity:.05;pointer-events:none}
+.site-footer > .container{position:relative;z-index:1}
 .footer-base{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.1rem 2rem;padding-block:1.9rem}
 .footer-logo img{height:38px;width:auto}
 .footer-nav{display:flex;flex-wrap:wrap;gap:1rem 1.3rem}
