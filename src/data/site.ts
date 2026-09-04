@@ -58,7 +58,6 @@ export const navigation = [
 
 export const processMoments = [
   {
-    number: '01',
     title: 'Compreensão',
     summary:
       'Antes da busca, entendemos o negócio, o momento e o que a contratação precisa transformar.',
@@ -68,7 +67,6 @@ export const processMoments = [
     ],
   },
   {
-    number: '02',
     title: 'Busca',
     summary:
       'A estratégia de atração nasce do contexto, não de uma divulgação genérica.',
@@ -78,7 +76,6 @@ export const processMoments = [
     ],
   },
   {
-    number: '03',
     title: 'Avaliação',
     summary:
       'Avaliamos trajetória, repertório, aspectos técnicos e aderência ao ambiente da empresa.',
@@ -91,7 +88,6 @@ export const processMoments = [
     ],
   },
   {
-    number: '04',
     title: 'Acompanhamento',
     summary:
       'O processo termina com retorno responsável e continua na adaptação de quem foi contratado.',
@@ -122,19 +118,19 @@ export const clients = [
 export const testimonials = [
   {
     quote:
-      'Luciana tem verdadeiro comprometimento e muita empatia no trabalho que desenvolve. Sua escuta ativa, assertividade no diálogo e experiência resultam em orientações extremamente pertinentes para a tomada de decisão. Muito importante para otimizar nosso recrutamento.',
+      'Luciana tem verdadeiro comprometimento e muita empatia no trabalho que desenvolve. Sua escuta ativa, assertividade no diálogo e experiência resultam em orientações extremamente pertinentes para a tomada de decisão.',
     name: 'Camila Horiye Rodrigues',
     role: 'Diretora Adjunta do ICV',
   },
   {
     quote:
-      'Parabenizo a forma com que foi conduzido o processo seletivo, estruturado, com foco no candidato e na empresa cliente. E uma parte super importante: o feedback final ao candidato, quando negativo, mencionando o motivo. O atendimento da equipe recrutadora também muito bom.',
+      'Parabenizo a forma com que foi conduzido o processo seletivo, estruturado, com foco no candidato e na empresa cliente.',
     name: 'Maria Ieda Tyska Danoski',
     role: 'Gerente de Recursos Humanos',
   },
   {
     quote:
-      'Assertiva, inteligente e muito transparente, Luciana teve a capacidade de me atrair para um processo de seleção em um momento em que eu não buscava recolocação, e teve a correta percepção de que eu me encaixaria à oportunidade. Desde então, virou grande conselheira e referência.',
+      'Assertiva, inteligente e muito transparente, Luciana teve a capacidade de me atrair para um processo de seleção em um momento em que eu não buscava recolocação.',
     name: 'Fernanda Francabandiera',
     role: 'Gerente Sênior de RH',
   },
