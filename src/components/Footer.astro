@@ -4,17 +4,16 @@ import { navigation, organization } from '../data/site';
 
 <footer class="site-footer">
   <div class="container footer-grid">
-    <a href="#topo" class="footer-brand" aria-label="Bétula RH, início">
-      <img src="/assets/img/logo-ink.png" alt="Bétula Recrutamento e Seleção" width="1946" height="1400" />
+    <a href="#topo" class="footer-brand" aria-label="Bétula RH, voltar ao início">
+      <img src="/assets/img/logo-ink.png" alt="Bétula Recrutamento e Seleção" width="1946" height="1400" loading="lazy" />
     </a>
-    <nav class="footer-nav" aria-label="Navegação do rodapé">
-      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href="#contato">Contato</a>
+    <nav aria-label="Navegação do rodapé">
+      <ul class="footer-nav">{navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
     </nav>
     <div class="footer-meta">
-      <a href={organization.linkedin} target="_blank" rel="noopener">LinkedIn</a>
       <a href={organization.instagram} target="_blank" rel="noopener">Instagram</a>
-      <p>© <span data-year>2026</span> Bétula RH, Campinas, SP</p>
+      <a href={organization.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      <span>© {new Date().getFullYear()} {organization.shortName}</span>
     </div>
   </div>
 </footer>

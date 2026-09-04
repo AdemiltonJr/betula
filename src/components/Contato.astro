@@ -3,33 +3,19 @@ import { contacts, organization, whatsappHref } from '../data/site';
 ---
 
 <section class="section contact" id="contato" aria-labelledby="contact-title">
-  <div class="contact-mark" aria-hidden="true">
-    <img src="/assets/img/emblem-cream.png" alt="" width="512" height="512" loading="lazy" />
-  </div>
-  <div class="container contact-grid">
-    <div class="contact-copy reveal">
-      <h2 id="contact-title">Uma boa contratação começa por uma conversa bem conduzida.</h2>
-      <p>Conte o contexto da sua empresa. A Bétula ajuda a transformar a necessidade em uma busca mais precisa.</p>
-      <a class="button button-light" href={whatsappHref()} target="_blank" rel="noopener">
-        Conversar sobre uma contratação
-      </a>
+  <div class="container contact-layout">
+    <div class="contact-main">
+      <h2 id="contact-title">Uma boa contratação começa por uma conversa.</h2>
+      <a class="button button-primary" href={whatsappHref()} target="_blank" rel="noopener">Conversar sobre uma contratação</a>
     </div>
-
-    <div class="contact-details reveal">
-      <h3>Outros contatos</h3>
+    <div class="contact-details">
       <address>
-        <a href={whatsappHref(contacts.primary.phone)} target="_blank" rel="noopener">
-          {contacts.primary.name}, {contacts.primary.display}
-        </a>
-        <a href={whatsappHref(contacts.secondary.phone)} target="_blank" rel="noopener">
-          {contacts.secondary.name}, {contacts.secondary.display}
-        </a>
+        <a href={whatsappHref(contacts.primary.phone)} target="_blank" rel="noopener">{contacts.primary.name} · {contacts.primary.display}</a>
+        <a href={whatsappHref(contacts.secondary.phone)} target="_blank" rel="noopener">{contacts.secondary.name} · {contacts.secondary.display}</a>
         <a href={`mailto:${organization.email}`}>{organization.email}</a>
         <span>{organization.address}</span>
       </address>
-      <p>
-        Para envio de currículo: <a href={`mailto:${organization.curriculumEmail}`}>{organization.curriculumEmail}</a>
-      </p>
+      <p class="curriculum-contact">Para envio de currículo: <a href={`mailto:${organization.curriculumEmail}`}>{organization.curriculumEmail}</a></p>
     </div>
   </div>
 </section>

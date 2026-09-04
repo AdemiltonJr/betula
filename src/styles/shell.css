@@ -41,3 +41,25 @@
   .hero-media > img { object-position: 53% center; }
   .hero-signature { bottom: 1.25rem; left: 1.25rem; }
 }
+
+.whatsapp-float { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: var(--layer-float); display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid color-mix(in srgb, var(--canvas) 42%, transparent); border-radius: 50%; background: var(--brand); color: var(--canvas); box-shadow: 0 6px 8px color-mix(in srgb, var(--brand-deep) 24%, transparent); opacity: 0; pointer-events: none; transform: translateY(.75rem); transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease; }
+.whatsapp-float svg { width: 1.25rem; height: 1.25rem; }
+.whatsapp-float.is-active { opacity: 1; pointer-events: auto; transform: none; }
+.whatsapp-float:hover { background: var(--brand-deep); }
+.contact { background: var(--brand); color: var(--canvas); }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .65fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; }
+.contact-main h2 { max-width: 12ch; margin-bottom: 2rem; font-size: clamp(2.75rem, 5vw, 5rem); line-height: .98; }
+.contact-details { padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--canvas) 28%, transparent); }
+.contact-details address { display: grid; gap: .65rem; font-style: normal; }
+.curriculum-contact { margin-top: 2rem; color: color-mix(in srgb, var(--canvas) 72%, transparent); }
+.site-footer { padding-block: 3rem; background: var(--canvas); border-top: 1px solid var(--line); }
+.footer-grid { display: grid; grid-template-columns: minmax(8rem, .65fr) 1fr auto; gap: 2rem; align-items: start; }
+.footer-brand { display: block; width: 8rem; height: 2.5rem; overflow: hidden; }
+.footer-brand img { display: block; width: 100%; transform: translateY(-59%); }
+.footer-nav { display: flex; flex-wrap: wrap; margin: 0; padding: .4rem 0 0; gap: .75rem 1.5rem; list-style: none; }
+.footer-meta { display: grid; padding-top: .4rem; gap: .5rem; justify-items: end; color: var(--muted); font-size: .85rem; }
+@media (max-width: 760px) {
+  .contact-layout, .footer-grid { grid-template-columns: 1fr; }
+  .footer-nav { display: grid; }
+  .footer-meta { justify-items: start; }
+}

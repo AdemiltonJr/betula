@@ -1,15 +1,8 @@
 ---
 import { whatsappHref } from '../data/site';
+import WhatsAppIcon from './icons/WhatsAppIcon.astro';
 ---
 
-<a
-  class="whatsapp-float"
-  data-whatsapp-float
-  href={whatsappHref()}
-  target="_blank"
-  rel="noopener"
-  aria-label="Conversar com a Bétula pelo WhatsApp"
->
-  <span class="whatsapp-float-dot" aria-hidden="true"></span>
-  <span>WhatsApp</span>
+<a class="whatsapp-float" data-whatsapp-float href={whatsappHref()} target="_blank" rel="noopener" aria-label="Conversar com a Bétula pelo WhatsApp">
+  <WhatsAppIcon />
 </a>
