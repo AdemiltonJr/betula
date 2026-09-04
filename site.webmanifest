@@ -1,0 +1,27 @@
+{
+  "name": "Bétula Recrutamento e Seleção",
+  "short_name": "Bétula RH",
+  "description": "Consultoria de recrutamento e seleção em Campinas, com atuação em todo o Brasil.",
+  "start_url": "/betula/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#115F61",
+  "icons": [
+    {
+      "src": "/betula/assets/img/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/betula/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/betula/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
