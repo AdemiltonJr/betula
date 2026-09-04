@@ -174,3 +174,18 @@ export const team = [
     bio: 'Psicóloga e terapeuta que conduz avaliações e testes de atenção, cognição e personalidade.',
   },
 ] as const;
+
+export const media = {
+  hero: '/assets/img/equipe-grupo-2.jpg',
+  humanGroup: '/assets/img/socias-2.jpg',
+  humanPortrait: '/assets/img/retrato-a.jpg',
+  process: '/assets/img/office-candid.jpg',
+  teamGroup: '/assets/img/equipe-grupo.jpg',
+} as const;
+
+export const pageCopy = {
+  heroTitle: 'Antes do currículo, vem o contexto.',
+  heroLead: 'Recrutamento e seleção em Campinas para empresas que precisam contratar com mais clareza e confiança.',
+  heroPrimary: 'Conversar sobre uma contratação',
+  heroSecondary: 'Conhecer nosso processo',
+} as const;
