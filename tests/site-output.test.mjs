@@ -60,3 +60,10 @@ test('não reintroduz padrões rejeitados', () => {
   assert.doesNotMatch(html, /section-index/);
   assert.doesNotMatch(html, /[—–]/);
 });
+
+test('inclui conversão mobile persistente sem listener contínuo de scroll', () => {
+  assert.equal((html.match(/<a\b[^>]*data-whatsapp-float/g) ?? []).length, 1);
+  assert.equal((html.match(/<section\b[^>]*data-hero/g) ?? []).length, 1);
+  assert.match(html, /aria-label="Conversar com a Bétula pelo WhatsApp"/);
+  assert.doesNotMatch(html, /addEventListener\(["']scroll/);
+});
