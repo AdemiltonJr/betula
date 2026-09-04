@@ -1,21 +1,23 @@
 ---
-import { whatsappHref } from '../data/site';
+import { media, pageCopy, whatsappHref } from '../data/site';
 ---
 
 <section class="hero" data-hero aria-labelledby="hero-title">
-  <div class="container hero-grid">
-    <div class="hero-copy reveal">
-      <p class="hero-context">Recrutamento e seleção</p>
-      <h1 id="hero-title">Antes de buscar alguém, entendemos onde sua empresa quer chegar.</h1>
-      <p class="hero-lead">
-        Consultoria de recrutamento e seleção em Campinas, com atuação em todo o Brasil.
-      </p>
-      <a class="button button-primary" href={whatsappHref()} target="_blank" rel="noopener">
-        Conversar sobre uma contratação
-      </a>
-    </div>
-    <div class="hero-mark" aria-hidden="true">
-      <img src="/assets/img/emblem-ink.png" alt="" width="512" height="512" fetchpriority="high" />
+  <div class="hero-copy">
+    <div class="hero-copy-inner">
+      <h1 id="hero-title">{pageCopy.heroTitle}</h1>
+      <p>{pageCopy.heroLead}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={whatsappHref()} target="_blank" rel="noopener">{pageCopy.heroPrimary}</a>
+        <a class="hero-link" href="#processo">{pageCopy.heroSecondary}</a>
+      </div>
     </div>
   </div>
+  <figure class="hero-media">
+    <img src={media.hero} alt="Equipe da Bétula RH" width="1400" height="932" fetchpriority="high" />
+    <span class="hero-signature" aria-hidden="true">
+      <img src="/assets/img/emblem-cream.png" alt="" width="934" height="934" />
+    </span>
+    <span class="hero-curtain" aria-hidden="true"></span>
+  </figure>
 </section>

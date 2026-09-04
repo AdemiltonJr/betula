@@ -1,0 +1,21 @@
+:root {
+  color-scheme: light;
+  --brand: #115f61;
+  --brand-deep: #08494b;
+  --brand-soft: #4e8f90;
+  --accent: #7a4a12;
+  --canvas: #fafaf8;
+  --warm-support: #f0e9de;
+  --ink: #232323;
+  --muted: #555c59;
+  --line: color-mix(in srgb, var(--brand) 18%, transparent);
+  --font-display: "Manrope Variable", "Manrope", sans-serif;
+  --font-body: "Source Sans 3 Variable", "Source Sans 3", sans-serif;
+  --container: 77.5rem;
+  --gutter: clamp(1rem, 3vw, 2.5rem);
+  --space-section: clamp(4.5rem, 8vw, 8rem);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --layer-header: 30;
+  --layer-float: 40;
+}
