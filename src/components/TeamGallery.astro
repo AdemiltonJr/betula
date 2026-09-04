@@ -1,6 +1,18 @@
-<section class="team-gallery" id="equipe" aria-labelledby="team-title">
-  <div class="container">
-    <h2 id="team-title">Quem conduz cada processo.</h2>
-    <p>Uma equipe experiente acompanha empresas e candidatos em cada etapa.</p>
+---
+import { media, team } from '../data/site';
+---
+
+<section class="section team-gallery" id="equipe" aria-labelledby="team-title">
+  <div class="container team-heading"><h2 id="team-title">Quem conduz cada processo.</h2></div>
+  <div class="container team-mosaic">
+    <figure class="team-group">
+      <img src={media.teamGroup} alt="Equipe da Bétula RH" width="1400" height="932" loading="lazy" />
+    </figure>
+    {team.map((member, index) => (
+      <article class:list={['team-person', `team-person-${index + 1}`]}>
+        <img src={`/assets/img/${member.image}`} alt={member.name} width="560" height="560" loading="lazy" />
+        <div><h3>{member.name}</h3><p>{member.role}</p></div>
+      </article>
+    ))}
   </div>
 </section>

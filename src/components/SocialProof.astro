@@ -1,6 +1,23 @@
-<section class="social-proof" id="experiencia" aria-labelledby="proof-title">
-  <div class="container">
-    <h2 id="proof-title">Confiança construída em cada decisão.</h2>
-    <p>Relações duradouras são parte da experiência da Bétula.</p>
+---
+import { testimonials } from '../data/site';
+
+const [featured, ...supporting] = testimonials;
+---
+
+<section class="section social-proof" id="experiencia" aria-labelledby="proof-title">
+  <div class="container proof-layout">
+    <header><h2 id="proof-title">Confiança construída em cada decisão.</h2></header>
+    <figure class="proof-featured">
+      <blockquote>“{featured.quote}”</blockquote>
+      <figcaption><strong>{featured.name}</strong><span>{featured.role}</span></figcaption>
+    </figure>
+    <div class="proof-supporting">
+      {supporting.map((item) => (
+        <figure>
+          <blockquote>“{item.quote}”</blockquote>
+          <figcaption><strong>{item.name}</strong><span>{item.role}</span></figcaption>
+        </figure>
+      ))}
+    </div>
   </div>
 </section>
