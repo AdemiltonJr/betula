@@ -2,77 +2,50 @@
 const waContratar =
   'https://api.whatsapp.com/send?phone=5519981389865&text=Ol%C3%A1!%20Quero%20contratar%20um%20processo%20de%20recrutamento%20e%20sele%C3%A7%C3%A3o.';
 
-// Folhas/pétalas que flutuam sobre a foto — espalhadas na área aberta (esquerda/centro)
-const folhas = [
-  { x: 240, y: 150, r: 16, s: 1.0, c: 'c-copper' },
-  { x: 360, y: 300, r: -22, s: 0.8, c: 'c-peach' },
-  { x: 168, y: 452, r: 30, s: 0.9, c: 'c-soft' },
-  { x: 470, y: 120, r: 8, s: 1.08, c: 'c-copper' },
-  { x: 560, y: 372, r: -16, s: 0.74, c: 'c-peach' },
-  { x: 300, y: 230, r: 24, s: 0.7, c: 'c-soft' },
-  { x: 120, y: 330, r: 40, s: 0.68, c: 'c-copper' },
-  { x: 628, y: 208, r: -30, s: 0.92, c: 'c-peach' },
-  { x: 700, y: 430, r: 4, s: 0.8, c: 'c-copper' },
-  { x: 452, y: 470, r: 20, s: 0.66, c: 'c-soft' },
-  { x: 520, y: 262, r: -26, s: 0.72, c: 'c-peach' },
-  { x: 780, y: 320, r: 34, s: 0.8, c: 'c-copper' },
-  { x: 664, y: 120, r: -10, s: 0.72, c: 'c-soft' },
-  { x: 860, y: 250, r: 15, s: 0.66, c: 'c-peach' },
+const selos = [
+  { n: '+20 anos', d: 'de experiência em R&S' },
+  { n: 'Campinas-SP', d: 'e todo o Brasil' },
+  { n: 'Cultural fit', d: 'foco em assertividade' },
 ];
 ---
 
-<section class="hero hero-birch">
-  <img
-    class="hero-bg-img"
-    src="/assets/img/hero-birch.jpg"
-    alt="Bétulas ao amanhecer, com uma malha de conexões representando pessoas e oportunidades"
-    width="1600"
-    height="900"
-    fetchpriority="high"
-  />
-  <div class="hero-glow" aria-hidden="true"></div>
+<section class="hero hero-editorial">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="hero-blob" aria-hidden="true"></div>
 
-  <div class="hero-art" data-hero-art aria-hidden="true">
-    <svg viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" role="presentation">
-      <defs>
-        <g id="bx-leaf">
-          <path class="bx-leaf-blade" d="M0 0 C10 -9 11 -24 0 -33 C-11 -24 -10 -9 0 0 Z" />
-          <path class="bx-leaf-vein" d="M0 -3 L0 -29" />
-        </g>
-      </defs>
-      <g class="bx-layer bx-leaves">
-        {
-          folhas.map((f, i) => (
-            <g transform={`translate(${f.x} ${f.y})`}>
-              <g class="bx-leaf-float" style={`animation-delay:${(-i * 0.53).toFixed(2)}s;animation-duration:${(6.5 + (i % 5)).toFixed(1)}s`}>
-                <use href="#bx-leaf" class={f.c} transform={`rotate(${f.r}) scale(${f.s})`} />
-              </g>
-            </g>
-          ))
-        }
-      </g>
-    </svg>
-  </div>
-
-  <div class="hero-scrim" aria-hidden="true"></div>
-
-  <div class="container hero-inner">
-    <div class="hero-copy reveal">
-      <div class="hero-text">
-        <span class="eyebrow"><span class="dot"></span> Bétula RH · Campinas-SP</span>
-        <h1>Solução integral em <em>recrutamento e seleção</em>.</h1>
-        <p class="lead">
-          Conectamos a estratégia e a cultura das organizações aos profissionais alinhados a cada
-          contexto, do operacional à gestão, com processos éticos e assertivos.
-        </p>
-      </div>
+  <div class="container hero-ed-grid">
+    <div class="hero-ed-copy reveal">
+      <span class="eyebrow-ink"><span class="dot"></span> Bétula RH · Recrutamento e Seleção</span>
+      <h1>Conectamos <span class="hl">pessoas e estratégia</span> para a sua empresa crescer.</h1>
+      <p class="lead-ink">
+        Solução integral em recrutamento e seleção, do operacional à gestão. Ligamos a cultura da
+        sua organização aos profissionais certos, com processos éticos e assertivos.
+      </p>
       <div class="hero-actions">
-        <a class="btn btn-wa" href={waContratar} target="_blank" rel="noopener">
+        <a class="btn btn-primary btn-lg" href={waContratar} target="_blank" rel="noopener">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.14.82.84-3.06-.2-.31a8.18 8.18 0 1 1 7.18 3.87Z"></path></svg>
           Quero contratar
         </a>
-        <a class="btn btn-ghost-light" href="#metodo">Como atuamos</a>
+        <a class="btn btn-ghost btn-lg" href="#metodo">Como atuamos</a>
       </div>
+      <ul class="hero-selos">
+        {
+          selos.map((s) => (
+            <li>
+              <strong>{s.n}</strong>
+              <span>{s.d}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="hero-ed-visual reveal" aria-hidden="true">
+      <div class="hero-circle">
+        <img src="/assets/img/hero-birch.jpg" alt="" width="900" height="900" fetchpriority="high" />
+      </div>
+      <span class="hero-circle-sm"></span>
+      <span class="hero-circle-ring"></span>
     </div>
   </div>
 </section>
