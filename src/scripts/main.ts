@@ -41,3 +41,14 @@ if ('IntersectionObserver' in window && !reducedMotion) {
 
 const year = document.querySelector('[data-year]');
 if (year) year.textContent = String(new Date().getFullYear());
+
+const hero = document.querySelector<HTMLElement>('[data-hero]');
+const floatingWhatsApp = document.querySelector<HTMLElement>('[data-whatsapp-float]');
+
+if (hero && floatingWhatsApp && 'IntersectionObserver' in window) {
+  const whatsappObserver = new IntersectionObserver(([entry]) => {
+    floatingWhatsApp.classList.toggle('is-active', !entry.isIntersecting);
+  }, { threshold: 0 });
+
+  whatsappObserver.observe(hero);
+}
