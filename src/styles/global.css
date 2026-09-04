@@ -104,11 +104,18 @@ em{font-style:italic}
 .kicker::before{content:"";width:1.7rem;height:2px;border-radius:2px;background:var(--copper);opacity:.55}
 .kicker.light{color:var(--malva)}
 .kicker.light::before{background:var(--malva)}
-.hl{color:var(--copper);font-style:italic;background:linear-gradient(transparent 62%,var(--malva-band) 62%);padding:0 .08em;border-radius:2px}
-/* Pincelada de pêssego sob os títulos de seção — identidade da marca */
-.section-head h2{position:relative;display:inline-block}
-.section-head h2::after{content:"";display:block;width:60px;height:5px;margin:.9rem auto 0;border-radius:100px;background:var(--teal-suave);opacity:.85}
-.diferenciais .section-head h2::after{background:var(--malva)}
+.hl{color:var(--copper);font-style:italic;background:linear-gradient(var(--copper-soft),var(--copper-soft)) left bottom/100% 2px no-repeat;padding-bottom:.05em}
+/* Divisória clássica: linha fina + símbolo da bétula ao centro, acima dos títulos */
+.section-head::before{content:"";display:block;width:136px;height:30px;margin:0 auto 1.15rem;
+  background:
+    linear-gradient(var(--line),var(--line)) left center/48px 1px no-repeat,
+    linear-gradient(var(--line),var(--line)) right center/48px 1px no-repeat,
+    url('/assets/img/emblem-ink.png') center/26px 26px no-repeat}
+.diferenciais .section-head::before{
+  background:
+    linear-gradient(var(--line-light),var(--line-light)) left center/48px 1px no-repeat,
+    linear-gradient(var(--line-light),var(--line-light)) right center/48px 1px no-repeat,
+    url('/assets/img/emblem-cream.png') center/26px 26px no-repeat}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);padding:.42rem .9rem;border-radius:100px;margin-bottom:1.3rem}
 .eyebrow .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--copper-soft);box-shadow:0 0 0 4px rgba(169,121,63,.22)}
 
@@ -183,8 +190,7 @@ em{font-style:italic}
   min-height:auto;display:block;align-items:initial;
   padding-block:clamp(2.6rem,6vw,5.2rem)
 }
-.hero-editorial .hero-pattern{position:absolute;inset:0;z-index:0;background:url('/assets/img/pattern-contour-teal.png') center/cover no-repeat;opacity:.13;pointer-events:none}
-.hero-editorial .hero-blob{position:absolute;z-index:0;right:-10%;top:-14%;width:56%;height:128%;background:radial-gradient(circle at 58% 42%,var(--malva),transparent 62%);opacity:.7;pointer-events:none}
+.hero-editorial .hero-pattern{position:absolute;inset:0;z-index:0;background:url('/assets/img/pattern-contour-teal.png') center/cover no-repeat;opacity:.05;pointer-events:none}
 .hero-ed-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .eyebrow-ink{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);background:var(--teal-tint);padding:.44rem .95rem;border-radius:100px;margin-bottom:1.3rem}
 .eyebrow-ink .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--copper-soft)}
@@ -195,10 +201,8 @@ em{font-style:italic}
 .hero-selos strong{font-family:var(--title);font-size:1.15rem;color:var(--teal);font-weight:700}
 .hero-selos span{font-size:.82rem;color:var(--muted);margin-top:.1rem}
 .hero-ed-visual{position:relative;justify-self:center;width:min(100%,440px);aspect-ratio:1/1}
-.hero-circle{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px #fff,0 0 0 12px var(--copper-soft),var(--shadow);z-index:2}
+.hero-circle{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 9px #fff,0 0 0 10px rgba(122,74,18,.28),0 24px 50px -30px rgba(1,53,58,.4);z-index:2}
 .hero-circle img{width:100%;height:100%;object-fit:cover;object-position:58% 42%}
-.hero-circle-ring{position:absolute;inset:-6%;border:2px dashed var(--teal-suave);border-radius:50%;opacity:.5;z-index:1}
-.hero-circle-sm{position:absolute;right:-3%;bottom:5%;width:27%;height:27%;border-radius:50%;background:var(--malva) url('/assets/img/emblem-ink.png') center/56% no-repeat;box-shadow:0 0 0 7px var(--cream),var(--shadow-sm);z-index:3}
 @media (max-width:860px){
   .hero-ed-grid{grid-template-columns:1fr;gap:2.2rem}
   .hero-ed-visual{order:-1;width:min(78%,320px)}
@@ -253,7 +257,7 @@ em{font-style:italic}
    Propósito
    ========================================================================== */
 .quem-somos{position:relative;overflow:hidden;background:var(--malva-soft)}
-.quem-somos::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-teal.png') center/cover no-repeat;opacity:.08;pointer-events:none}
+.quem-somos::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-teal.png') center/cover no-repeat;opacity:.045;pointer-events:none}
 .quem-somos > .container{position:relative;z-index:1}
 .prop-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center}
 .prop-copy h2{font-size:clamp(1.7rem,1.2rem + 1.9vw,2.5rem);margin-bottom:1.3rem}
@@ -276,14 +280,10 @@ em{font-style:italic}
    Diferenciais (faixa teal)
    ========================================================================== */
 .diferenciais{position:relative;overflow:hidden;background:var(--teal);color:#fff}
-.diferenciais::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-cream.png') center/cover no-repeat;opacity:.07;pointer-events:none}
+.diferenciais::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-cream.png') center/cover no-repeat;opacity:.045;pointer-events:none}
 .diferenciais::after{content:"";position:absolute;left:-160px;top:50%;transform:translateY(-50%);width:560px;height:560px;background:url('/assets/img/emblem-cream.png') center/contain no-repeat;opacity:.06;pointer-events:none}
 .diferenciais > .container{position:relative;z-index:1}
 .diferenciais .section-head h2{color:#fff}
-/* Divisórias orgânicas (onda) na transição entre seções */
-.section-wave{position:absolute;top:-1px;left:0;width:100%;height:clamp(26px,4vw,50px);z-index:2;pointer-events:none;background-repeat:no-repeat;background-size:100% 101%}
-.diferenciais .section-wave{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 50' preserveAspectRatio='none'><path d='M0,0 H1200 V18 C1000,46 820,2 620,24 C420,46 200,4 0,24 Z' fill='%23f6f1e9'/></svg>")}
-.contato .section-wave{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 50' preserveAspectRatio='none'><path d='M0,0 H1200 V18 C1000,46 820,2 620,24 C420,46 200,4 0,24 Z' fill='%23fafaf8'/></svg>")}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
 .diff-card{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:1.9rem 1.6rem;box-shadow:var(--shadow);transition:transform .3s var(--ease)}
 .diff-card:hover{transform:translateY(-6px)}
@@ -322,7 +322,7 @@ em{font-style:italic}
 .team-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.6rem 1.7rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
 /* foto em círculo com anel de cobre — a ideia da logo (bétula no círculo) nas pessoas */
-.team-card img{width:172px;height:172px;border-radius:50%;object-fit:cover;object-position:50% 20%;margin:0 auto 1.2rem;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--copper-soft),0 16px 30px -18px rgba(1,53,58,.55)}
+.team-card img{width:172px;height:172px;border-radius:50%;object-fit:cover;object-position:50% 20%;margin:0 auto 1.2rem;box-shadow:0 0 0 4px #fff,0 0 0 5px rgba(122,74,18,.22),0 14px 28px -22px rgba(1,53,58,.4)}
 .team-card h3{font-size:1.2rem;color:var(--teal);margin-bottom:.25rem}
 .team-role{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-bottom:.8rem}
 .team-card p{color:var(--muted);font-size:.92rem;margin:0}
@@ -352,7 +352,7 @@ em{font-style:italic}
    Parceria
    ========================================================================== */
 .parceria{position:relative;overflow:hidden;background:var(--malva)}
-.parceria::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-bronze.png') center/cover no-repeat;opacity:.06;pointer-events:none}
+.parceria::before{content:"";position:absolute;inset:0;background:url('/assets/img/pattern-contour-bronze.png') center/cover no-repeat;opacity:.04;pointer-events:none}
 .parceria > .container{position:relative;z-index:1}
 .parceria-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;background:var(--cream);border-radius:var(--radius-lg);padding:clamp(1.8rem,4vw,3rem);box-shadow:var(--shadow)}
 .parceria-logo{display:grid;place-items:center;background:#fff;border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow-sm)}
