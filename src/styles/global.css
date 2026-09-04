@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-teal: #005b65;
-  --color-teal-deep: #01353a;
-  --color-peach: #f8d6c4;
-  --color-cream: #fbf7f3;
-  --color-copper: #9c5a26;
-  --color-copper-soft: #c68f68;
-  --font-title: "Quicksand", system-ui, sans-serif;
-  --font-sans: "Mulish", system-ui, sans-serif;
+  --color-teal: #115f61;
+  --color-teal-suave: #4e8f90;
+  --color-teal-deep: #0b393b;
+  --color-areia: #f0e9de;
+  --color-cream: #fafaf8;
+  --color-bronze: #7a4a12;
+  --font-title: "Manrope", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 /* ===== Design system — identidade real da marca (teal-petróleo + pêssego) ===== */
@@ -16,34 +16,36 @@
    Bétula RH · Design System (alinhado ao material institucional)
    ========================================================================== */
 :root{
-  --teal:#005b65;
-  --teal-deep:#01353a;
-  --teal-700:#0a6e77;
-  --teal-tint:#e3efee;
-  --rust:#005b65;          /* a marca não usa rust; mapeado para teal */
-  --brown:#01353a;         /* seções escuras = teal profundo (não marrom) */
-  --malva:#f8d6c4;         /* pêssego/nude — acento protagonista da marca */
-  --malva-soft:#fcebe1;    /* pêssego claro (faixas suaves) */
-  --malva-band:#fbe4d6;    /* pêssego médio (faixas de destaque) */
-  --copper:#9c5a26;        /* COBRE — acento secundário (quente/avermelhado, nunca dourado) */
-  --copper-soft:#c68f68;   /* cobre suave — folhas do papel de parede institucional */
-  --copper-deep:#5e3600;   /* cobre profundo — cor sólida da logo */
-  --cream:#fbf7f3;         /* branco quente */
-  --ink:#173b3e;           /* texto — teal bem escuro */
-  --muted:#5f6d6c;
-  --muted-2:#8a9695;
-  --line:rgba(1,53,58,.13);
-  --line-light:rgba(251,247,243,.18);
+  /* Paleta oficial (Guia de Marca Digital Bétula RH) */
+  --teal:#115f61;          /* Teal Principal */
+  --teal-deep:#0b393b;     /* teal profundo — seções escuras */
+  --teal-700:#0d4e50;      /* teal p/ hover */
+  --teal-suave:#4e8f90;    /* Teal Suave */
+  --teal-tint:#e4edea;     /* teal bem claro — fundo de ícone */
+  --rust:#115f61;
+  --brown:#0b393b;         /* seções escuras = teal profundo */
+  --malva:#f0e9de;         /* AREIA Suave — neutro quente da marca */
+  --malva-soft:#f6f1e9;    /* areia clara (faixas suaves) */
+  --malva-band:#ede4d5;    /* areia média (destaque) */
+  --copper:#7a4a12;        /* Bronze Bétula — acento */
+  --copper-soft:#a9793f;   /* bronze mais claro */
+  --copper-deep:#5e3600;   /* bronze profundo */
+  --cream:#fafaf8;         /* Off-white */
+  --ink:#232323;           /* Texto Escuro */
+  --muted:#5c5f5c;
+  --muted-2:#8a8f8b;
+  --line:rgba(35,35,35,.12);
+  --line-light:rgba(250,250,248,.18);
   --wa:#25D366;
 
   --container:1180px;
   --radius:16px;
   --radius-lg:24px;
-  --shadow-sm:0 2px 12px rgba(1,53,58,.07);
-  --shadow:0 22px 55px -24px rgba(0,91,101,.28);
+  --shadow-sm:0 1px 8px rgba(35,35,35,.05);
+  --shadow:0 16px 40px -26px rgba(11,57,59,.22);
 
-  --title:'Quicksand',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --sans:'Mulish',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --title:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
 
   --ease:cubic-bezier(.22,.61,.36,1);
 }
@@ -102,13 +104,13 @@ em{font-style:italic}
 .kicker::before{content:"";width:1.7rem;height:2px;border-radius:2px;background:var(--copper);opacity:.55}
 .kicker.light{color:var(--malva)}
 .kicker.light::before{background:var(--malva)}
-.hl{color:var(--teal);font-style:italic;background:linear-gradient(transparent 56%,var(--malva) 56%);padding:0 .1em;border-radius:2px}
+.hl{color:var(--copper);font-style:italic;background:linear-gradient(transparent 62%,var(--malva-band) 62%);padding:0 .08em;border-radius:2px}
 /* Pincelada de pêssego sob os títulos de seção — identidade da marca */
 .section-head h2{position:relative;display:inline-block}
-.section-head h2::after{content:"";display:block;width:64px;height:9px;margin:.85rem auto 0;border-radius:100px;background:var(--malva);opacity:.9}
+.section-head h2::after{content:"";display:block;width:60px;height:5px;margin:.9rem auto 0;border-radius:100px;background:var(--teal-suave);opacity:.85}
 .diferenciais .section-head h2::after{background:var(--malva)}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(4px);padding:.42rem .9rem;border-radius:100px;margin-bottom:1.3rem}
-.eyebrow .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--malva);box-shadow:0 0 0 4px rgba(220,203,197,.25)}
+.eyebrow .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--copper-soft);box-shadow:0 0 0 4px rgba(169,121,63,.22)}
 
 .section-head{max-width:680px;margin:0 auto clamp(2.2rem,4vw,3.2rem);text-align:center}
 .section-head h2{font-size:clamp(1.7rem,1.2rem + 1.8vw,2.6rem)}
@@ -258,7 +260,9 @@ em{font-style:italic}
 /* ==========================================================================
    Método — galho que cresce (timeline)
    ========================================================================== */
-.metodo{background:var(--malva-soft)}
+.metodo{position:relative;overflow:hidden;background:var(--malva-soft)}
+.metodo::before{content:"";position:absolute;inset:0;background:url('/assets/img/texture-birch-teal.png') center/cover no-repeat;opacity:.05;pointer-events:none}
+.metodo > .container{position:relative;z-index:1}
 .method-branch{list-style:none;margin:clamp(2.4rem,4vw,3.4rem) auto 0;padding:0;max-width:860px;position:relative}
 .method-branch::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--teal),var(--malva));transform:translateX(-50%)}
 .step{position:relative;width:50%;padding-bottom:2.4rem;box-sizing:border-box}
@@ -302,8 +306,9 @@ em{font-style:italic}
 .depo-dots{flex:0 0 100%;display:flex;justify-content:center;gap:.5rem;margin-top:1.2rem}
 .depo-dots button{width:9px;height:9px;padding:0;border:none;border-radius:50%;cursor:pointer;background:#c9bdb7;transition:background .2s ease,transform .2s ease}
 .depo-dots button[aria-current="true"]{background:var(--teal);transform:scale(1.3)}
-.depo-card{flex:0 0 calc((100% - 1.6rem)/2);margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.9rem 1.7rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
-.depo-card blockquote{margin:0 0 1.2rem;font-style:italic;color:#4a4038;line-height:1.6;font-size:.98rem}
+.depo-card{position:relative;flex:0 0 calc((100% - 1.6rem)/2);margin:0;background:var(--malva-soft);border:1px solid var(--line);border-radius:var(--radius);padding:2.4rem 1.7rem 1.7rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.depo-card::before{content:"\201C";position:absolute;top:.35rem;left:1.2rem;font-family:Georgia,'Times New Roman',serif;font-size:3.4rem;line-height:1;color:var(--copper-soft);opacity:.55}
+.depo-card blockquote{margin:0 0 1.2rem;font-style:italic;color:#3f3a33;line-height:1.6;font-size:.98rem}
 .depo-card figcaption{margin-top:auto;border-top:1px solid var(--line);padding-top:.9rem}
 .depo-card strong{display:block;font-family:var(--title);font-weight:700;color:var(--teal);font-size:1.05rem}
 .depo-card span{display:block;color:var(--muted);font-size:.82rem;margin-top:.15rem}
