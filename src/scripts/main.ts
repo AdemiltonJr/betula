@@ -52,3 +52,19 @@ if (hero && floatingWhatsApp && 'IntersectionObserver' in window) {
 
   whatsappObserver.observe(hero);
 }
+
+const processStory = document.querySelector<HTMLElement>('[data-process-story]');
+const processSteps = processStory?.querySelectorAll<HTMLElement>('[data-step]') ?? [];
+
+if (processStory && processSteps.length && 'IntersectionObserver' in window && !reducedMotion) {
+  const processObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (!(visible?.target instanceof HTMLElement)) return;
+    processStory.dataset.activeProcess = visible.target.dataset.step ?? '0';
+  }, { rootMargin: '-25% 0px -45%', threshold: [0.25, 0.5, 0.75] });
+
+  processSteps.forEach((step) => processObserver.observe(step));
+}
