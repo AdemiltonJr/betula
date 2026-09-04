@@ -6,9 +6,18 @@ Site institucional da Bétula Recrutamento e Seleção, desenvolvido em Astro e 
 
 - Astro com geração estática
 - TypeScript
-- CSS editorial próprio
+- sistema visual de autoridade humana
 - Fontes Manrope e Source Sans 3 hospedadas no projeto
 - Adaptador da Vercel e sitemap automático
+
+## Sistema visual
+
+- fotografia real como elemento estrutural;
+- hero teal e fotografia em composição responsiva;
+- um único loop de logos;
+- processo narrativo sticky no desktop e linear no celular;
+- movimento reduzido e funcionamento sem JavaScript;
+- conteúdo centralizado e substituível em `src/data/site.ts`.
 
 ## Desenvolvimento
 
