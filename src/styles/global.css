@@ -103,9 +103,9 @@ em{font-style:italic}
 .kicker.light{color:var(--malva)}
 .kicker.light::before{background:var(--malva)}
 .hl{color:var(--teal);font-style:italic;background:linear-gradient(transparent 56%,var(--malva) 56%);padding:0 .1em;border-radius:2px}
-/* Símbolo da bétula como marca recorrente acima dos títulos de seção */
-.section-head::before{content:"";display:block;width:46px;height:46px;margin:0 auto .85rem;background:url('/assets/img/emblem-ink.png') center/contain no-repeat;opacity:.82}
-.diferenciais .section-head::before{background-image:url('/assets/img/emblem-cream.png');opacity:.9}
+/* Selo circular da marca (a "ideia da logo") acima dos títulos de seção */
+.section-head::before{content:"";display:block;width:74px;height:74px;margin:0 auto 1.1rem;border-radius:50%;background:#fff url('/assets/img/emblem-ink.png') center/60% no-repeat;box-shadow:0 0 0 2px var(--copper),0 14px 30px -16px rgba(1,53,58,.55)}
+.diferenciais .section-head::before{background-color:var(--teal-deep);background-image:url('/assets/img/emblem-cream.png');box-shadow:0 0 0 2px var(--copper-soft),0 14px 30px -16px rgba(0,0,0,.5)}
 /* Pincelada de pêssego sob os títulos de seção — identidade da marca */
 .section-head h2{position:relative;display:inline-block}
 .section-head h2::after{content:"";display:block;width:64px;height:9px;margin:.85rem auto 0;border-radius:100px;background:var(--malva);opacity:.9}
@@ -246,12 +246,14 @@ em{font-style:italic}
 /* ==========================================================================
    Diferenciais (faixa teal)
    ========================================================================== */
-.diferenciais{background:var(--teal);color:#fff}
+.diferenciais{position:relative;overflow:hidden;background:var(--teal);color:#fff}
+.diferenciais::after{content:"";position:absolute;left:-160px;top:50%;transform:translateY(-50%);width:560px;height:560px;background:url('/assets/img/emblem-cream.png') center/contain no-repeat;opacity:.06;pointer-events:none}
+.diferenciais > .container{position:relative;z-index:1}
 .diferenciais .section-head h2{color:#fff}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
 .diff-card{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:1.9rem 1.6rem;box-shadow:var(--shadow);transition:transform .3s var(--ease)}
 .diff-card:hover{transform:translateY(-6px)}
-.diff-ico{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:var(--teal-tint);margin-bottom:1.2rem}
+.diff-ico{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--teal-tint);box-shadow:0 0 0 1px rgba(0,91,101,.14);margin-bottom:1.2rem}
 .diff-ico svg{width:26px;height:26px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .diff-card h3{font-size:1.18rem;margin-bottom:.5rem}
 .diff-card p{color:var(--muted);font-size:.96rem;margin:0}
@@ -281,13 +283,13 @@ em{font-style:italic}
    Equipe
    ========================================================================== */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.team-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:0 0 1.6rem;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.team-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--copper),var(--copper-soft));z-index:2}
+.team-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.6rem 1.7rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.team-card img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 22%;margin-bottom:1.15rem}
-.team-card h3{font-size:1.2rem;color:var(--teal);padding-inline:1.6rem;margin-bottom:.25rem}
-.team-role{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);padding-inline:1.6rem;margin-bottom:.7rem}
-.team-card p{color:var(--muted);font-size:.93rem;padding-inline:1.6rem;margin:0}
+/* foto em círculo com anel de cobre — a ideia da logo (bétula no círculo) nas pessoas */
+.team-card img{width:172px;height:172px;border-radius:50%;object-fit:cover;object-position:50% 20%;margin:0 auto 1.2rem;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--copper-soft),0 16px 30px -18px rgba(1,53,58,.55)}
+.team-card h3{font-size:1.2rem;color:var(--teal);margin-bottom:.25rem}
+.team-role{display:block;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-bottom:.8rem}
+.team-card p{color:var(--muted);font-size:.92rem;margin:0}
 
 /* ==========================================================================
    Depoimentos (slider sobre textura de bétula)
@@ -324,7 +326,7 @@ em{font-style:italic}
    ========================================================================== */
 .contato{position:relative;overflow:hidden;background:var(--brown);color:#fff;padding-block:clamp(3.4rem,7vw,5.5rem)}
 .contato::before{content:"";position:absolute;inset:0;background:url('/assets/img/texture-birch-cream.png') center/cover no-repeat;opacity:.07;pointer-events:none}
-.contato::after{content:"";position:absolute;right:-100px;bottom:-120px;width:480px;height:480px;background:url('/assets/img/emblem-cream.png') center/contain no-repeat;opacity:.07;pointer-events:none}
+.contato::after{content:"";position:absolute;right:-120px;bottom:-140px;width:560px;height:560px;background:url('/assets/img/emblem-cream.png') center/contain no-repeat;opacity:.1;pointer-events:none}
 .contato > .container{position:relative;z-index:1}
 .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
 .contato-copy h2{color:#fff;font-size:clamp(1.7rem,1.3rem + 1.6vw,2.4rem);margin-bottom:1rem}
