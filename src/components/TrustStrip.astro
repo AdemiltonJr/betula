@@ -1,5 +1,13 @@
+---
+import { clients } from '../data/site';
+---
+
 <section class="trust-strip" aria-label="Experiência e clientes da Bétula" data-trust-loop>
-  <div class="container">
-    <p>Experiência construída em relações de confiança.</p>
+  <div class="trust-statement"><strong>Mais de 20 anos</strong><span>conectando empresas e profissionais</span></div>
+  <div class="trust-viewport">
+    <ul class="trust-track">
+      {clients.map(([src, alt]) => <li><img src={`/assets/img/${src}`} alt={alt} width="180" height="80" loading="lazy" /></li>)}
+      {clients.map(([src]) => <li aria-hidden="true"><img src={`/assets/img/${src}`} alt="" width="180" height="80" loading="lazy" /></li>)}
+    </ul>
   </div>
 </section>

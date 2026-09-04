@@ -1,1 +1,25 @@
-.section { position: relative; isolation: isolate; }
+.trust-strip { display: grid; grid-template-columns: minmax(13rem, .38fr) 1fr; align-items: center; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--canvas); }
+.trust-statement { display: grid; padding: 1.5rem var(--gutter); border-right: 1px solid var(--line); line-height: 1.15; }
+.trust-statement strong { color: var(--brand); font: 680 1.1rem var(--font-display); }
+.trust-statement span { color: var(--muted); font-size: .9rem; }
+.trust-viewport { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.trust-track { display: flex; width: max-content; margin: 0; padding: 1rem 0; align-items: center; list-style: none; animation: trust-loop 34s linear infinite; }
+.trust-track li { display: grid; width: 10rem; min-height: 4rem; padding: .5rem 1.2rem; place-items: center; }
+.trust-track img { width: 100%; height: 2.8rem; filter: grayscale(1); object-fit: contain; opacity: .6; }
+.trust-viewport:hover .trust-track { animation-play-state: paused; }
+.human-approach { background: var(--canvas); }
+.human-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); align-items: end; }
+.human-copy { grid-column: 1 / span 5; align-self: start; padding-top: clamp(1rem, 6vw, 5rem); }
+.human-copy h2 { max-width: 10ch; margin-bottom: 1.25rem; color: var(--brand-deep); font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 1; }
+.human-copy p { max-width: 30rem; color: var(--muted); font-size: 1.15rem; }
+.human-group { grid-column: 6 / -1; margin: 0; }
+.human-group img { width: 100%; aspect-ratio: 3 / 2; border-radius: var(--radius-md); object-fit: cover; }
+.human-portrait { grid-column: 3 / span 3; margin: -8rem 0 0; }
+.human-portrait img { width: 100%; aspect-ratio: 2 / 3; border-radius: var(--radius-md); object-fit: cover; }
+@media (max-width: 760px) {
+  .trust-strip { grid-template-columns: 1fr; }
+  .trust-statement { border-right: 0; border-bottom: 1px solid var(--line); }
+  .human-layout { grid-template-columns: 1fr; }
+  .human-copy, .human-group, .human-portrait { grid-column: 1; }
+  .human-portrait { width: 58%; margin: -4rem 1rem 0 auto; }
+}
