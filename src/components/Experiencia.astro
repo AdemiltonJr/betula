@@ -1,0 +1,29 @@
+---
+import { clients, testimonials } from '../data/site';
+---
+
+<section class="section experience" id="experiencia" aria-labelledby="experience-title">
+  <div class="container">
+    <header class="section-intro reveal">
+      <h2 id="experience-title">Experiência construída em relações de confiança.</h2>
+    </header>
+
+    <ul class="client-list" aria-label="Alguns clientes da Bétula">
+      {clients.map(([src, alt]) => (
+        <li><img src={`/assets/img/${src}`} alt={alt} loading="lazy" width="180" height="80" /></li>
+      ))}
+    </ul>
+
+    <div class="testimonial-list">
+      {testimonials.map((testimonial) => (
+        <figure class="testimonial reveal">
+          <blockquote>{testimonial.quote}</blockquote>
+          <figcaption>
+            <strong>{testimonial.name}</strong>
+            <span>{testimonial.role}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

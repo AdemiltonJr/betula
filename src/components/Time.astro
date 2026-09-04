@@ -1,60 +1,31 @@
 ---
-const time = [
-  {
-    img: 'team-luciana-alvim.jpg',
-    nome: 'Luciana Alvim',
-    cargo: 'Fundadora · Psicóloga',
-    bio: 'Fundadora da Bétula, psicóloga, pedagoga social, pós-graduada em Gestão Estratégica de Recursos Humanos e Negócios, analista comportamental e grafóloga. Atua há 20 anos com recrutamento, seleção e avaliação de candidatos, assessorando empresas de diversos portes e segmentos.',
-  },
-  {
-    img: 'team-georgia-frattini.jpg',
-    nome: 'Georgia Frattini',
-    cargo: 'Consultora · Coach executiva',
-    bio: 'Administradora de empresas, pós-graduada em Gestão Estratégica de Pessoas e Negócios, em Dinâmica de Grupos e coach executiva. Atua há 15 anos com desenvolvimento de pessoas, recrutamento, seleção e avaliação de candidatos. Carreira desenvolvida em multinacionais e consultoria.',
-  },
-  {
-    img: 'team-vanessa-luiz.jpg',
-    nome: 'Vanessa Luiz',
-    cargo: 'Consultora · Analista comportamental',
-    bio: 'Administradora de empresas, pós-graduada em Gestão Estratégica de Pessoas e analista comportamental. Atua há 18 anos com recursos humanos de forma generalista, em multinacionais de grande e médio porte nos segmentos de embalagens, papel e celulose, alimentício e serviços.',
-  },
-];
-
-const teamSchema = {
-  '@context': 'https://schema.org',
-  '@graph': time.map((p) => ({
-    '@type': 'Person',
-    name: p.nome,
-    jobTitle: p.cargo.split(' · ')[0],
-    description: p.bio,
-    image: `https://betularh.com.br/assets/img/${p.img}`,
-    worksFor: {
-      '@type': 'Organization',
-      '@id': 'https://betularh.com.br/#organizacao',
-      name: 'Bétula RH',
-    },
-  })),
-};
+import { team } from '../data/site';
 ---
 
-<section class="section equipe" id="equipe">
+<section class="section team" id="equipe" aria-labelledby="team-title">
   <div class="container">
-    <header class="section-head reveal">
-      <span class="kicker">Time Bétula</span>
-      <h2>Gente que entende de gente.</h2>
+    <header class="section-intro reveal">
+      <h2 id="team-title">Quem conduz cada processo</h2>
+      <p>Profissionais que combinam escuta, repertório e responsabilidade em cada decisão.</p>
     </header>
-    <div class="team-grid team-grid-3">
-      {
-        time.map((p) => (
-          <article class="team-card reveal">
-            <img src={`/assets/img/${p.img}`} alt={p.nome} loading="lazy" width="400" height="400" />
-            <h3>{p.nome}</h3>
-            <span class="team-role">{p.cargo}</span>
-            <p>{p.bio}</p>
-          </article>
-        ))
-      }
+
+    <div class="team-layout">
+      {team.map((member, index) => (
+        <article class:list={['team-person', { 'team-person-featured': index === 0 }, 'reveal']}>
+          <img
+            src={`/assets/img/${member.image}`}
+            alt={member.name}
+            loading="lazy"
+            width="640"
+            height="800"
+          />
+          <div class="team-person-copy">
+            <h3>{member.name}</h3>
+            <p class="team-role">{member.role}</p>
+            <p>{member.bio}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
-  <script type="application/ld+json" set:html={JSON.stringify(teamSchema)} />
 </section>

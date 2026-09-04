@@ -45,7 +45,7 @@ export const contacts = {
   },
 } as const;
 
-export function whatsappHref(phone = contacts.primary.phone, message = whatsappMessage) {
+export function whatsappHref(phone: string = contacts.primary.phone, message = whatsappMessage) {
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
