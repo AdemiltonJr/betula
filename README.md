@@ -50,3 +50,5 @@ Correspondência confirmada pelo usuário em 5 de setembro de 2026: em pé, prim
 `src/data/team-photo.ts` registra somente as cinco identificações confirmadas. `TeamPhoto.astro` mostra o nome por hover, foco de teclado ou toque. Escape fecha; toque repetido alterna e toque fora fecha. A foto mantém a proporção original para preservar a posição dos alvos.
 
 Verificado localmente com Astro check, build e 7 testes. Playwright conferiu os cinco hovers, foco, Escape e interação touch; etiquetas dentro da tela e proporção correta em 320, 390, 768 e 1440px.
+
+A chamada agora desenha uma linha a partir da pessoa e revela o nome letra por letra, com detalhes em cobre. A sequência foi conferida no navegador; hover, teclado, toque e movimento reduzido continuam validados nas quatro larguras acima.
