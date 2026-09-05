@@ -14,7 +14,7 @@ const questions = [
 </section>
 
 <section class="process section-space" id="processo" aria-labelledby="process-title" data-process-story>
-  <div class="process-intro"><p class="eyebrow">Da primeira conversa à chegada</p><h2 id="process-title">Boas conexões <br />não acontecem<br /><span>por acaso.</span></h2><p>Um processo cuidadoso,<br />com pessoas em cada etapa.</p><figure class="process-photo"><img src="/assets/img/office-candid.jpg" alt="Equipe Bétula conversando sobre o trabalho no escritório" width="900" height="506" loading="lazy" /></figure></div>
+  <div class="process-intro"><p class="eyebrow">Da primeira conversa à chegada</p><h2 id="process-title">Boas conexões <br />não acontecem<br /><span>por acaso.</span></h2><p>Um processo cuidadoso,<br />com pessoas em cada etapa.</p><div class="process-roots" aria-hidden="true"><span class="copper-tree"></span><span>Raízes no contexto.<br />Olhar para o futuro.</span></div></div>
   <div class="process-branches">
     {processMoments.map((moment, index) => <article class="process-moment reveal" data-process-step data-step={index}><span class="branch-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div><h3>{moment.title}</h3><p>{moment.summary}</p><details><summary>O que acontece nessa etapa <span aria-hidden="true">+</span></summary><ul>{moment.steps.map(step => <li>{step}</li>)}</ul></details></div></article>)}
   </div>

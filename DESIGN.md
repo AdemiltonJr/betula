@@ -25,3 +25,13 @@ Seleção por botões com aria-pressed, atualização em aria-live, cargo opcion
 ## Conteúdo
 
 Contato utiliza a fonte central existente, ainda sujeita a confirmação antes de publicação. Não apresentar logos de clientes, métricas ou depoimentos ainda não validados. Não atribuir cargos individuais às fotografias.
+
+## Revisão: árvore e cobre
+
+Ajuste solicitado pelo usuário em 5 de setembro de 2026: reduzir a repetição da equipe e ampliar a presença da árvore e do cobre. A abertura usa `bg-bosque.jpg` em arco e o emblema original da árvore em cobre sobre areia. A equipe aparece apenas na seção de apresentação; a foto de reunião do processo foi substituída por grafismo derivado do emblema.
+
+Cobre #7A4A12 aplicado ao título de abertura, trechos destacados, molduras, seleção ativa, progressão do processo e CTA final. Areia #F0E9DE nas opções de contratação e no encerramento. Verde mantém o papel de cor principal para texto e CTA inicial.
+
+Validação local: Astro check sem erros ou avisos; build e 7 testes passam. Playwright em 320, 390, 768, 1024 e 1440px sem overflow ou imagens com falha. Menu, teclado, FAQ, mensagem de WhatsApp, reduced-motion e fallback sem JS conferidos.
+
+Publicação autorizada pelo usuário no projeto Vercel Bétula para avaliação da cliente. Destino verificado: betula-seven.vercel.app.
