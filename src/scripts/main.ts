@@ -2,10 +2,11 @@ const header = document.querySelector<HTMLElement>('[data-header]');
 const toggle = document.querySelector<HTMLButtonElement>('[data-toggle]');
 const menu = document.querySelector<HTMLElement>('[data-menu]');
 
-const closeMenu = () => {
+const closeMenu = (restoreFocus = false) => {
   header?.classList.remove('menu-open');
   toggle?.setAttribute('aria-expanded', 'false');
   toggle?.setAttribute('aria-label', 'Abrir menu');
+  if (restoreFocus) toggle?.focus();
 };
 
 toggle?.addEventListener('click', () => {
@@ -19,7 +20,17 @@ menu?.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeMenu();
+  if (event.key === 'Escape' && header?.classList.contains('menu-open')) closeMenu(true);
+});
+
+const trustLoop = document.querySelector<HTMLElement>('[data-trust-loop]');
+const trustToggle = document.querySelector<HTMLButtonElement>('[data-trust-toggle]');
+const trustToggleLabel = trustToggle?.querySelector<HTMLElement>('[data-trust-toggle-label]');
+
+trustToggle?.addEventListener('click', () => {
+  const paused = trustLoop?.classList.toggle('is-paused') ?? false;
+  trustToggle.setAttribute('aria-pressed', String(paused));
+  if (trustToggleLabel) trustToggleLabel.textContent = paused ? 'Retomar' : 'Pausar';
 });
 
 const revealItems = document.querySelectorAll<HTMLElement>('.reveal');
@@ -52,6 +63,35 @@ if (hero && floatingWhatsApp && 'IntersectionObserver' in window) {
 
   whatsappObserver.observe(hero);
 }
+
+let whatsappOcclusionObserver: IntersectionObserver | undefined;
+let whatsappResizeTimer: number | undefined;
+
+const watchWhatsAppCorner = () => {
+  if (!floatingWhatsApp || !('IntersectionObserver' in window)) return;
+
+  whatsappOcclusionObserver?.disconnect();
+  const occludingElements = new Set<Element>();
+  const cornerSize = 64;
+  const rootMargin = `-${Math.max(0, window.innerHeight - cornerSize)}px 0px 0px -${Math.max(0, window.innerWidth - cornerSize)}px`;
+
+  whatsappOcclusionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) occludingElements.add(entry.target);
+      else occludingElements.delete(entry.target);
+    });
+    floatingWhatsApp.classList.toggle('is-occluded', occludingElements.size > 0);
+  }, { rootMargin, threshold: 0 });
+
+  document.querySelectorAll('main a, main button, main h1, main h2, main h3, main p, main blockquote, main figcaption, main address')
+    .forEach((element) => whatsappOcclusionObserver?.observe(element));
+};
+
+watchWhatsAppCorner();
+window.addEventListener('resize', () => {
+  window.clearTimeout(whatsappResizeTimer);
+  whatsappResizeTimer = window.setTimeout(watchWhatsAppCorner, 120);
+});
 
 const processStory = document.querySelector<HTMLElement>('[data-process-story]');
 const processSteps = processStory?.querySelectorAll<HTMLElement>('[data-step]') ?? [];

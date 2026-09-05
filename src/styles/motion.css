@@ -19,7 +19,8 @@
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-  .trust-track { width: 100%; flex-wrap: wrap; justify-content: center; animation: none; }
+  .js .trust-track { width: 100%; flex-wrap: wrap; justify-content: center; animation: none; }
   .trust-track li[aria-hidden="true"] { display: none; }
-  .process-moment { opacity: 1; }
+  .trust-toggle { display: none !important; }
+  .process-moment, .js .process-moment { opacity: 1; }
 }

@@ -3,7 +3,13 @@ import { clients } from '../data/site';
 ---
 
 <section class="trust-strip" aria-label="Experiência e clientes da Bétula" data-trust-loop>
-  <div class="trust-statement"><strong>Mais de 20 anos</strong><span>conectando empresas e profissionais</span></div>
+  <div class="trust-statement">
+    <strong>Mais de 20 anos</strong>
+    <span>conectando empresas e profissionais</span>
+    <button class="trust-toggle" type="button" data-trust-toggle aria-pressed="false">
+      <span data-trust-toggle-label>Pausar</span>
+    </button>
+  </div>
   <div class="trust-viewport">
     <ul class="trust-track">
       {clients.map(([src, alt]) => <li><img src={`/assets/img/${src}`} alt={alt} width="180" height="80" loading="lazy" /></li>)}

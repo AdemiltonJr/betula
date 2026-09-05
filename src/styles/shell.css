@@ -1,10 +1,13 @@
 .site-header { position: sticky; top: 0; z-index: var(--layer-header); height: 4.5rem; background: color-mix(in srgb, var(--canvas) 94%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
 .header-inner { display: grid; height: 100%; grid-template-columns: auto 1fr auto; gap: clamp(1rem, 3vw, 2.25rem); align-items: center; }
-.brand { display: block; width: 9rem; height: 2.8rem; overflow: hidden; }
+.brand { display: block; width: 9rem; height: 2.8rem; overflow: hidden; transition: opacity 180ms ease; }
 .brand img { display: block; width: 100%; transform: translateY(-59%); }
 .nav-list { display: flex; margin: 0; padding: 0; gap: clamp(.9rem, 2vw, 1.75rem); align-items: center; list-style: none; }
-.nav-list a { font: 600 .9rem/1 var(--font-display); text-decoration: none; }
+.nav-list a { display: block; padding-block: .75rem; font: 600 .9rem/1 var(--font-display); text-decoration-color: transparent; transition: color 180ms ease, text-decoration-color 180ms ease; }
+.brand:hover, .footer-brand:hover { opacity: .72; }
+.nav-list a:hover, .footer-nav a:hover, .footer-meta a:hover, .contact-details a:hover, .hero-link:hover { text-decoration-color: currentColor; }
 .button-header { background: var(--brand); color: var(--canvas); }
+.button-header:hover { background: var(--brand-deep); }
 .nav-toggle { display: none; width: 2.75rem; height: 2.75rem; padding: .65rem; border: 1px solid var(--line); border-radius: 50%; background: transparent; }
 .nav-toggle span { display: block; width: 100%; height: 1px; margin-block: .28rem; background: currentColor; transition: transform 180ms ease, opacity 180ms ease; }
 .menu-open .nav-toggle span:nth-child(1) { transform: translateY(.56rem) rotate(45deg); }
@@ -22,12 +25,12 @@
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: center; }
 .hero-actions > * { max-width: 100%; }
 .hero-actions .button { text-align: center; white-space: normal; }
-.hero-link { font: 650 .95rem/1.2 var(--font-display); }
+.hero-link { padding-block: .65rem; font: 650 .95rem/1.2 var(--font-display); text-decoration-color: color-mix(in srgb, currentColor 54%, transparent); transition: text-decoration-color 180ms ease; }
 .hero-media { position: relative; min-height: inherit; margin: 0; overflow: hidden; }
 .hero-media > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
 .hero-signature { position: absolute; bottom: 2rem; left: -2.2rem; width: 4.4rem; height: 4.4rem; padding: .45rem; border-radius: 50%; background: var(--brand); }
 .hero-curtain { position: absolute; inset: 0; pointer-events: none; background: url('/assets/img/texture-birch-teal.png') center / cover no-repeat; mix-blend-mode: multiply; opacity: .2; }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .header-cta, .nav { display: none; }
   .nav-toggle { display: block; justify-self: end; }
   .menu-open .nav { position: absolute; top: 100%; right: 0; left: 0; display: block; padding: 1rem var(--gutter); background: var(--canvas); }
@@ -42,21 +45,23 @@
   .hero-signature { bottom: 1.25rem; left: 1.25rem; }
 }
 
-.whatsapp-float { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: var(--layer-float); display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid color-mix(in srgb, var(--canvas) 42%, transparent); border-radius: 50%; background: var(--brand); color: var(--canvas); box-shadow: 0 6px 8px color-mix(in srgb, var(--brand-deep) 24%, transparent); opacity: 0; pointer-events: none; transform: translateY(.75rem); transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease; }
+.whatsapp-float { position: fixed; right: calc(1rem + env(safe-area-inset-right)); bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: var(--layer-float); display: grid; width: 3rem; height: 3rem; place-items: center; border: 1px solid color-mix(in srgb, var(--canvas) 42%, transparent); border-radius: 50%; background: var(--brand); color: var(--canvas); box-shadow: 0 6px 8px color-mix(in srgb, var(--brand-deep) 24%, transparent); opacity: 0; pointer-events: none; transform: translateY(.75rem); transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease; }
 .whatsapp-float svg { width: 1.25rem; height: 1.25rem; }
 .whatsapp-float.is-active { opacity: 1; pointer-events: auto; transform: none; }
+.whatsapp-float.is-occluded { opacity: 0; pointer-events: none; transform: translateY(.75rem); }
 .whatsapp-float:hover { background: var(--brand-deep); }
 .contact { background: var(--brand); color: var(--canvas); }
 .contact-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .65fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; }
 .contact-main h2 { max-width: 12ch; margin-bottom: 2rem; font-size: clamp(2.75rem, 5vw, 5rem); line-height: .98; }
 .contact-details { padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--canvas) 28%, transparent); }
-.contact-details address { display: grid; gap: .65rem; font-style: normal; }
+.contact-details address { display: grid; gap: .65rem; overflow-wrap: anywhere; font-style: normal; }
 .curriculum-contact { margin-top: 2rem; color: color-mix(in srgb, var(--canvas) 72%, transparent); }
 .site-footer { padding-block: 3rem; background: var(--canvas); border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: minmax(8rem, .65fr) 1fr auto; gap: 2rem; align-items: start; }
-.footer-brand { display: block; width: 8rem; height: 2.5rem; overflow: hidden; }
+.footer-brand { display: block; width: 8rem; height: 2.5rem; overflow: hidden; transition: opacity 180ms ease; }
 .footer-brand img { display: block; width: 100%; transform: translateY(-59%); }
-.footer-nav { display: flex; flex-wrap: wrap; margin: 0; padding: .4rem 0 0; gap: .75rem 1.5rem; list-style: none; }
+.footer-nav { display: flex; flex-wrap: wrap; margin: 0; padding: 0; gap: 0 1.25rem; list-style: none; }
+.footer-nav a, .footer-meta a, .contact-details a { display: inline-block; padding-block: .4rem; text-decoration-color: transparent; transition: text-decoration-color 180ms ease; }
 .footer-meta { display: grid; padding-top: .4rem; gap: .5rem; justify-items: end; color: var(--muted); font-size: .85rem; }
 @media (max-width: 760px) {
   .contact-layout, .footer-grid { grid-template-columns: 1fr; }

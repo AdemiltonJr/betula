@@ -20,6 +20,10 @@ async function readBuiltHtml() {
 }
 
 const html = await readBuiltHtml();
+const baseCss = await readFile(new URL('../src/styles/base.css', import.meta.url), 'utf8');
+const shellCss = await readFile(new URL('../src/styles/shell.css', import.meta.url), 'utf8');
+const sectionsCss = await readFile(new URL('../src/styles/sections.css', import.meta.url), 'utf8');
+const mainScript = await readFile(new URL('../src/scripts/main.ts', import.meta.url), 'utf8');
 
 test('renderiza uma página institucional com um único h1', () => {
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
@@ -68,4 +72,26 @@ test('não reintroduz padrões visuais rejeitados', () => {
 
 test('não usa listener contínuo de scroll', () => {
   assert.doesNotMatch(html, /addEventListener\(["']scroll/);
+});
+
+test('mantém navegação por teclado e movimento contínuo sob controle', () => {
+  assert.match(html, /<main id="conteudo" tabindex="-1">/);
+  assert.match(html, /data-trust-toggle/);
+  assert.match(html, /aria-pressed="false"/);
+  assert.match(baseCss, /touch-action:\s*manipulation/);
+  assert.match(baseCss, /\[id\][^{]*\{[^}]*scroll-margin-top:/s);
+});
+
+test('usa composição móvel também no tablet estreito', () => {
+  assert.match(shellCss, /@media \(max-width:\s*900px\)/);
+});
+
+test('recolhe o WhatsApp flutuante quando o canto tem conteúdo', () => {
+  assert.match(mainScript, /whatsappOcclusionObserver/);
+  assert.match(shellCss, /\.whatsapp-float\.is-occluded/);
+});
+
+test('mantém todas as etapas legíveis sem javascript', () => {
+  assert.match(sectionsCss, /\.process-moment\s*\{[^}]*opacity:\s*1/s);
+  assert.match(sectionsCss, /\.js \.process-moment\s*\{[^}]*opacity:\s*\.48/s);
 });

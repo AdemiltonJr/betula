@@ -3,8 +3,9 @@ html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; overflow-x: clip; ba
 body { margin: 0; min-width: 320px; overflow-x: clip; background: var(--canvas); color: var(--ink); font: 1rem/1.6 var(--font-body); text-rendering: optimizeLegibility; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: .22em; }
-button, a { -webkit-tap-highlight-color: transparent; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[id] { scroll-margin-top: 5.5rem; }
 h1, h2, h3, p, figure, blockquote, ol, ul { margin-top: 0; }
 h1, h2, h3 { font-family: var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
 p { text-wrap: pretty; }
@@ -14,6 +15,8 @@ p { text-wrap: pretty; }
 .button:hover { transform: translateY(-2px); }
 .button:active { transform: translateY(0) scale(.98); }
 .button-primary { background: var(--canvas); color: var(--brand-deep); }
+.button-primary:hover { background: var(--warm-support); }
 .button-secondary { border-color: currentColor; color: currentColor; }
+.button-secondary:hover { background: var(--canvas); color: var(--brand-deep); }
 .skip-link { position: fixed; top: .75rem; left: .75rem; z-index: 100; padding: .65rem 1rem; background: var(--ink); color: var(--canvas); transform: translateY(-180%); }
 .skip-link:focus { transform: translateY(0); }
