@@ -32,3 +32,13 @@ A seleção e o cargo opcional apenas preparam o link de WhatsApp no navegador. 
 ## Publicação
 
 Adaptador estático Vercel, sitemap e canonical mantidos. Esta alteração é uma prévia e não troca o domínio oficial. Antes da publicação, confirmar telefones, emails, endereço e autorização de uso das imagens. As pendências institucionais permanecem em `contentValidation`.
+
+## Prévia online para avaliação da cliente
+
+Publicada em 5 de setembro de 2026: https://betula-seven.vercel.app/
+
+Versão visual: commit `712e582`, com bosque e árvore na abertura, cobre #7A4A12 em destaque e uma única fotografia da equipe.
+
+Deployment Vercel: `dpl_AyszuByimsdTBwtKJdvKfVsGWLZG`, estado READY. URL imutável: https://betula-j6df5a8yn-ademilton-juniors-projects.vercel.app/
+
+O endereço principal de avaliação respondeu HTTP 200 sem autenticação. Na versão online, Playwright confirmou 1440 e 390px sem overflow ou imagens com falha, seletor e mensagem de WhatsApp, teclado, FAQ, movimento reduzido e fallback sem JavaScript. Nenhum pageerror. O domínio oficial betularh.com.br não foi alterado.
