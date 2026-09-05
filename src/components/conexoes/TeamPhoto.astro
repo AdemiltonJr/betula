@@ -1,0 +1,74 @@
+---
+interface Person {
+  name: string;
+  position: string;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
+interface Props { people?: Person[]; }
+// Only names explicitly confirmed for positions in this photograph belong here.
+const { people = [] } = Astro.props;
+---
+<figure class="team-wide reveal team-photo" data-team-photo>
+  <img src="/assets/img/equipe-grupo-2.jpg" alt="Equipe Bétula reunida no escritório" width="1400" height="932" loading="lazy" />
+  {people.map((person, index) => (
+    <button
+      type="button"
+      class="team-person"
+      aria-label={`${person.name}, ${person.position}`}
+      aria-describedby={`team-person-label-${index}`}
+      data-team-person
+      style={`--person-left:${person.left}%;--person-top:${person.top}%;--person-width:${person.width}%;--person-height:${person.height}%;`}
+    >
+      <span class="team-person-label" id={`team-person-label-${index}`} role="tooltip">{person.name}</span>
+    </button>
+  ))}
+</figure>
+{people.length > 0 && <p class="team-photo-hint"><span class="pointer-hint">Passe o mouse sobre uma pessoa para conhecê-la.</span><span class="touch-hint">Toque em uma pessoa para ver o nome.</span></p>}
+
+<style>
+  .team-photo { position: relative; aspect-ratio: 1400 / 932; }
+  .team-person { position: absolute; left: var(--person-left); top: var(--person-top); width: var(--person-width); height: var(--person-height); padding: 0; border: 0; border-radius: 20%; background: transparent; cursor: pointer; }
+  .team-person:focus-visible { outline: 2px solid var(--sand); outline-offset: -3px; background: rgb(17 95 97 / .06); }
+  .team-person-label { position: absolute; left: 50%; bottom: 8%; transform: translate(-50%, 5px); padding: 9px 15px; border-radius: 5px; background: var(--teal); color: var(--paper); border: 1px solid rgb(250 250 248 / .6); font: 500 15px/1.3 var(--body); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity .18s, transform .18s, visibility .18s; box-shadow: 0 3px 14px rgb(0 0 0 / .1); pointer-events: auto; }
+  .team-person:focus-visible .team-person-label,
+  .team-person.is-active .team-person-label { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .team-person.is-dismissed .team-person-label { opacity: 0; visibility: hidden; }
+  @media (hover: hover) { .team-person:hover .team-person-label { opacity: 1; visibility: visible; transform: translate(-50%, 0); } .team-person.is-dismissed:hover .team-person-label { opacity: 0; visibility: hidden; } }
+  .team-photo-hint { margin-top: 15px; color: var(--muted); font-size: 13px; }
+  .touch-hint { display: none; }
+  @media (hover: none) { .touch-hint { display: inline; } .pointer-hint { display: none; } }
+  @media (max-width: 600px) { .team-person-label { padding: 6px 9px; font-size: 11px; } .team-photo-hint { font-size: 12px; } }
+  @media (prefers-reduced-motion: reduce) { .team-person-label { transition: none; } }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-team-photo]').forEach(photo => {
+    const people = photo.querySelectorAll<HTMLButtonElement>('[data-team-person]');
+    const dismissAll = () => people.forEach(person => person.classList.remove('is-active'));
+    people.forEach(person => {
+      person.addEventListener('click', () => {
+        const active = person.classList.contains('is-active');
+        dismissAll();
+        person.classList.remove('is-dismissed');
+        person.classList.toggle('is-active', !active);
+      });
+      person.addEventListener('pointerenter', () => person.classList.remove('is-dismissed'));
+      person.addEventListener('pointerleave', event => {
+        if (event.pointerType === 'mouse') person.classList.remove('is-active');
+      });
+      person.addEventListener('focus', () => person.classList.remove('is-dismissed'));
+      person.addEventListener('blur', () => person.classList.remove('is-active'));
+    });
+    document.addEventListener('click', event => {
+      if (event.target instanceof Element && !event.target.closest('[data-team-person]')) dismissAll();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      dismissAll();
+      people.forEach(person => person.classList.add('is-dismissed'));
+    });
+  });
+</script>

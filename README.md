@@ -42,3 +42,11 @@ Versão visual: commit `712e582`, com bosque e árvore na abertura, cobre #7A4A1
 Deployment Vercel: `dpl_AyszuByimsdTBwtKJdvKfVsGWLZG`, estado READY. URL imutável: https://betula-j6df5a8yn-ademilton-juniors-projects.vercel.app/
 
 O endereço principal de avaliação respondeu HTTP 200 sem autenticação. Na versão online, Playwright confirmou 1440 e 390px sem overflow ou imagens com falha, seletor e mensagem de WhatsApp, teclado, FAQ, movimento reduzido e fallback sem JavaScript. Nenhum pageerror. O domínio oficial betularh.com.br não foi alterado.
+
+## Nomes na fotografia da equipe
+
+Correspondência confirmada pelo usuário em 5 de setembro de 2026: em pé, primeira pessoa sem nome, segunda Elaine Souza, terceira Luciana Alvim e quarta Tamara Tordin; sentadas, Georgia Frattini à esquerda e Vanessa Luiz à direita.
+
+`src/data/team-photo.ts` registra somente as cinco identificações confirmadas. `TeamPhoto.astro` mostra o nome por hover, foco de teclado ou toque. Escape fecha; toque repetido alterna e toque fora fecha. A foto mantém a proporção original para preservar a posição dos alvos.
+
+Verificado localmente com Astro check, build e 7 testes. Playwright conferiu os cinco hovers, foco, Escape e interação touch; etiquetas dentro da tela e proporção correta em 320, 390, 768 e 1440px.
