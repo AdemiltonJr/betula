@@ -1,97 +1,63 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, access } from 'node:fs/promises';
 import test from 'node:test';
 
-const outputCandidates = [
-  new URL('../dist/index.html', import.meta.url),
-  new URL('../dist/client/index.html', import.meta.url),
-];
-
 async function readBuiltHtml() {
-  for (const candidate of outputCandidates) {
-    try {
-      return await readFile(candidate, 'utf8');
-    } catch (error) {
-      if (error?.code !== 'ENOENT') throw error;
-    }
+  for (const path of ['../dist/index.html', '../dist/client/index.html']) {
+    try { return await readFile(new URL(path, import.meta.url), 'utf8'); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
   }
-
-  throw new Error('HTML compilado não encontrado em dist/index.html ou dist/client/index.html.');
+  throw new Error('HTML compilado não encontrado. Execute npm run build.');
 }
-
 const html = await readBuiltHtml();
-const baseCss = await readFile(new URL('../src/styles/base.css', import.meta.url), 'utf8');
-const shellCss = await readFile(new URL('../src/styles/shell.css', import.meta.url), 'utf8');
-const sectionsCss = await readFile(new URL('../src/styles/sections.css', import.meta.url), 'utf8');
-const mainScript = await readFile(new URL('../src/scripts/main.ts', import.meta.url), 'utf8');
 
-test('renderiza uma página institucional com um único h1', () => {
+test('entrega título único, idioma e conteúdo principal acessível', () => {
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
-  assert.match(html, /data-hero/);
-  assert.match(html, /class="hero-media"/);
-  assert.match(html, /equipe-grupo-2\.jpg/);
+  assert.match(html, /lang="pt-BR"/);
+  assert.match(html, /<main id="conteudo" tabindex="-1">/);
+  assert.match(html, /Pular para o conteúdo/);
 });
 
-test('mantém SEO local e canonical coerentes', () => {
+test('preserva SEO local e canonical e não inventa reviews', () => {
   assert.match(html, /<title>Recrutamento e Seleção em Campinas \| Bétula RH<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/betularh\.com\.br\/"/);
   assert.match(html, /"@type":"EmploymentAgency"/);
   assert.doesNotMatch(html, /"@type":"Review"/);
 });
 
-test('expõe a prova de confiança e o processo no HTML inicial', () => {
-  assert.match(html, /data-trust-loop/);
-  assert.match(html, /data-process-story/);
-  assert.equal((html.match(/data-process-step/g) ?? []).length, 4);
-  assert.match(html, /Compreensão/);
-  assert.match(html, /Acompanhamento/);
+test('todos os destinos internos existem e ids são únicos', () => {
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(target), `Âncora ausente: ${target}`);
 });
 
-test('usa fotografias reais como estrutura visual', () => {
-  assert.match(html, /socias-2\.jpg/);
-  assert.match(html, /office-candid\.jpg/);
-  assert.match(html, /equipe-grupo\.jpg/);
-  assert.match(html, /team-luciana-alvim\.jpg/);
+test('imagens locais existem e possuem texto alternativo e dimensões', async () => {
+  for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+    assert.match(tag, /\balt="[^"]*"/);
+    assert.match(tag, /\bwidth="\d+"/);
+    assert.match(tag, /\bheight="\d+"/);
+    const source = tag.match(/src="([^"]+)"/)?.[1];
+    if (source?.startsWith('/')) await access(new URL(`../public${source}`, import.meta.url));
+  }
 });
 
-test('oferece WhatsApp sem depender de formulário ou javascript', () => {
+test('processo completo é entregue sem depender do javascript', () => {
+  assert.equal((html.match(/<article\b[^>]*data-process-step/g) ?? []).length, 4);
+  for (const title of ['Compreensão', 'Busca', 'Avaliação', 'Acompanhamento']) assert.ok(html.includes(title));
+  assert.ok((html.match(/<details\b/g) ?? []).length >= 8);
+});
+
+test('contato direto funciona sem javascript e seletor tem estado inicial definido', () => {
   assert.match(html, /https:\/\/wa\.me\/5519981389865\?text=/);
-  assert.match(html, /data-whatsapp-float/);
-  assert.match(html, /data-whatsapp-icon/);
-  assert.doesNotMatch(html, /<form\b/);
+  assert.match(html, /<noscript>/);
+  assert.equal((html.match(/<button\b[^>]*aria-pressed="true"/g) ?? []).length, 1);
+  assert.equal((html.match(/<button\b[^>]*aria-pressed="false"/g) ?? []).length, 2);
+  assert.match(html, /aria-live="polite"/);
+  assert.match(html, /label for="job-role"/);
+  assert.match(html, /mailto:curriculo@betularh.com.br/);
   assert.doesNotMatch(html, /\/api\/contact/);
 });
 
-test('não reintroduz padrões visuais rejeitados', () => {
-  assert.doesNotMatch(html, /hero-birch\.jpg/);
-  assert.doesNotMatch(html, /hero-mark/);
-  assert.doesNotMatch(html, /atuacao-grid/);
-  assert.doesNotMatch(html, /section-index/);
-  assert.doesNotMatch(html, /[—–]/);
-});
-
-test('não usa listener contínuo de scroll', () => {
-  assert.doesNotMatch(html, /addEventListener\(["']scroll/);
-});
-
-test('mantém navegação por teclado e movimento contínuo sob controle', () => {
-  assert.match(html, /<main id="conteudo" tabindex="-1">/);
-  assert.match(html, /data-trust-toggle/);
-  assert.match(html, /aria-pressed="false"/);
-  assert.match(baseCss, /touch-action:\s*manipulation/);
-  assert.match(baseCss, /\[id\][^{]*\{[^}]*scroll-margin-top:/s);
-});
-
-test('usa composição móvel também no tablet estreito', () => {
-  assert.match(shellCss, /@media \(max-width:\s*900px\)/);
-});
-
-test('recolhe o WhatsApp flutuante quando o canto tem conteúdo', () => {
-  assert.match(mainScript, /whatsappOcclusionObserver/);
-  assert.match(shellCss, /\.whatsapp-float\.is-occluded/);
-});
-
-test('mantém todas as etapas legíveis sem javascript', () => {
-  assert.match(sectionsCss, /\.process-moment\s*\{[^}]*opacity:\s*1/s);
-  assert.match(sectionsCss, /\.js \.process-moment\s*\{[^}]*opacity:\s*\.48/s);
+test('links externos abertos em outra aba protegem a origem', () => {
+  for (const [tag] of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) assert.match(tag, /rel="[^"]*noopener/);
 });

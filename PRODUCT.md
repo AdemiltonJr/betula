@@ -1,3 +1,7 @@
+# Registro histórico da prévia anterior
+
+A direção ativa está em DESIGN.md e foi aprovada em 5 de setembro de 2026. Este arquivo preserva decisões anteriores como contexto, sem impor o layout da página atual.
+
 # Product
 
 ## Register

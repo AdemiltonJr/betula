@@ -1,67 +1,27 @@
-# Design System
+# Design System: conexões humanas
 
-## Direction
+Direção orgânica e contemporânea aprovada pelo usuário em 5 de setembro de 2026. Substitui a direção da prévia anterior; materiais históricos permanecem no histórico Git.
 
-Autoridade humana. Fotografia real, composição assimétrica controlada, teal dominante e um processo narrativo como único momento de alto impacto.
+## Identidade
 
-## Color
+Guia original conferido no Google Drive: `1xywe6p5TahotjCOWHnj5_4XWSTr_1PPl`.
 
-- Brand: #115F61
-- Brand deep: #08494B
-- Brand soft: #4E8F90
-- Accent: #7A4A12
-- Canvas: #FAFAF8
-- Warm support: #F0E9DE
-- Ink: #232323
-- Muted ink: #555C59
+- Teal principal #115F61; teal suave #4E8F90 para títulos grandes.
+- Off-white #FAFAF8; superfícies suaves derivadas da paleta natural.
+- Bronze #7A4A12 para foco; texto de apoio #5C6865.
+- Manrope Variable para títulos e Source Sans 3 Variable para corpo, hospedadas localmente.
+- Logo e fotografias existentes sem geração de pessoas ou alteração do símbolo.
 
-Warm support never becomes the global page background. Accent stays below 10 percent of visible surface.
+## Composição
 
-## Typography
+Abertura tipográfica central, retrato em arco à esquerda, fotografia de grupo em moldura orgânica à direita e CTA central. No celular, mensagem e CTA precedem as duas fotografias. Container até 1280px, margens de 20px no celular. Botões discretamente arredondados, superfícies sem sombras pesadas.
 
-- Display: Manrope Variable
-- Body: Source Sans 3 Variable
-- H1 maximum: 76px desktop, 48px mobile
-- Display tracking floor: -0.035em
-- Body measure: 65-75ch
+O seletor apresenta necessidade, explicação e contato. Processo em quatro etapas conectado por um tronco e ramificações; introdução fixa durante o trecho no desktop. Equipe em fotografia ampla com proporção que preserva rostos. FAQ nativo e encerramento claro.
 
-## Shape
+## Interação e acessibilidade
 
-- Components: 8-12px radius
-- Buttons: 10px radius
-- Brand circle: signature only
-- No decorative wide shadows
+Seleção por botões com aria-pressed, atualização em aria-live, cargo opcional com label e limite de 160 caracteres. Menu acessível com Escape e retorno do foco. Links diretos sem JavaScript. Animações de entrada e ativação do processo sem listener de scroll; prefers-reduced-motion remove movimento. Foco visível e sem rolagem bloqueada.
 
-## Layout
+## Conteúdo
 
-- Container: 1240px
-- Desktop hero: 42/58 color-to-photo split
-- Mobile hero: copy first, portrait second
-- No repeated equal-card grids
-- No split section headers with floating side copy
-
-## Motion
-
-- Hero uses one mask-like curtain reveal.
-- Client logos use the only marquee on the page.
-- Process uses sticky progression on desktop and vertical flow on mobile.
-- All other movement is interaction feedback.
-- Reduced motion is complete and static.
-
-## Imagery
-
-- Hero: equipe-grupo-2.jpg
-- Human approach: socias-2.jpg and retrato-a.jpg
-- Process: office-candid.jpg
-- Team: verified individual headshots plus equipe-grupo.jpg
-- Do not use the existing meeting hero treatment.
-
-## Bans
-
-- No cream or beige global canvas.
-- No giant clipped emblem.
-- No three equal feature cards.
-- No repeated eyebrow labels.
-- No decorative numbering outside the real process.
-- No gradient text, neon, glassmorphism or hand-drawn SVG decoration.
-- No em dash or en dash in visible page copy.
+Contato utiliza a fonte central existente, ainda sujeita a confirmação antes de publicação. Não apresentar logos de clientes, métricas ou depoimentos ainda não validados. Não atribuir cargos individuais às fotografias.
