@@ -1,6 +1,7 @@
 ---
 import { processMoments, organization, whatsappHref } from '../../data/site';
 import TeamPhoto from './TeamPhoto.astro';
+import CandidateReviews from './CandidateReviews.astro';
 import { teamPhotoPeople } from '../../data/team-photo';
 const questions = [
   ['Como começamos um processo seletivo?', 'O primeiro passo é uma conversa sobre o momento da empresa, a posição e as expectativas. A partir desse entendimento, alinhamos o perfil e a condução da busca.'],
@@ -27,6 +28,8 @@ const questions = [
   <TeamPhoto people={teamPhotoPeople} />
   <div class="team-caption"><span>O lado humano de cada contratação.</span><a class="text-link" href={whatsappHref()} target="_blank" rel="noopener">Vamos nos conhecer <span aria-hidden="true">↗</span></a></div>
 </section>
+
+<CandidateReviews />
 
 <section class="faq-section section-space" aria-labelledby="faq-title"><div class="faq-heading"><h2 id="faq-title">Antes da<br />nossa conversa.</h2><p>Algumas respostas para<br />você dar o próximo passo.</p></div><div class="faq-list">{questions.map(([question, answer], index) => <details class="faq-item"><summary>{question}<span aria-hidden="true">+</span></summary><div><p>{answer}</p>{index === 3 && <a class="text-link" href={`mailto:${organization.curriculumEmail}`}>{organization.curriculumEmail}</a>}</div></details>)}</div></section>
 

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import test from 'node:test';
+import { candidateReviews, reviewSegments } from '../src/data/candidate-reviews.ts';
 
 async function readBuiltHtml() {
   for (const path of ['../dist/index.html', '../dist/client/index.html']) {
@@ -10,6 +11,21 @@ async function readBuiltHtml() {
   throw new Error('HTML compilado não encontrado. Execute npm run build.');
 }
 const html = await readBuiltHtml();
+
+test('publica apenas a lista revisada de clientes e preserva os relatos de candidatos', () => {
+  for (const file of ['cli-renova.png', 'cli-bollhoff.png', 'cli-dellys.png', 'cli-enxuto.png', 'cli-eucatex.png', 'cli-vetnil.png']) assert.ok(!html.includes(file), `Cliente retirado reapareceu: ${file}`);
+  const text = html.replace(/<[^>]+>/g, '');
+  assert.equal(candidateReviews.length, 5);
+  assert.equal(new Set(candidateReviews.map(review => review.url)).size, 5);
+  for (const review of candidateReviews) {
+    assert.ok(html.includes(review.url));
+    for (const paragraph of review.paragraphs) {
+      assert.ok(text.includes(paragraph), `Fala alterada ou omitida: ${review.name}`);
+      assert.equal(reviewSegments(paragraph).map(part => part.text).join(''), paragraph);
+    }
+    assert.ok(review.paragraphs.some(paragraph => paragraph.includes(review.excerpt)), `Trecho não literal: ${review.name}`);
+  }
+});
 
 test('entrega título único, idioma e conteúdo principal acessível', () => {
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);

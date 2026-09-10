@@ -52,3 +52,7 @@ Correspondência confirmada pelo usuário em 5 de setembro de 2026: em pé, prim
 Verificado localmente com Astro check, build e 7 testes. Playwright conferiu os cinco hovers, foco, Escape e interação touch; etiquetas dentro da tela e proporção correta em 320, 390, 768 e 1440px.
 
 A chamada agora desenha uma linha a partir da pessoa e revela o nome letra por letra, com detalhes em cobre. A sequência foi conferida no navegador; hover, teclado, toque e movimento reduzido continuam validados nas quatro larguras acima.
+
+## Ajustes da cliente — 10/09/2026
+
+Lista de clientes revisada, sete logos obtidos em fontes oficiais e Columbia Brasil identificada em texto enquanto a empresa é confirmada. Cinco avaliações de candidatos, com trecho literal, leitura completa e navegação manual. Fontes e pendências em LOGOS_E_DEPOIMENTOS.md. Check sem erros; build e 8 testes passam; navegador conferido de 320 a 1440px, teclado e fallback sem JavaScript.

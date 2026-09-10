@@ -99,18 +99,20 @@ export const processMoments = [
 ] as const;
 
 export const clients = [
-  ['cli-bollhoff.png', 'Böllhoff'],
-  ['cli-dellys.png', "Delly's"],
-  ['cli-enxuto.png', 'Enxuto'],
-  ['cli-eucatex.png', 'Eucatex'],
+  ['cli-isorecort.webp', 'Isorecort'],
+  ['cli-ie-pescados.svg', 'IE Pescados'],
+  ['cli-sitio-recanto.png', 'Sítio Recanto do Queijo'],
+  ['cli-clinica-cidade.svg', 'Clínica da Cidade'],
+  ['', 'Columbia Brasil'], // Logo depende da confirmação da empresa.
+  ['cli-sao-vicente.png', 'Supermercados São Vicente'],
+  ['cli-fyp.png', 'FYP Engenharia'],
+  ['cli-aguajato.webp', 'Aguajato'],
   ['cli-grancoffee.png', 'Gran Coffee'],
   ['cli-livre-sofia.png', 'Escola Livre Sofia'],
   ['cli-osteopatia-madrid.png', 'Escola de Osteopatia de Madrid'],
-  ['cli-renova.png', 'Escola Renova'],
   ['cli-tecnopav.png', 'Tecnopav'],
   ['cli-telashop.png', 'Telashop'],
   ['cli-tso.png', 'TSO'],
-  ['cli-vetnil.png', 'Vetnil'],
   ['cli-waldorf-acalanto.png', 'Escola Waldorf Acalanto'],
   ['cli-wgk.png', 'WGK'],
 ] as const;
