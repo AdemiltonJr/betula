@@ -35,7 +35,7 @@ const { people = [] } = Astro.props;
 {people.length > 0 && <p class="team-photo-hint"><span class="pointer-hint">Passe o mouse sobre uma pessoa para conhecê-la.</span><span class="touch-hint">Toque em uma pessoa para ver o nome.</span></p>}
 
 <style>
-  .team-photo { position: relative; aspect-ratio: 1400 / 932; }
+  .team-photo { position: relative; aspect-ratio: 1400 / 932; width: min(100%, calc((100svh - 180px) * 1.5021459)); margin-inline: auto; container-type: inline-size; }
   .team-person { --callout-opacity: 0; --callout-visibility: hidden; --trace-animation: none; --letter-animation: none; --origin-animation: none; position: absolute; left: var(--person-left); top: var(--person-top); width: var(--person-width); height: var(--person-height); padding: 0; border: 0; border-radius: 20%; background: transparent; cursor: pointer; }
   .team-person:focus-visible { outline: 2px solid var(--sand); outline-offset: -3px; background: rgb(17 95 97 / .06); }
   .team-person-trace { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; opacity: var(--callout-opacity); pointer-events: none; filter: drop-shadow(0 1px 2px rgb(35 35 35 / .35)); }
@@ -54,8 +54,10 @@ const { people = [] } = Astro.props;
   .team-person:is(:focus-visible, .is-active):not(.is-dismissed) { --panel-animation: reveal-nameplate; }
   @media (hover: hover) { .team-person:hover:not(.is-dismissed) { --panel-animation: reveal-nameplate; } }
   @keyframes reveal-nameplate { from { opacity: 0; } to { opacity: 1; } }
-  .team-photo-hint { margin-top: 15px; color: var(--muted); font-size: 13px; }
+  .team-photo-hint { width: min(100%, calc((100svh - 180px) * 1.5021459)); margin: 15px auto 0; color: var(--muted); font-size: 13px; }
   .touch-hint { display: none; }
+  @container (max-width: 600px) { .team-person:nth-of-type(3) .team-person-label { left: auto; right: 2px; transform: none; } }
+  @container (max-width: 600px) { .team-person-label { padding: 6px 8px; font-size: 10px; } .team-person-origin { width: 6px; height: 6px; border-width: 1px; box-shadow: 0 0 0 2px rgb(240 233 222 / .18); } }
   @media (hover: none) { .touch-hint { display: inline; } .pointer-hint { display: none; } }
   @media (max-width: 600px) { .team-person-label { padding: 6px 8px; font-size: 10px; } .team-person-origin { width: 6px; height: 6px; border-width: 1px; box-shadow: 0 0 0 2px rgb(240 233 222 / .18); } .team-photo-hint { font-size: 12px; } }
   @media (prefers-reduced-motion: reduce) { .team-person-label { transition: none; animation: none; } .team-person-trace path { animation: none; stroke-dashoffset: 0; } .name-letter { animation: none; opacity: 1; } .team-person-origin { animation: none; } }

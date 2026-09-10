@@ -143,7 +143,7 @@
   .team-heading > p:last-child { color: var(--muted); margin-top: 24px; }
   .team-wide { aspect-ratio: 1.7; border-radius: 130px 8px 130px 8px; overflow: hidden; }
   .team-wide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .team-caption { display: flex; align-items: center; justify-content: space-between; padding-top: 25px; font-size: 13px; }
+  .team-caption { width: min(100%, calc((100svh - 180px) * 1.5021459)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 25px; font-size: 13px; }
   .team-caption > span { color: var(--muted); }
   .faq-section { display: grid; grid-template-columns: 1fr 1.35fr; gap: 90px; border-top: 1px solid var(--line); }
   .faq-heading h2 { font-size: 44px; }
