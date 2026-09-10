@@ -107,6 +107,7 @@ export const clients = [
   ['cli-sao-vicente.png', 'Supermercados São Vicente'],
   ['cli-fyp.png', 'FYP Engenharia'],
   ['cli-aguajato.webp', 'Aguajato'],
+  ['cli-casa-da-alma.svg', 'Casa da Alma Cosméticos'],
   ['cli-grancoffee.png', 'Gran Coffee'],
   ['cli-livre-sofia.png', 'Escola Livre Sofia'],
   ['cli-osteopatia-madrid.png', 'Escola de Osteopatia de Madrid'],

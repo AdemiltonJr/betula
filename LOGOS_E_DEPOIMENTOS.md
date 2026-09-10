@@ -2,7 +2,7 @@
 
 ## Logos obtidos
 
-Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, duas faixas usam overlay em verde e cobre da Bétula sobre fundo claro, sem caixas ou fundos individuais. Cada faixa percorre metade dos 16 clientes, com cópias decorativas para completar o loop. As cópias são ocultadas de leitores de tela. Movimento em sentidos opostos, pausa manual/hover/foco e alternativa estática com rolagem para movimento reduzido ou ausência de JavaScript.
+Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, duas faixas usam overlay em verde e cobre da Bétula sobre fundo claro, sem caixas ou fundos individuais. As faixas dividem os 17 clientes, com cópias decorativas para completar o loop. As cópias são ocultadas de leitores de tela. Movimento em sentidos opostos, pausa manual/hover/foco e alternativa estática com rolagem para movimento reduzido ou ausência de JavaScript.
 
 | Marca | Página de origem | Arquivo original |
 |---|---|---|
@@ -13,6 +13,7 @@ Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os
 | Supermercados São Vicente | https://www.svicente.com.br/institucional | https://www.svicente.com.br/on/demandware.static/Sites-SaoVicente-Site/-/default/dw951bce2a/images/logo/logo-sv.png |
 | FYP Engenharia | https://fyp.com.br/ | https://fyp.com.br/wp-content/uploads/2022/01/cropped-fyp-logo.png |
 | Aguajato | https://www.aguajato.com.br/ | https://www.aguajato.com.br/img/logo-aguajato.webp |
+| Casa da Alma Cosméticos | https://casadaalmacosmeticos.com.br/ | https://casadaalmacosmeticos.com.br/wp-content/uploads/2024/02/logotipo.svg |
 
 Clínica da Cidade: variante oficial “Franchising”, obtida no site de franquias vinculado pelo site institucional. O acesso automatizado ao site principal retornou 403.
 
