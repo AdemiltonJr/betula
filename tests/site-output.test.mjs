@@ -49,7 +49,8 @@ test('todos os destinos internos existem e ids são únicos', () => {
 
 test('imagens locais existem e possuem texto alternativo e dimensões', async () => {
   for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
-    assert.match(tag, /\balt="[^"]*"/);
+    // Astro pode serializar alt="" como atributo vazio alt em imagens decorativas.
+    assert.match(tag, /\balt(?:="[^"]*"|(?=\s|>))/);
     assert.match(tag, /\bwidth="\d+"/);
     assert.match(tag, /\bheight="\d+"/);
     const source = tag.match(/src="([^"]+)"/)?.[1];

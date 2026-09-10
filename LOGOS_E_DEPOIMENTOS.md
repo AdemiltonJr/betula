@@ -2,7 +2,7 @@
 
 ## Logos obtidos
 
-Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, a faixa usa CSS monocromático para equilibrar as marcas sobre fundo claro, sem caixas ou fundos individuais.
+Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, duas faixas usam overlay em verde e cobre da Bétula sobre fundo claro, sem caixas ou fundos individuais. Cada faixa percorre metade dos 16 clientes, com cópias decorativas para completar o loop. As cópias são ocultadas de leitores de tela. Movimento em sentidos opostos, pausa manual/hover/foco e alternativa estática com rolagem para movimento reduzido ou ausência de JavaScript.
 
 | Marca | Página de origem | Arquivo original |
 |---|---|---|

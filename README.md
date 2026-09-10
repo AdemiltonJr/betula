@@ -58,3 +58,5 @@ A chamada agora desenha uma linha a partir da pessoa e revela o nome letra por l
 Lista de clientes revisada, sete logos obtidos em fontes oficiais e Columbia Brasil identificada em texto enquanto a empresa é confirmada. Cinco avaliações de candidatos, com trecho literal, leitura completa e navegação manual. Fontes e pendências em LOGOS_E_DEPOIMENTOS.md. Check sem erros; build e 8 testes passam; navegador conferido de 320 a 1440px, teclado e fallback sem JavaScript.
 
 A apresentação dos clientes foi refinada para uma única faixa horizontal compacta, sem grade ou fundos verdes. Logos com tratamento monocromático em CSS, navegação por setas e rolagem nativa. Conferidos os 16 clientes, início/fim, teclado, larguras de 320 a 1440px e fallback sem JavaScript.
+
+Revisão: duas faixas automáticas em sentidos opostos, verde e cobre por overlay CSS. Repetições decorativas fecham o ciclo dos mesmos 16 clientes. Pausa, retomada e movimento reduzido conferidos no navegador; sem overflow em 320–1440px.
