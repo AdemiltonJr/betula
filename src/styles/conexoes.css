@@ -145,6 +145,15 @@
   .team-wide img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
   .team-caption { width: min(100%, calc((100svh - 180px) * 1.5021459)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 25px; font-size: 13px; }
   .team-caption > span { color: var(--muted); }
+  .team-visual { min-width: 0; }
+  @media (min-width: 1100px) {
+    .team-section { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); align-items: center; gap: 64px; }
+    .team-heading { text-align: left; margin-bottom: 70px; }
+    .team-heading h2 { font-size: clamp(36px, 3.1vw, 48px); }
+    .team-heading > p:last-child { font-size: 18px; max-width: 360px; }
+    .team-heading .desktop-break { display: none; }
+    .team-heading .eyebrow { max-width: 290px; line-height: 1.7; }
+  }
   .faq-section { display: grid; grid-template-columns: 1fr 1.35fr; gap: 90px; border-top: 1px solid var(--line); }
   .faq-heading h2 { font-size: 44px; }
   .faq-heading p { color: var(--muted); margin-top: 22px; }

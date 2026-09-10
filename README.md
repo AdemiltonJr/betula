@@ -62,3 +62,5 @@ A apresentação dos clientes foi refinada para uma única faixa horizontal comp
 Revisão: duas faixas automáticas em sentidos opostos, verde e cobre por overlay CSS. Repetições decorativas fecham o ciclo dos mesmos 16 clientes. Pausa, retomada e movimento reduzido conferidos no navegador; sem overflow em 320–1440px.
 
 Correção da foto em janelas baixas: largura limitada pela altura visível (svh), com reserva para cabeçalho e respiro. Proporção original e alvos percentuais preservados; etiquetas se adaptam à largura real da foto. Conferidos sete tamanhos de janela, incluindo 1518×684 (aproximação da área útil em zoom de 90%), orientação horizontal e celulares, com foto e nomes dentro dos limites.
+
+Equipe em telas amplas: composição em duas colunas a partir de 1100px, com apresentação à esquerda e foto à direita. Preserva o limite de altura da foto e mantém a disposição vertical em telas menores. Build, check e 8 testes passam; encaixe da foto e etiquetas conferidos em sete tamanhos.

@@ -25,8 +25,10 @@ const questions = [
 
 <section class="team-section section-space" id="equipe" aria-labelledby="team-title">
   <div class="team-heading reveal"><p class="eyebrow">Quem está do outro lado da conversa</p><h2 id="team-title">Gente que entende de gente.<br /><span>E do seu negócio.</span></h2><p>Escuta próxima, critério na escolha e cuidado com as relações.<br class="desktop-break" /> É assim que a Bétula conecta empresas e profissionais.</p></div>
-  <TeamPhoto people={teamPhotoPeople} />
-  <div class="team-caption"><span>O lado humano de cada contratação.</span><a class="text-link" href={whatsappHref()} target="_blank" rel="noopener">Vamos nos conhecer <span aria-hidden="true">↗</span></a></div>
+  <div class="team-visual">
+    <TeamPhoto people={teamPhotoPeople} />
+    <div class="team-caption"><span>O lado humano de cada contratação.</span><a class="text-link" href={whatsappHref()} target="_blank" rel="noopener">Vamos nos conhecer <span aria-hidden="true">↗</span></a></div>
+  </div>
 </section>
 
 <CandidateReviews />
