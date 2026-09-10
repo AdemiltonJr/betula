@@ -2,7 +2,7 @@
 
 ## Logos obtidos
 
-Os arquivos foram copiados de páginas oficiais e conferidos na composição. Não foram redesenhados nem recoloridos. Variantes brancas recebem fundo escuro.
+Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, a faixa usa CSS monocromático para equilibrar as marcas sobre fundo claro, sem caixas ou fundos individuais.
 
 | Marca | Página de origem | Arquivo original |
 |---|---|---|

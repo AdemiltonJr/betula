@@ -1,29 +1,67 @@
 ---
 import { clients } from '../../data/site';
 ---
-<section class="client-roster section-space" id="clientes" aria-labelledby="clients-title">
-  <div class="client-heading"><h2 id="clients-title">Empresas que fazem parte<br /><span>da nossa trajetória.</span></h2><p>Negócios diferentes.<br />O mesmo cuidado com cada conexão.</p></div>
-  <ul class="client-logos" role="list">
-    {clients.map(([file, name]) => <li class:list={[{ 'client-dark': name === 'Isorecort' || name === 'Clínica da Cidade' }]}>
-      {file ? <img src={`/assets/img/${file}`} alt={name} width="200" height="90" loading="lazy" /> : <span class="client-name">{name}</span>}
-    </li>)}
-  </ul>
+<section class="client-roster section-space" id="clientes" aria-labelledby="clients-title" data-clients>
+  <div class="client-heading">
+    <h2 id="clients-title">Empresas que fazem parte <span>da nossa trajetória.</span></h2>
+    <div class="client-controls" data-client-controls hidden>
+      <button type="button" data-client-prev aria-label="Ver clientes anteriores" aria-controls="client-logos">←</button>
+      <button type="button" data-client-next aria-label="Ver próximos clientes" aria-controls="client-logos">→</button>
+    </div>
+  </div>
+  <div class="client-viewport" id="client-logos" tabindex="0" role="region" aria-label="Logos dos clientes; deslize ou use as setas para percorrer">
+    <ul class="client-logos" role="list">
+      {clients.map(([file, name]) => <li>
+        {file ? <img class:list={[{ 'white-logo': name === 'Isorecort' || name === 'Clínica da Cidade' }]} src={`/assets/img/${file}`} alt={name} width="180" height="64" loading="lazy" /> : <span class="client-name">{name}</span>}
+      </li>)}
+    </ul>
+  </div>
 </section>
 <style>
-  .client-roster { padding-top: 65px; padding-bottom: 65px; }
-  .client-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 35px; }
-  .client-heading h2 { font-size: clamp(28px, 2.8vw, 40px); }
-  .client-heading p { font-size: 16px; color: var(--muted); }
-  .client-logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 1px; background: var(--line); list-style: none; }
-  .client-logos li { min-width: 0; height: 110px; display: flex; align-items: center; justify-content: center; padding: 20px 22px; background: white; }
-  .client-logos img { width: 100%; max-width: 200px; height: 100%; object-fit: contain; }
-  .client-logos .client-dark { background: #175537; }
-  .client-name { font-family: var(--title); text-align: center; font-size: 18px; line-height: 1.3; }
-  @media (max-width: 1050px) { .client-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .client-roster { padding-block: 32px 38px; }
+  .client-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+  .client-heading h2 { font-size: 21px; line-height: 1.45; letter-spacing: -.035em; }
+  .client-heading h2 span { color: var(--muted); }
+  .client-controls { display: flex; gap: 10px; flex-shrink: 0; }
+  .client-controls[hidden] { display: none; }
+  .client-controls button { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; background: transparent; font-size: 22px; line-height: 1; transition: border-color .2s, color .2s; }
+  .client-controls button:hover:not(:disabled) { color: var(--bronze); border-color: var(--bronze); }
+  .client-controls button:disabled { opacity: .28; cursor: default; }
+  .client-viewport { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scroll-padding-inline: 8px; scrollbar-width: thin; scrollbar-color: #bec9c0 transparent; scroll-behavior: smooth; }
+  .client-viewport:focus-visible { outline-offset: 5px; }
+  .client-logos { display: flex; width: max-content; gap: 44px; list-style: none; margin: 0; padding: 16px 8px 24px; }
+  .client-logos li { flex: 0 0 156px; width: 156px; height: 64px; display: flex; align-items: center; justify-content: center; scroll-snap-align: start; }
+  .client-logos img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); opacity: .7; mix-blend-mode: multiply; }
+  .client-logos img.white-logo { filter: brightness(0); opacity: .57; }
+  .client-name { color: #6d6d6d; font-family: var(--title); text-align: center; font-size: 17px; line-height: 1.3; }
   @media (max-width: 600px) {
-    .client-heading { display: block; }
-    .client-heading p { margin-top: 18px; }
-    .client-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .client-logos li { height: 98px; padding: 18px; }
+    .client-roster { padding-block: 24px 30px; }
+    .client-heading { gap: 16px; margin-bottom: 10px; }
+    .client-heading h2 { font-size: 18px; max-width: 245px; }
+    .client-heading h2 span { display: block; }
+    .client-controls { gap: 6px; }
+    .client-controls button { width: 38px; height: 38px; }
+    .client-logos { gap: 32px; padding-block: 12px 20px; }
+    .client-logos li { flex-basis: 136px; width: 136px; height: 58px; }
   }
+  @media (prefers-reduced-motion: reduce) { .client-viewport { scroll-behavior: auto; } }
 </style>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-clients]').forEach(section => {
+    const viewport = section.querySelector<HTMLElement>('.client-viewport');
+    const previous = section.querySelector<HTMLButtonElement>('[data-client-prev]');
+    const next = section.querySelector<HTMLButtonElement>('[data-client-next]');
+    const controls = section.querySelector<HTMLElement>('[data-client-controls]');
+    if (!viewport || !previous || !next || !controls) return;
+    const update = () => {
+      previous.disabled = viewport.scrollLeft < 2;
+      next.disabled = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 2;
+    };
+    previous.addEventListener('click', () => viewport.scrollBy({left: -viewport.clientWidth * .8}));
+    next.addEventListener('click', () => viewport.scrollBy({left: viewport.clientWidth * .8}));
+    viewport.addEventListener('scroll', update, {passive: true});
+    new ResizeObserver(update).observe(viewport);
+    controls.hidden = false;
+    update();
+  });
+</script>
