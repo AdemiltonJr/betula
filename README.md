@@ -64,3 +64,5 @@ Revisão: duas faixas automáticas em sentidos opostos, verde e cobre por overla
 Correção da foto em janelas baixas: largura limitada pela altura visível (svh), com reserva para cabeçalho e respiro. Proporção original e alvos percentuais preservados; etiquetas se adaptam à largura real da foto. Conferidos sete tamanhos de janela, incluindo 1518×684 (aproximação da área útil em zoom de 90%), orientação horizontal e celulares, com foto e nomes dentro dos limites.
 
 Equipe em telas amplas: composição em duas colunas a partir de 1100px, com apresentação à esquerda e foto à direita. Preserva o limite de altura da foto e mantém a disposição vertical em telas menores. Build, check e 8 testes passam; encaixe da foto e etiquetas conferidos em sete tamanhos.
+
+Correções de interação: rotação de expansores restrita aos ícones decorativos, preservando os textos Ler/Recolher avaliação. Faixas aceitam arraste de mouse e toque com ajuste contínuo da posição da animação, além de setas do teclado e rolagem horizontal. Verificados os cinco relatos abertos/fechados em 1440 e 390px, arraste nas duas faixas, retomada automática e gesto vertical de toque sem bloqueio da página.

@@ -8,7 +8,7 @@ const rows = [clients.slice(0, 8), clients.slice(8)];
     <button class="client-pause" type="button" data-client-pause hidden>Pausar movimento</button>
   </div>
   <div class="client-bands">
-    {rows.map((row, rowIndex) => <div class:list={['client-viewport', {'client-copper': rowIndex === 1}]} tabindex="0" role="region" aria-label={`Clientes, faixa ${rowIndex + 1}`}>
+    {rows.map((row, rowIndex) => <div class:list={['client-viewport', {'client-copper': rowIndex === 1}]} tabindex="0" role="region" aria-label={`Clientes, faixa ${rowIndex + 1}. Arraste ou use as setas do teclado para explorar.`}>
       <div class="client-track">
         {[false, true].map(copy => <ul class:list={['client-logos', {'client-copy': copy}]} role="list" aria-hidden={copy ? 'true' : undefined}>
           {row.map(([file, name]) => <li>
@@ -28,7 +28,8 @@ const rows = [clients.slice(0, 8), clients.slice(8)];
   .client-pause:hover { color: var(--bronze); border-color: currentColor; }
   .client-pause[hidden] { display: none; }
   .client-bands { background: var(--paper); display: flex; flex-direction: column; gap: 28px; }
-  .client-viewport { mix-blend-mode: multiply; --logo-color: var(--teal); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #bec9c0 transparent; }
+  .client-viewport { mix-blend-mode: multiply; --logo-color: var(--teal); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #bec9c0 transparent; cursor: grab; touch-action: pan-y pinch-zoom; user-select: none; }
+  .client-viewport[data-dragging] { cursor: grabbing; }
   .client-copper { --logo-color: var(--bronze); }
   .client-track { display: flex; width: max-content; }
   .client-logos { display: flex; gap: 44px; list-style: none; margin: 0; padding: 8px 44px 8px 0; flex-shrink: 0; }
@@ -43,7 +44,7 @@ const rows = [clients.slice(0, 8), clients.slice(8)];
   [data-animated] .client-copy { display: flex; }
   [data-animated] .client-track { animation: clients-drift 65s linear infinite; }
   [data-animated] .client-copper .client-track { animation-direction: reverse; }
-  [data-paused] .client-track, .client-roster:hover .client-track, .client-roster:focus-within .client-track { animation-play-state: paused; }
+  [data-paused] .client-track, [data-interacting] .client-track, .client-roster:hover .client-track, .client-roster:has(:focus-visible) .client-track { animation-play-state: paused; }
   @keyframes clients-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (max-width: 600px) {
     .client-roster { padding-block: 24px 30px; }
@@ -69,6 +70,69 @@ const rows = [clients.slice(0, 8), clients.slice(8)];
     button.addEventListener('click', () => {
       const paused = section.toggleAttribute('data-paused');
       button.textContent = paused ? 'Retomar movimento' : 'Pausar movimento';
+    });
+    section.querySelectorAll<HTMLElement>('.client-viewport').forEach(viewport => {
+      const track = viewport.querySelector<HTMLElement>('.client-track');
+      const original = viewport.querySelector<HTMLElement>('.client-logos');
+      if (!track || !original) return;
+      let pointer: number | null = null;
+      let lastX = 0;
+      let wheelTimer: ReturnType<typeof setTimeout> | undefined;
+      const shift = (pixels: number) => {
+        const animation = track.getAnimations()[0];
+        const distance = original.getBoundingClientRect().width;
+        if (!animation || !distance) {
+          viewport.scrollLeft -= pixels;
+          return;
+        }
+        const duration = Number(animation.effect?.getTiming().duration);
+        if (!duration) return;
+        const direction = viewport.classList.contains('client-copper') ? 1 : -1;
+        const time = Number(animation.currentTime ?? 0) + direction * pixels * duration / distance;
+        animation.currentTime = ((time % duration) + duration) % duration;
+      };
+      viewport.addEventListener('dragstart', event => event.preventDefault());
+      viewport.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || event.button !== 0) return;
+        if (event.pointerType === 'mouse') event.preventDefault();
+        clearTimeout(wheelTimer);
+        pointer = event.pointerId;
+        lastX = event.clientX;
+        viewport.setPointerCapture(pointer);
+        viewport.dataset.dragging = '';
+        section.dataset.interacting = '';
+      });
+      viewport.addEventListener('pointermove', event => {
+        if (pointer !== event.pointerId) return;
+        shift(event.clientX - lastX);
+        lastX = event.clientX;
+      });
+      const release = (event: PointerEvent) => {
+        if (pointer !== event.pointerId) return;
+        pointer = null;
+        delete viewport.dataset.dragging;
+        delete section.dataset.interacting;
+        if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+      };
+      viewport.addEventListener('pointerup', release);
+      viewport.addEventListener('pointercancel', release);
+      viewport.addEventListener('lostpointercapture', release);
+      viewport.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        shift(event.key === 'ArrowLeft' ? 150 : -150);
+      });
+      viewport.addEventListener('wheel', event => {
+        const horizontal = event.shiftKey ? event.deltaY : event.deltaX;
+        if (!horizontal || (!event.shiftKey && Math.abs(event.deltaY) > Math.abs(horizontal))) return;
+        event.preventDefault();
+        section.dataset.interacting = '';
+        shift(-horizontal);
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(() => {
+          if (pointer === null) delete section.dataset.interacting;
+        }, 1200);
+      }, {passive: false});
     });
   });
 </script>

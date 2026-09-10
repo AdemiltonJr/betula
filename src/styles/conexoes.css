@@ -134,8 +134,8 @@
   summary { list-style: none; }
   summary::-webkit-details-marker { display: none; }
   .process-moment summary { display: inline-flex; gap: 22px; align-items: center; min-height: 44px; }
-  details summary > span { font-size: 22px; font-weight: 350; transition: transform .25s; }
-  details[open] summary > span { transform: rotate(45deg); }
+  details summary > span[aria-hidden="true"] { font-size: 22px; font-weight: 350; transition: transform .25s; }
+  details[open] summary > span[aria-hidden="true"] { transform: rotate(45deg); }
   .process-moment ul { padding-left: 18px; color: var(--muted); }
   .process-moment li + li { margin-top: 10px; }
   .team-section { padding-top: 30px; }
