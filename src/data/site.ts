@@ -21,7 +21,7 @@ export const organization = {
   url: 'https://betularh.com.br/',
   title: 'Recrutamento e Seleção em Campinas | Bétula RH',
   description:
-    'Consultoria de recrutamento e seleção em Campinas, com atuação em todo o Brasil. Entendemos o contexto da empresa antes de iniciar a busca.',
+    'Consultoria de recrutamento e seleção em Campinas, com atuação em todo o Brasil. Atendimento personalizado e processos alinhados ao perfil da vaga e à cultura da empresa.',
   email: 'luciana@betularh.com.br',
   curriculumEmail: 'curriculo@betularh.com.br',
   address: 'Rua Paulo César Fidelis, 39, Sala 311, Villa Bella, Campinas/SP',
@@ -52,15 +52,15 @@ export function whatsappHref(phone: string = contacts.primary.phone, message = w
 export const navigation = [
   { href: '#atuacao', label: 'Onde atuamos' },
   { href: '#processo', label: 'Como atuamos' },
-  { href: '#experiencia', label: 'Experiência' },
-  { href: '#equipe', label: 'Quem conduz' },
+  { href: '#experiencia', label: 'Quem somos' },
+  { href: '#equipe', label: 'Equipe Bétula' },
 ] as const;
 
 export const processMoments = [
   {
     title: 'Compreensão',
     summary:
-      'Antes da busca, entendemos o negócio, o momento e o que a contratação precisa transformar.',
+      'Compreendemos o segmento, a cultura e o momento da empresa para alinhar o perfil da vaga.',
     steps: [
       'Compreensão do segmento, momento e cultura do cliente, além da estratégia por trás da contratação.',
       'Identificação e alinhamento do perfil da vaga.',
@@ -69,7 +69,7 @@ export const processMoments = [
   {
     title: 'Busca',
     summary:
-      'A estratégia de atração nasce do contexto, não de uma divulgação genérica.',
+      'Realizamos o recrutamento, o hunting e a triagem de currículos conforme o perfil definido.',
     steps: [
       'Recrutamento e hunting de candidatos.',
       'Análise e triagem de currículos.',
@@ -99,10 +99,10 @@ export const processMoments = [
 ] as const;
 
 export const clients = [
-  ['cli-isorecort.webp', 'Isorecort'],
+  ['cli-isorecort-color.png', 'Isorecort'],
   ['cli-ie-pescados.svg', 'IE Pescados'],
   ['cli-sitio-recanto.png', 'Sítio Recanto do Queijo'],
-  ['cli-clinica-cidade.svg', 'Clínica da Cidade'],
+  ['cli-clinica-cidade-color.jpg', 'Clínica da Cidade'],
   ['', 'Columbia Brasil'], // Logo depende da confirmação da empresa.
   ['cli-sao-vicente.png', 'Supermercados São Vicente'],
   ['cli-fyp.png', 'FYP Engenharia'],
@@ -151,12 +151,6 @@ export const team = [
     name: 'Vanessa Luiz',
     role: 'Operação e processos seletivos',
     bio: 'Administradora com carreira consolidada em Recursos Humanos, responsável pela operação e pelos indicadores da consultoria.',
-  },
-  {
-    image: 'team-tamara-tordin.jpg',
-    name: 'Tamara Tordin',
-    role: 'Experiência de candidatos',
-    bio: 'Administradora responsável por assegurar uma experiência positiva e uma interação eficaz com candidatos.',
   },
   {
     image: 'team-elaine-souza.jpg',

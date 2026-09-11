@@ -11,6 +11,7 @@ import { navigation, organization } from '../data/site';
       <ul class="footer-nav">{navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
     </nav>
     <div class="footer-meta">
+      <span>{organization.address}</span>
       <a href={organization.instagram} target="_blank" rel="noopener">Instagram</a>
       <a href={organization.linkedin} target="_blank" rel="noopener">LinkedIn</a>
       <span>© {new Date().getFullYear()} {organization.shortName}</span>

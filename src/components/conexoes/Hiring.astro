@@ -1,13 +1,13 @@
 ---
 import { contacts, whatsappHref } from '../../data/site';
 const needs = [
-  { name: 'Profissionais para a equipe', detail: 'Da operação aos especialistas', symbol: '01', title: 'Uma pessoa que soma ao seu time.', description: 'Alinhamos o perfil, a rotina e a cultura da empresa para buscar profissionais que façam sentido para a sua equipe.', message: 'Olá! Quero conversar sobre a contratação de profissionais para a equipe da minha empresa.' },
-  { name: 'Uma nova liderança', detail: 'Gestão, direção e próximos passos', symbol: '02', title: 'Uma liderança para o seu momento.', description: 'Entendemos os desafios da posição e a direção do negócio para orientar a busca por quem vai conduzir a equipe.', message: 'Olá! Quero conversar sobre a contratação de uma liderança para a minha empresa.' },
-  { name: 'Ajuda para definir o perfil', detail: 'Vamos entender juntos', symbol: '03', title: 'Clareza antes de começar a busca.', description: 'Se a necessidade existe, mas o perfil ainda não está claro, a conversa começa pelo contexto e pelas expectativas da empresa.', message: 'Olá! Preciso de ajuda para definir o perfil de uma contratação na minha empresa.' },
+  { name: 'Profissionais para a equipe', detail: 'Da operação aos especialistas', symbol: '01', title: 'Recrutamento para sua equipe.', description: 'Alinhamos o perfil, a rotina e a cultura da empresa para buscar profissionais que façam sentido para a sua equipe.', message: 'Olá! Quero conversar sobre a contratação de profissionais para a equipe da minha empresa.' },
+  { name: 'Uma nova liderança', detail: 'Cargos de gestão e direção', symbol: '02', title: 'Seleção de lideranças.', description: 'Entendemos os desafios da posição e a direção do negócio para orientar a busca por quem vai conduzir a equipe.', message: 'Olá! Quero conversar sobre a contratação de uma liderança para a minha empresa.' },
+  { name: 'Ajuda para definir o perfil', detail: 'Alinhamento da vaga', symbol: '03', title: 'Clareza antes de começar a busca.', description: 'Se a necessidade existe, mas o perfil ainda não está claro, a conversa começa pelo contexto e pelas expectativas da empresa.', message: 'Olá! Preciso de ajuda para definir o perfil de uma contratação na minha empresa.' },
 ];
 ---
 <section class="hiring section-space" id="atuacao" aria-labelledby="hiring-title" data-hiring data-phone={contacts.primary.phone}>
-  <div class="section-heading reveal"><p class="eyebrow">O próximo passo começa aqui</p><h2 id="hiring-title">Quem vai fazer parte<br />do seu próximo capítulo?</h2><p>Conte o que sua empresa precisa. A gente começa por aí.</p></div>
+  <div class="section-heading reveal"><p class="eyebrow">Onde atuamos</p><h2 id="hiring-title">Seleção de profissionais<br />para diferentes perfis de cargos.</h2><p>Da operação à liderança, alinhamos a seleção às necessidades da sua empresa.</p></div>
   <div class="hiring-workspace reveal">
     <div class="need-options" role="group" aria-label="O que sua empresa precisa contratar?">
       {needs.map((need, index) => <button type="button" class="need-option" data-need data-title={need.title} data-description={need.description} data-message={need.message} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls="need-result"><span class="option-number" aria-hidden="true">{need.symbol}</span><span><strong>{need.name}</strong><small>{need.detail}</small></span><span class="option-arrow" aria-hidden="true">↗</span></button>)}

@@ -29,12 +29,12 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
 </section>
 
 <style>
-  .reviews-section { background: var(--sand); }
+  .reviews-section { background: var(--paper); border-top: 24px solid var(--sand); }
   .reviews-layout { display: grid; grid-template-columns: .9fr 1.15fr; gap: clamp(40px, 7vw, 110px); }
   .reviews-intro h2 { font-size: clamp(36px, 3.5vw, 52px); }
   .reviews-intro > p { max-width: 360px; margin-top: 28px; color: var(--muted); font-size: 17px; }
   .review-category { margin-top: 38px; display: flex; gap: 15px; align-items: center; }
-  .review-category > span { color: var(--bronze); font-size: 32px; }
+  .review-category > span { color: var(--teal); font-size: 32px; }
   .review-category strong, .review-category div > span { display: block; }
   .review-category strong { font-size: 17px; font-weight: 600; }
   .review-category div > span { font-size: 14px; color: var(--muted); }
@@ -46,9 +46,9 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
   .candidate-stories { min-width: 0; }
   .candidate-review + .candidate-review { margin-top: 48px; }
   [data-enhanced] .candidate-review { margin-top: 0; }
-  .review-quotation { display: block; color: var(--bronze); font: 110px/.8 Georgia, serif; height: 65px; }
+  .review-quotation { display: block; color: var(--teal); font: 110px/.8 Georgia, serif; height: 65px; }
   .candidate-review > blockquote { margin: 0; font: 450 clamp(24px, 2.55vw, 37px)/1.42 var(--title); letter-spacing: -.035em; min-height: 215px; }
-  .candidate-review strong { color: var(--bronze); font-weight: 650; }
+  .candidate-review strong { color: var(--teal); font-weight: 650; }
   .review-author { display: flex; align-items: center; gap: 15px; margin-block: 30px; }
   .review-initials { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; background: var(--teal); color: var(--paper); font-size: 14px; }
   .review-author h3 { font-size: 17px; font-weight: 600; letter-spacing: -.025em; }
@@ -56,7 +56,7 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
   .review-full { border-top: 1px solid #c5c5b7; }
   .review-full summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; font-size: 15px; }
   .review-full summary::-webkit-details-marker { display: none; }
-  .review-plus { font-size: 24px; color: var(--bronze); }
+  .review-plus { font-size: 24px; color: var(--teal); }
   .read-less, [open] .read-more { display: none; }
   [open] .read-less { display: inline; }
   [open] .review-plus { transform: rotate(45deg); }

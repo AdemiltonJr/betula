@@ -1,3 +1,11 @@
+# Revisão vigente — 11/09/2026
+
+A apresentação institucional passa a ser a referência prioritária, conforme o retorno da cliente e orientação do usuário. Verde-petróleo #00525D, branco #FFFFFF e pêssego #F8D6C4; amostras aproximadas do PDF, não códigos oficiais certificados. Verde em ações, títulos e símbolos; pêssego concentrado em faixas; branco predominante. Sem overlay nos logos. Quatro retratos aprovados substituem a foto coletiva. Linguagem direta sobre recrutamento, cultura, vaga e atendimento personalizado.
+
+Análise, fontes e decisões: [ALINHAMENTO_INSTITUCIONAL.md](ALINHAMENTO_INSTITUCIONAL.md). O registro abaixo é histórico e não prevalece sobre esta revisão.
+
+---
+
 # Design System: conexões humanas
 
 Direção orgânica e contemporânea aprovada pelo usuário em 5 de setembro de 2026. Substitui a direção da prévia anterior; materiais históricos permanecem no histórico Git.

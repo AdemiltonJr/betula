@@ -16,6 +16,8 @@ const {
 
 const canonical = organization.url;
 const ogImage = `${organization.url}assets/img/og-cover.jpg`;
+// Vercel is a client-review environment; only the official domain is indexable.
+const isReviewDeployment = import.meta.env.PUBLIC_SITE_INDEXABLE !== 'true';
 
 const employmentAgency = {
   '@context': 'https://schema.org',
@@ -50,12 +52,12 @@ const employmentAgency = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#115f61" />
+    <meta name="theme-color" content="#00525d" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={organization.name} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={isReviewDeployment ? 'noindex, follow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />

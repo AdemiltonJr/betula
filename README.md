@@ -66,3 +66,10 @@ Correção da foto em janelas baixas: largura limitada pela altura visível (svh
 Equipe em telas amplas: composição em duas colunas a partir de 1100px, com apresentação à esquerda e foto à direita. Preserva o limite de altura da foto e mantém a disposição vertical em telas menores. Build, check e 8 testes passam; encaixe da foto e etiquetas conferidos em sete tamanhos.
 
 Correções de interação: rotação de expansores restrita aos ícones decorativos, preservando os textos Ler/Recolher avaliação. Faixas aceitam arraste de mouse e toque com ajuste contínuo da posição da animação, além de setas do teclado e rolagem horizontal. Verificados os cinco relatos abertos/fechados em 1440 e 390px, arraste nas duas faixas, retomada automática e gesto vertical de toque sem bloqueio da página.
+
+
+## Alinhamento institucional — 11/09/2026
+
+Cores e proporções revistas a partir da apresentação institucional: branco, verde-petróleo e faixas pêssego. Logos nas cores originais, com duas variantes oficiais para fundo claro. Quatro retratos aprovados substituem a foto coletiva. Conteúdo institucional direto, preservando os cinco relatos literais de candidatos. Diagnóstico e justificativas de SEO em [ALINHAMENTO_INSTITUCIONAL.md](ALINHAMENTO_INSTITUCIONAL.md).
+
+A prévia em Vercel agora usa `noindex, follow` por padrão. O lançamento definitivo exige `PUBLIC_SITE_INDEXABLE=true` e novo build em ambiente separado para o domínio oficial; nunca ativar indexação por engano na prévia. Canonical e sitemap continuam apontando ao domínio oficial planejado. A migração ainda não foi realizada.

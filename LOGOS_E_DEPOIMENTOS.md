@@ -2,7 +2,7 @@
 
 ## Logos obtidos
 
-Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de apresentação, duas faixas usam overlay em verde e cobre da Bétula sobre fundo claro, sem caixas ou fundos individuais. As faixas dividem os 17 clientes, com cópias decorativas para completar o loop. As cópias são ocultadas de leitores de tela. Movimento em sentidos opostos, pausa manual/hover/foco e alternativa estática com rolagem para movimento reduzido ou ausência de JavaScript.
+Os arquivos foram copiados de páginas oficiais e conferidos na composição. Os arquivos originais foram preservados. Na revisão de 11/09/2026, as duas faixas exibem as cores originais, sem filtros ou overlay. Isorecort e Clínica da Cidade receberam variantes oficiais para fundo claro; fontes atualizadas em ALINHAMENTO_INSTITUCIONAL.md. As faixas dividem os 17 clientes, com cópias decorativas para completar o loop. As cópias são ocultadas de leitores de tela. Movimento em sentidos opostos, pausa manual/hover/foco e alternativa estática com rolagem para movimento reduzido ou ausência de JavaScript.
 
 | Marca | Página de origem | Arquivo original |
 |---|---|---|

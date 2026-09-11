@@ -14,6 +14,8 @@ const html = await readBuiltHtml();
 
 test('publica apenas a lista revisada de clientes e preserva os relatos de candidatos', () => {
   for (const file of ['cli-renova.png', 'cli-bollhoff.png', 'cli-dellys.png', 'cli-enxuto.png', 'cli-eucatex.png', 'cli-vetnil.png']) assert.ok(!html.includes(file), `Cliente retirado reapareceu: ${file}`);
+  assert.doesNotMatch(html, /Tamara Tordin|team-tamara-tordin|equipe-grupo-2\.jpg/);
+  assert.equal((html.match(/class="team-profile"/g) ?? []).length, 4);
   const text = html.replace(/<[^>]+>/g, '');
   assert.equal(candidateReviews.length, 5);
   assert.equal(new Set(candidateReviews.map(review => review.url)).size, 5);
@@ -38,6 +40,8 @@ test('preserva SEO local e canonical e não inventa reviews', () => {
   assert.match(html, /<title>Recrutamento e Seleção em Campinas \| Bétula RH<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/betularh\.com\.br\/"/);
   assert.match(html, /"@type":"EmploymentAgency"/);
+  assert.match(html, /<h1[^>]*>Recrutamento e seleção/);
+  if (process.env.PUBLIC_SITE_INDEXABLE !== 'true') assert.match(html, /name="robots" content="noindex, follow"/);
   assert.doesNotMatch(html, /"@type":"Review"/);
 });
 

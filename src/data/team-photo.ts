@@ -3,7 +3,6 @@
 export const teamPhotoPeople = [
   { name: 'Elaine Souza', position: 'segunda pessoa em pé', left: 31, top: 11, width: 21, height: 41 },
   { name: 'Luciana Alvim', position: 'terceira pessoa em pé', left: 54, top: 8, width: 22, height: 43 },
-  { name: 'Tamara Tordin', position: 'quarta pessoa em pé', left: 78, top: 8, width: 21, height: 43 },
   { name: 'Georgia Frattini', position: 'primeira pessoa sentada', left: 18, top: 53, width: 25, height: 43 },
   { name: 'Vanessa Luiz', position: 'segunda pessoa sentada', left: 70, top: 52, width: 27, height: 44 },
 ];
