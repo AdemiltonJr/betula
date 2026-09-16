@@ -24,7 +24,6 @@ export const organization = {
     'Consultoria de recrutamento e seleção em Campinas, com atuação em todo o Brasil. Atendimento personalizado e processos alinhados ao perfil da vaga e à cultura da empresa.',
   email: 'luciana@betularh.com.br',
   curriculumEmail: 'curriculo@betularh.com.br',
-  address: 'Rua Paulo César Fidelis, 39, Sala 311, Villa Bella, Campinas/SP',
   instagram: 'https://www.instagram.com/betularh/',
   linkedin: 'https://www.linkedin.com/company/betularecrutamentoeselecao',
 } as const;
@@ -50,10 +49,12 @@ export function whatsappHref(phone: string = contacts.primary.phone, message = w
 }
 
 export const navigation = [
-  { href: '#atuacao', label: 'Onde atuamos' },
-  { href: '#processo', label: 'Como atuamos' },
   { href: '#experiencia', label: 'Quem somos' },
-  { href: '#equipe', label: 'Equipe Bétula' },
+  { href: '#como-fazemos', label: 'Como fazemos' },
+  { href: '#diferenciais', label: 'Diferenciais' },
+  { href: '#equipe', label: 'Equipe' },
+  { href: '#clientes', label: 'Clientes' },
+  { href: '#contato', label: 'Contato' },
 ] as const;
 
 export const processMoments = [
@@ -165,7 +166,7 @@ export const team = [
     bio: 'Administradora com experiência em desenvolvimento de pessoas, recrutamento e seleção.',
   },
   {
-    image: 'team-keila-assis.jpg',
+    image: 'team-keila-oficial.jpg',
     name: 'Keila Assis',
     role: 'Avaliação psicológica',
     bio: 'Psicóloga e terapeuta que conduz avaliações e testes de atenção, cognição e personalidade.',

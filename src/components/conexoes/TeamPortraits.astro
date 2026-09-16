@@ -6,18 +6,19 @@ const { people } = Astro.props;
 ---
 <div class="team-portraits">
   {people.map(person => <article class="team-profile">
-    <img src={`/assets/img/${person.image}`} alt={person.name} width="560" height="560" loading="lazy" />
+    <img src={`/assets/img/${person.image}`} alt={person.name} width={person.name === 'Keila Assis' ? 716 : 560} height={person.name === 'Keila Assis' ? 716 : 560} loading="lazy" />
     <h3>{person.name}</h3>
     <p>{person.bio}</p>
   </article>)}
 </div>
 <style>
-  .team-portraits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 28px; }
-  .team-profile { min-width: 0; }
-  .team-profile img { width: min(100%, 220px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin-bottom: 20px; }
-  .team-profile h3 { font-size: 20px; line-height: 1.3; margin-bottom: 10px; font-weight: 600; }
+  .team-portraits { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 32px; max-width: 1080px; margin-inline: auto; }
+  .team-profile { min-width: 0; flex: 0 1 calc((100% - 64px) / 3); }
+  .team-profile img { width: min(100%, 220px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin: 0 auto 20px; }
+  .team-profile h3 { font-size: 20px; line-height: 1.3; margin-bottom: 10px; font-weight: 600; text-align: center; }
   .team-profile p { font-size: 15px; line-height: 1.55; color: var(--muted); }
-  @media (max-width: 540px) {
+  @media (max-width: 700px) {
+    .team-profile { flex-basis: calc((100% - 18px) / 2); }
     .team-portraits { gap: 28px 18px; }
     .team-profile h3 { font-size: 17px; }
     .team-profile p { font-size: 14px; }

@@ -73,3 +73,9 @@ Correções de interação: rotação de expansores restrita aos ícones decorat
 Cores e proporções revistas a partir da apresentação institucional: branco, verde-petróleo e faixas pêssego. Logos nas cores originais, com duas variantes oficiais para fundo claro. Quatro retratos aprovados substituem a foto coletiva. Conteúdo institucional direto, preservando os cinco relatos literais de candidatos. Diagnóstico e justificativas de SEO em [ALINHAMENTO_INSTITUCIONAL.md](ALINHAMENTO_INSTITUCIONAL.md).
 
 A prévia em Vercel agora usa `noindex, follow` por padrão. O lançamento definitivo exige `PUBLIC_SITE_INDEXABLE=true` e novo build em ambiente separado para o domínio oficial; nunca ativar indexação por engano na prévia. Canonical e sitemap continuam apontando ao domínio oficial planejado. A migração ainda não foi realizada.
+
+## Composição institucional — 16/09/2026
+
+Faixas em toda a largura, Quem somos centralizado, Como fazemos compacto sobre verde e fundo original com troncos. Abertura com fotografias reais. Equipe inclui Keila; Jullyana aguarda foto e texto. Endereço fiscal removido do HTML e schema, agora Organization. Emails separados para empresas e candidatos. FAQ permanece aguardando respostas da cliente.
+
+Check, build e oito testes passaram. Inspeção visual e funcional em seis larguras de 320 a 1920px, sem overflow; logos em cores originais, arraste e avaliações preservados. Prévia continua noindex; domínio oficial não alterado.

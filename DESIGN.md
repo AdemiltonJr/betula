@@ -1,4 +1,12 @@
-# Revisão vigente — 11/09/2026
+# Revisão vigente — 16/09/2026
+
+Preservar a paleta institucional da revisão de 11/09. Faixas pêssego ocupam toda a largura, com conteúdo alinhado ao container. Quem somos centralizado sobre o fundo original de troncos; Como fazemos em verde, compacto e centralizado. Fotografias reais de Luciana e Vanessa na abertura, sem molduras decorativas. Equipe com cinco retratos, incluindo Keila; Jullyana aguarda material. Biografias e textos longos mantêm alinhamento de leitura. Logos originais e interações preservados.
+
+Endereço fiscal removido; contatos separados por público. Não reescrever conteúdo nesta etapa, além das frases fornecidas para Como fazemos.
+
+---
+
+# Revisão anterior — 11/09/2026
 
 A apresentação institucional passa a ser a referência prioritária, conforme o retorno da cliente e orientação do usuário. Verde-petróleo #00525D, branco #FFFFFF e pêssego #F8D6C4; amostras aproximadas do PDF, não códigos oficiais certificados. Verde em ações, títulos e símbolos; pêssego concentrado em faixas; branco predominante. Sem overlay nos logos. Quatro retratos aprovados substituem a foto coletiva. Linguagem direta sobre recrutamento, cultura, vaga e atendimento personalizado.
 

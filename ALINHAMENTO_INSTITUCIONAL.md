@@ -2,6 +2,18 @@
 
 Revisão de 11/09/2026, a partir do retorno da cliente. A apresentação institucional tem prioridade nesta revisão, conforme o usuário. O site oficial foi consultado como referência de escrita e aplicação visual, não como modelo de layout.
 
+## Revisão de forma — 16/09/2026
+
+Após aprovação do usuário, a composição passa a preservar mais referências do site atual: Quem somos centralizado, bloco verde compacto Como fazemos, faixas pêssego de ponta a ponta e fundo original com troncos de bétula. A abertura usa fotografias reais de Luciana e Vanessa, sem aplicações do símbolo em molduras decorativas. A paleta aprovada foi preservada.
+
+Equipe com cinco retratos: Luciana, Vanessa, Elaine, Georgia e Keila. A fotografia de Keila foi obtida do arquivo vinculado ao seu perfil no site oficial; o arquivo legado permanece preservado. Jullyana aguarda fotografia e biografia. As respostas do FAQ aguardam revisão da cliente, sem alteração nesta etapa.
+
+Endereço fiscal retirado de todos os componentes e dos dados estruturados. O schema agora é Organization, com áreas atendidas e contatos, sem PostalAddress. Empresas: luciana@betularh.com.br; candidatos: curriculo@betularh.com.br. O domínio oficial permanece inalterado.
+
+Validação: check sem erros ou avisos; build e oito testes passam. Navegador em 320, 390, 768, 1024, 1440 e 1920px, sem overflow, cinco retratos carregados, 17 clientes com cores originais, faixas na largura da página e interações de avaliações e arraste preservadas. Evidências locais em output/revision.
+
+O diagnóstico abaixo registra a revisão de 11/09; as decisões de 16/09 acima prevalecem.
+
 ## O que a comparação mostrou
 
 Não é preciso defender a versão anterior como inteiramente fiel à identidade. As seis cores principais correspondiam ao arquivo chamado Guia da marca.png, mas esse arquivo se apresenta como **Guia de marca digital — direcionamentos visuais para o site**. Ele difere da apresentação institucional. Sua existência não comprova aprovação pela cliente.
@@ -52,8 +64,8 @@ Identidade e SEO são compatíveis. O Google recomenda conteúdo útil para pess
 | Título da página | Recrutamento e Seleção em Campinas · Bétula RH (separador técnico: barra vertical) | Serviço, localização e marca de forma objetiva; não implica restringir o atendimento a Campinas |
 | Descrição para busca | Atendimento personalizado, seleção e cultura da empresa | Resume a oferta no vocabulário da Bétula; o Google pode usar outro trecho como resumo |
 | Conteúdo e subtítulos | Quem somos, diferenciais, processo, equipe, dúvidas e contato | Organiza informações reais e facilita a leitura; nenhuma obrigação de manter um slogan |
-| Localização | Campinas e atendimento nacional; endereço visível no rodapé | Mantém o cadastro estruturado coerente com informações visíveis; conferir endereço antes do lançamento definitivo |
-| Dados estruturados | EmploymentAgency já existente, sem notas ou reviews inventados | Descreve a organização para buscadores; não garante destaque ou posição no Google |
+| Localização | Campinas e atendimento nacional; endereço fiscal removido em 16/09 | Mantém áreas atendidas sem divulgar o endereço fiscal |
+| Dados estruturados | Organization desde 16/09, sem endereço, notas ou reviews inventados | Descreve a organização para buscadores; não garante destaque ou posição no Google |
 | Imagens | Texto alternativo e dimensões; logos sem alteração de cor | Acessibilidade, compreensão das imagens e estabilidade de layout |
 | HTML, mobile e desempenho | Conteúdo principal no HTML estático, fontes locais e imagens secundárias lazy | Facilita acesso, leitura e rastreamento; não depende de animações para apresentar os textos |
 | Canonical e sitemap | Apontam para betularh.com.br | Identificam o destino oficial planejado para a página; não transferem a publicação por si só |
@@ -61,7 +73,7 @@ Identidade e SEO são compatíveis. O Google recomenda conteúdo útil para pess
 
 ### Antes do lançamento no domínio oficial
 
-1. Conferir endereço, telefones, emails, integrantes e escopo de atendimento com a cliente. Informações históricas não substituem validação atual.
+1. Conferir telefones, emails, integrantes e escopo de atendimento com a cliente; não republicar o endereço fiscal. Informações históricas não substituem validação atual.
 2. Inventariar URLs reais do site antigo e preservar ou redirecionar páginas relevantes. Não redirecionar tudo indiscriminadamente para a home.
 3. Publicar no domínio definitivo; definir `PUBLIC_SITE_INDEXABLE=true` no ambiente do site oficial e recompilar. A prévia deve continuar em ambiente separado com `noindex`.
 4. Conferir resposta HTTP, ausência de noindex no domínio oficial, canonical, robots, sitemap e URLs reais das imagens Open Graph e dos dados estruturados. Os arquivos de imagem precisam estar publicados no domínio oficial.

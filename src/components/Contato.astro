@@ -13,7 +13,6 @@ import { contacts, organization, whatsappHref } from '../data/site';
         <a href={whatsappHref(contacts.primary.phone)} target="_blank" rel="noopener">{contacts.primary.name} · {contacts.primary.display}</a>
         <a href={whatsappHref(contacts.secondary.phone)} target="_blank" rel="noopener">{contacts.secondary.name} · {contacts.secondary.display}</a>
         <a href={`mailto:${organization.email}`}>{organization.email}</a>
-        <span>{organization.address}</span>
       </address>
       <p class="curriculum-contact">Para envio de currículo: <a href={`mailto:${organization.curriculumEmail}`}>{organization.curriculumEmail}</a></p>
     </div>

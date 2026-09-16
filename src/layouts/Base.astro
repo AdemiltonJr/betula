@@ -2,6 +2,7 @@
 import '@fontsource-variable/manrope';
 import '@fontsource-variable/source-sans-3';
 import '../styles/conexoes.css';
+import '../styles/institucional.css';
 import { contacts, organization } from '../data/site';
 
 interface Props {
@@ -19,9 +20,9 @@ const ogImage = `${organization.url}assets/img/og-cover.jpg`;
 // Vercel is a client-review environment; only the official domain is indexable.
 const isReviewDeployment = import.meta.env.PUBLIC_SITE_INDEXABLE !== 'true';
 
-const employmentAgency = {
+const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'EmploymentAgency',
+  '@type': 'Organization',
   '@id': `${organization.url}#organizacao`,
   name: organization.name,
   alternateName: organization.shortName,
@@ -31,13 +32,6 @@ const employmentAgency = {
   logo: `${organization.url}assets/img/icon-512.png`,
   telephone: `+${contacts.primary.phone.slice(0, 2)}-${contacts.primary.phone.slice(2, 4)}-${contacts.primary.phone.slice(4)}`,
   email: organization.email,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Rua Paulo César Fidelis, 39, Sala 311, Villa Bella',
-    addressLocality: 'Campinas',
-    addressRegion: 'SP',
-    addressCountry: 'BR',
-  },
   areaServed: [
     { '@type': 'City', name: 'Campinas' },
     { '@type': 'AdministrativeArea', name: 'Região Metropolitana de Campinas' },
@@ -78,13 +72,13 @@ const employmentAgency = {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png" />
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
-    <link rel="preload" as="image" href="/assets/img/bg-bosque.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/img/team-luciana-alvim.jpg" fetchpriority="high" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(employmentAgency)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
