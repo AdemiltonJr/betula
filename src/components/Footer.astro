@@ -1,19 +1,30 @@
 ---
-import { navigation, organization } from '../data/site';
+import { organization } from '../data/site';
 ---
-
-<footer class="site-footer">
-  <div class="container footer-grid">
+<footer class="site-footer institutional-footer" aria-label="Contatos da Bétula RH">
+  <div class="container footer-contact-grid">
     <a href="#topo" class="footer-brand" aria-label="Bétula RH, voltar ao início">
-      <img src="/assets/img/logo-ink.png" alt="Bétula RH Recrutamento e Seleção" width="1946" height="1400" loading="lazy" />
+      <img src="/assets/img/logo-cream.png" alt="Bétula RH Recrutamento e Seleção" width="1946" height="1400" loading="lazy" />
     </a>
-    <nav aria-label="Navegação do rodapé">
-      <ul class="footer-nav">{navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
-    </nav>
-    <div class="footer-meta">
-      <a href={organization.instagram} target="_blank" rel="noopener">Instagram</a>
-      <a href={organization.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-      <span>© {new Date().getFullYear()} {organization.shortName}</span>
+    <div class="footer-contact-group">
+      <h2>Para empresas</h2>
+      <p>Recrutamento e seleção <br />com atendimento personalizado.</p>
+      <a href={`mailto:${organization.email}`}>{organization.email}</a>
+      <a class="footer-action" href="#atuacao">Conversar sobre uma contratação <span aria-hidden="true">↗</span></a>
     </div>
+    <div class="footer-contact-group">
+      <h2>Para candidatos</h2>
+      <p>Envie seu currículo para <br />a equipe Bétula RH.</p>
+      <a href={`mailto:${organization.curriculumEmail}`}>{organization.curriculumEmail}</a>
+    </div>
+    <nav class="footer-contact-group" aria-label="Redes sociais">
+      <h2>Acompanhe</h2>
+      <a href={organization.instagram} target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+      <a href={organization.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+  <div class="container footer-bottom-line">
+    <p>© {new Date().getFullYear()} {organization.shortName}. Todos os direitos reservados.</p>
+    <a href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
   </div>
 </footer>

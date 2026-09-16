@@ -79,3 +79,7 @@ Logo horizontal reduzido para 220px no desktop e até 205px no celular; tamanho 
 ### Depoimentos de ponta a ponta e logo do rodapé
 
 Degradê e textura agora pertencem à seção inteira, com inset 0, sem margens brancas externas. Respiro dos textos preservado dentro do container. Pêssego parte da borda esquerda e termina em branco à direita. Logo vertical do rodapé preservado e ampliado para 200px no desktop e 180px no celular; no mobile ganha uma linha própria para não comprimir links.
+
+### Rodapé complementar — referência Rhege
+
+Fundo verde-petróleo de ponta a ponta, logo vertical claro, blocos Para empresas / Para candidatos / Acompanhe. Emails definidos pela cliente e redes confirmadas no site oficial em 16/09. Menu duplicado removido; acesso à contratação e volta ao topo preservados. Direitos autorais separados por linha. Sem endereço fiscal. WhatsApp do site antigo (final 1912) diverge do contato existente na prévia (final 9865); não acrescentar número ao rodapé antes de confirmar.
