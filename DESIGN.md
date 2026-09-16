@@ -67,3 +67,7 @@ Fundo de troncos centralizado com cover em toda a seção. Camada branca de 50% 
 ### Depoimentos: textura restrita à apresentação
 
 Área de avaliação sobre branco. Introdução com pêssego suave e recorte ampliado dos troncos, desaparecendo em direção à avaliação. No mobile, o fundo termina no bloco de apresentação. Textos e funcionamento das avaliações preservados.
+
+### Logo horizontal no cabeçalho
+
+Arquivo original 1044×250 do site oficial: logo-horizontal-oficial.png. Cabeçalho mantém altura de 92/80/74px; marca horizontal tem 260px no desktop e até 230px no celular. Em telas de até 600px, ação de contratação aparece no menu aberto e continua na abertura da página, liberando espaço para leitura da marca.
