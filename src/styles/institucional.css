@@ -89,3 +89,7 @@
     .site-footer .footer-grid { gap: 24px 32px; }
   }
 }
+
+@layer responsive {
+  .site-footer .footer-nav, .site-footer .footer-meta > a { font-size: 16px; }
+}
