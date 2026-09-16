@@ -83,3 +83,7 @@ Check, build e oito testes passaram. Inspeção visual e funcional em seis largu
 ## Abertura revisada — fotografia provisória
 
 Por aprovação do usuário em 16/09/2026, os dois retratos foram retirados da abertura para evitar hierarquia entre integrantes. Título, mensagem e botão permanecem sobre branco; abaixo, faixa horizontal com bg-bosque.jpg, imagem existente e provisória para avaliação da composição. Retratos ficam somente na seção de equipe. A escolha definitiva da fotografia permanece pendente.
+
+### Abertura em duas colunas — revisão aprovada
+
+Substitui a faixa abaixo do título: mensagem à esquerda, com título compacto e alinhamento à esquerda, e fotografia à direita, aproximadamente metade da composição. Em até 900px, texto e imagem empilham com intervalo compacto. Bosque permanece provisório; demais seções preservadas.
