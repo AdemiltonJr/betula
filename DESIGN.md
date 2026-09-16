@@ -63,3 +63,7 @@ Substitui a faixa abaixo do título: mensagem à esquerda, com título compacto 
 ### Textura de Quem somos
 
 Fundo de troncos centralizado com cover em toda a seção. Camada branca de 50% suaviza apenas a textura, preservando contraste e opacidade dos textos.
+
+### Depoimentos: textura restrita à apresentação
+
+Área de avaliação sobre branco. Introdução com pêssego suave e recorte ampliado dos troncos, desaparecendo em direção à avaliação. No mobile, o fundo termina no bloco de apresentação. Textos e funcionamento das avaliações preservados.
