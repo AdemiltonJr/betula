@@ -32,3 +32,7 @@ Os textos completos e os trechos literais são preservados. Ênfase aplicada ape
 ## Verificação
 
 Astro check, build e testes da página; fidelidade dos parágrafos, exclusão das marcas retiradas, navegação pelos cinco relatos, leitura completa, teclado, 320/390/768/1024/1440px, imagens carregadas e fallback sem JavaScript. Capturas locais em `output/playwright`.
+
+## Depoimento de cliente — 16/09/2026
+
+Camila Horiye Rodrigues, Diretora Adjunta do ICV — Instituto Centro de Vida — Mato Grosso: dois parágrafos transcritos do site oficial https://betularh.com.br/, conferidos no navegador. O relato menciona explicitamente o recrutamento na sua organização. Mantida inclusive a forma original “experiência resulta”. Não foi atribuída nota Google, data de publicação ou cargo atualizado. Fonte em src/data/client-reviews.ts. Fernanda descreve experiência como candidata; Maria Ieda não deixa inequívoco o lado contratante. Esses relatos não foram classificados como clientes.

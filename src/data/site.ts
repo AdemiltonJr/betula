@@ -2,7 +2,7 @@
  * Fonte central de conteúdo institucional.
  *
  * Os dados sensíveis abaixo reproduzem as fontes atuais aprovadas para a prévia.
- * Eles permanecem provisórios até a validação final da Bétula.
+ * Eles permanecem provisórios até a validação final da Bétula RH.
  */
 export const contentValidation = {
   status: 'provisional',
@@ -16,7 +16,7 @@ export const contentValidation = {
 } as const;
 
 export const organization = {
-  name: 'Bétula Recrutamento e Seleção',
+  name: 'Bétula RH Recrutamento e Seleção',
   shortName: 'Bétula RH',
   url: 'https://betularh.com.br/',
   title: 'Recrutamento e Seleção em Campinas | Bétula RH',

@@ -1,33 +1,42 @@
 ---
 import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
+import { clientReviews } from '../../data/client-reviews';
+const groups = [
+  { id: 'clients', label: 'Clientes', source: 'Depoimento publicado no site institucional', reviews: clientReviews.map(r => ({ ...r, sourceLabel: 'Ver depoimento no site institucional' })) },
+  { id: 'candidates', label: 'Candidatos', source: 'Avaliações no Google', reviews: candidateReviews.map(r => ({ ...r, role: 'Candidato · Avaliação no Google', sourceLabel: 'Ver perfil de avaliações no Google' })) },
+];
 ---
 <section class="reviews-section" id="depoimentos" aria-labelledby="reviews-title" data-reviews>
   <div class="section-space reviews-layout">
     <header class="reviews-intro">
-      <h2 id="reviews-title">Quem passa pela Bétula,{' '}<span>sente a diferença.</span></h2>
+      <h2 id="reviews-title">Quem passa pela <span class="review-brand">Bétula RH</span>,{' '}<span>sente a diferença.</span></h2>
       <p>Cada processo seletivo é uma oportunidade de conectar pessoas, empresas e futuros. E quem vive essa experiência sabe como fazemos isso.</p>
-      <div class="review-category"><span aria-hidden="true">↗</span><div><strong>Candidatos</strong><span>Avaliações no Google</span></div></div>
+      <div class="review-tabs" role="tablist" aria-label="Escolher avaliações" hidden data-review-tabs>
+        {groups.map((group, i) => <button type="button" role="tab" id={`tab-${group.id}`} aria-controls={`reviews-${group.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-review-tab={group.id}>{group.label}</button>)}
+      </div>
+      <p class="review-source" data-review-source>{groups[0].source}</p>
       <div class="review-controls" hidden data-review-controls>
-        <button type="button" data-review-prev aria-label="Avaliação anterior" aria-controls="candidate-stories">←</button>
-        <p data-review-status aria-live="polite" aria-atomic="true">1 de {candidateReviews.length}</p>
-        <button type="button" data-review-next aria-label="Próxima avaliação" aria-controls="candidate-stories">→</button>
+        <button type="button" data-review-prev aria-label="Avaliação anterior">←</button>
+        <p data-review-status aria-live="polite" aria-atomic="true"></p>
+        <button type="button" data-review-next aria-label="Próxima avaliação">→</button>
       </div>
     </header>
-    <div id="candidate-stories" class="candidate-stories">
-      {candidateReviews.map((review, index) => <article class="candidate-review" data-review aria-labelledby={`review-author-${index}`}>
-        <span class="review-quotation" aria-hidden="true">“</span>
-        <blockquote>{reviewSegments(review.excerpt).map(part => part.emphasized ? <strong>{part.text}</strong> : part.text)}</blockquote>
-        <div class="review-author"><span class="review-initials" aria-hidden="true">{review.name.split(' ').map(word => word[0]).filter((_, i, a) => i === 0 || i === a.length - 1).join('')}</span><div><h3 id={`review-author-${index}`}>{review.name}</h3><span>Candidato · Avaliação no Google</span></div></div>
-        <details class="review-full">
-          <summary><span class="read-more">Ler avaliação completa</span><span class="read-less">Recolher avaliação</span><span class="review-plus" aria-hidden="true">+</span></summary>
-          <blockquote>{review.paragraphs.map(paragraph => <p>{reviewSegments(paragraph).map(part => part.emphasized ? <strong>{part.text}</strong> : part.text)}</p>)}</blockquote>
-          <a href={review.url} target="_blank" rel="noopener noreferrer">Ver perfil de avaliações no Google <span aria-hidden="true">↗</span></a>
-        </details>
-      </article>)}
+    <div class="candidate-stories">
+      {groups.map(group => <div id={`reviews-${group.id}`} data-review-panel={group.id} data-source={group.source}>
+        <h3 class="review-fallback-title">{group.label}</h3>
+        {group.reviews.map((review, index) => <article class="candidate-review" data-review aria-labelledby={`author-${group.id}-${index}`}>
+          <span class="review-quotation" aria-hidden="true">“</span>
+          <div class="review-reading" id={`reading-${group.id}-${index}`} tabindex="0" role="region" aria-label={`Avaliação de ${review.name}`}>
+            <blockquote class="review-excerpt" data-review-excerpt>{reviewSegments(review.excerpt).map(part => part.emphasized ? <strong>{part.text}</strong> : part.text)}</blockquote>
+            <blockquote class="review-complete" data-review-complete>{review.paragraphs.map(paragraph => <p>{reviewSegments(paragraph).map(part => part.emphasized ? <strong>{part.text}</strong> : part.text)}</p>)}</blockquote>
+          </div>
+          <div class="review-author"><span class="review-initials" aria-hidden="true">{review.name.split(' ').map(word => word[0]).filter((_, i, a) => i === 0 || i === a.length - 1).join('')}</span><div><h3 id={`author-${group.id}-${index}`}>{review.name}</h3><span>{review.role}</span></div></div>
+          <div class="review-actions"><button type="button" data-review-toggle aria-expanded="false" aria-controls={`reading-${group.id}-${index}`} hidden>Ler avaliação completa</button><a href={review.url} target="_blank" rel="noopener noreferrer">{review.sourceLabel} ↗</a></div>
+        </article>)}
+      </div>)}
     </div>
   </div>
 </section>
-
 <style>
   .reviews-section { background: var(--paper); border-top: 24px solid var(--sand); }
   .reviews-layout { display: grid; grid-template-columns: .9fr 1.15fr; gap: clamp(40px, 7vw, 110px); }
@@ -49,7 +58,7 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
   .candidate-review + .candidate-review { margin-top: 48px; }
   [data-enhanced] .candidate-review { margin-top: 0; }
   .review-quotation { display: block; color: var(--teal); font: 110px/.8 Georgia, serif; height: 65px; }
-  .candidate-review > blockquote { margin: 0; font: 450 clamp(24px, 2.55vw, 37px)/1.42 var(--title); letter-spacing: -.035em; min-height: 215px; }
+  .review-excerpt { margin: 0; font: 450 clamp(24px, 2.55vw, 37px)/1.42 var(--title); letter-spacing: -.035em; min-height: 215px; }
   .candidate-review strong { color: var(--teal); font-weight: 650; }
   .review-author { display: flex; align-items: center; gap: 15px; margin-block: 30px; }
   .review-initials { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; background: var(--teal); color: var(--paper); font-size: 14px; }
@@ -73,7 +82,7 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
     .reviews-intro h2 { grid-row: span 2; }
     .reviews-intro > p, .review-category, .review-controls { margin-top: 0; }
     .review-controls { grid-column: 2; }
-    .candidate-review > blockquote { min-height: 0; }
+    .review-excerpt { min-height: 0; }
   }
   @media (max-width: 600px) {
     .reviews-intro { display: block; }
@@ -83,30 +92,98 @@ import { candidateReviews, reviewSegments } from '../../data/candidate-reviews';
     .review-category { margin-top: 26px; }
     .review-controls { margin-top: 24px; }
     .reviews-layout { gap: 30px; }
-    .candidate-review > blockquote { font-size: 25px; }
+    .review-excerpt { font-size: 25px; }
+  }
+
+  .review-brand { white-space: nowrap; }
+  .review-tabs { display: flex; gap: 8px; margin-top: 32px; }
+  .review-tabs[hidden], [data-review-panel][hidden], .review-reading [hidden], .review-actions [hidden] { display: none; }
+  .review-tabs button { padding: 10px 16px; border: 1px solid var(--teal); border-radius: 3px; background: transparent; color: var(--teal); font: inherit; }
+  .review-tabs button[aria-selected="true"] { background: var(--teal); color: white; }
+  .reviews-intro .review-source { font-size: 14px; margin-top: 12px; }
+  .review-controls button:disabled { opacity: .35; cursor: default; }
+  .review-controls button:disabled:hover { background: transparent; color: var(--teal); }
+  [data-enhanced] .review-fallback-title { display: none; }
+  [data-enhanced] .review-reading { height: 330px; overflow-y: auto; overscroll-behavior-y: contain; scrollbar-gutter: stable; padding-right: 12px; }
+  .review-reading:focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; }
+  .review-excerpt { min-height: 0; font-size: clamp(24px, 2.2vw, 32px); }
+  .review-complete { margin: 0; font: 18px/1.65 var(--body); color: var(--ink); }
+  .review-complete p + p { margin-top: 18px; }
+  .review-author { min-height: 68px; }
+  .review-actions { border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+  .review-actions button, .review-actions a { font: 14px/1.5 var(--body); color: var(--teal); }
+  .review-actions button { background: none; border: 0; padding: 8px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+  .review-actions a { margin-left: auto; }
+  @media (max-width: 900px) { .review-tabs, .reviews-intro .review-source { grid-column: 2; } }
+  @media (max-width: 600px) {
+    [data-enhanced] .review-reading { height: 340px; }
+    .review-complete { font-size: 17px; }
+    .review-actions { flex-direction: column; align-items: flex-start; }
+    .review-actions a { margin-left: 0; }
   }
 </style>
-
 <script>
   document.querySelectorAll<HTMLElement>('[data-reviews]').forEach(section => {
-    const reviews = [...section.querySelectorAll<HTMLElement>('[data-review]')];
-    const controls = section.querySelector<HTMLElement>('[data-review-controls]');
-    const status = section.querySelector<HTMLElement>('[data-review-status]');
-    if (!controls || !status || reviews.length < 2) return;
-    let current = 0;
-    const show = (next: number) => {
-      current = (next + reviews.length) % reviews.length;
-      reviews.forEach((review, index) => {
-        review.hidden = index !== current;
-        const full = review.querySelector('details');
-        if (full && index !== current) full.open = false;
-      });
-      status.textContent = `${current + 1} de ${reviews.length}`;
+    const tabs = [...section.querySelectorAll<HTMLButtonElement>('[data-review-tab]')];
+    const panels = [...section.querySelectorAll<HTMLElement>('[data-review-panel]')];
+    const prev = section.querySelector<HTMLButtonElement>('[data-review-prev]')!;
+    const next = section.querySelector<HTMLButtonElement>('[data-review-next]')!;
+    const status = section.querySelector<HTMLElement>('[data-review-status]')!;
+    let category = 0;
+    const positions = panels.map(() => 0);
+    const collapse = (article: HTMLElement) => {
+      article.querySelector<HTMLElement>('[data-review-excerpt]')!.hidden = false;
+      article.querySelector<HTMLElement>('[data-review-complete]')!.hidden = true;
+      const button = article.querySelector<HTMLButtonElement>('[data-review-toggle]')!;
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = 'Ler avaliação completa';
+      article.querySelector('.review-reading')!.scrollTop = 0;
     };
-    section.querySelector('[data-review-prev]')?.addEventListener('click', () => show(current - 1));
-    section.querySelector('[data-review-next]')?.addEventListener('click', () => show(current + 1));
-    show(0);
+    const show = () => {
+      panels.forEach((panel, i) => {
+        panel.hidden = i !== category;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tabs[i].id);
+        tabs[i].setAttribute('aria-selected', String(i === category));
+        tabs[i].tabIndex = i === category ? 0 : -1;
+        [...panel.querySelectorAll<HTMLElement>('[data-review]')].forEach((article, j) => { article.hidden = j !== positions[i]; collapse(article); });
+      });
+      const panel = panels[category];
+      const count = panel.querySelectorAll('[data-review]').length;
+      status.textContent = `${positions[category] + 1} de ${count}`;
+      prev.disabled = next.disabled = count < 2;
+      prev.setAttribute('aria-controls', panel.id); next.setAttribute('aria-controls', panel.id);
+      section.querySelector<HTMLElement>('[data-review-source]')!.textContent = panel.dataset.source!;
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => { category = index; show(); });
+      tab.addEventListener('keydown', event => {
+        let target = index;
+        if(event.key === 'ArrowRight') target = (index + 1) % tabs.length;
+        else if(event.key === 'ArrowLeft') target = (index + tabs.length - 1) % tabs.length;
+        else if(event.key === 'Home') target = 0;
+        else if(event.key === 'End') target = tabs.length - 1;
+        else return;
+        event.preventDefault(); category = target; show(); tabs[target].focus();
+      });
+    });
+    const move = (delta: number) => { const count = panels[category].querySelectorAll('[data-review]').length; positions[category] = (positions[category] + delta + count) % count; show(); };
+    prev.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
+    section.querySelectorAll<HTMLElement>('[data-review]').forEach(article => {
+      const button = article.querySelector<HTMLButtonElement>('[data-review-toggle]')!;
+      button.hidden = false;
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') !== 'true';
+        article.querySelector<HTMLElement>('[data-review-excerpt]')!.hidden = open;
+        article.querySelector<HTMLElement>('[data-review-complete]')!.hidden = !open;
+        button.setAttribute('aria-expanded', String(open));
+        button.textContent = open ? 'Voltar ao resumo' : 'Ler avaliação completa';
+        article.querySelector('.review-reading')!.scrollTop = 0;
+      });
+    });
     section.dataset.enhanced = '';
-    controls.hidden = false;
+    section.querySelector<HTMLElement>('[data-review-tabs]')!.hidden = false;
+    section.querySelector<HTMLElement>('[data-review-controls]')!.hidden = false;
+    show();
   });
 </script>

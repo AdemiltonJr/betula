@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import test from 'node:test';
+import { clientReviews } from '../src/data/client-reviews.ts';
 import { candidateReviews, reviewSegments } from '../src/data/candidate-reviews.ts';
 
 async function readBuiltHtml() {
@@ -18,7 +19,7 @@ test('publica apenas a lista revisada de clientes e preserva os relatos de candi
   assert.equal((html.match(/class="team-profile"/g) ?? []).length, 5);
   assert.doesNotMatch(html, /Paulo César|Sala 311|Villa Bella|PostalAddress/);
   assert.match(html, /Keila Assis/);
-  const text = html.replace(/<[^>]+>/g, '');
+  const text = html.replace(/<[^>]+>/g, '').replace(/&#39;|&#x27;/g, "'").replace(/&amp;/g, '&');
   assert.equal(candidateReviews.length, 5);
   assert.equal(new Set(candidateReviews.map(review => review.url)).size, 5);
   for (const review of candidateReviews) {
@@ -83,4 +84,15 @@ test('contato direto funciona sem javascript e seletor tem estado inicial defini
 
 test('links externos abertos em outra aba protegem a origem', () => {
   for (const [tag] of html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) assert.match(tag, /rel="[^"]*noopener/);
+});
+
+test('separa clientes e candidatos e mantém o relato empresarial literal', () => {
+  assert.match(html, /id="tab-clients"/);
+  assert.match(html, /id="tab-candidates"/);
+  const text = html.replace(/<[^>]+>/g, '').replace(/&#39;|&#x27;/g, "'").replace(/&amp;/g, '&');
+  for (const review of clientReviews) {
+    assert.ok(text.includes(review.name));
+    for (const paragraph of review.paragraphs) assert.ok(text.includes(paragraph));
+    assert.ok(review.paragraphs.some(p => p.includes(review.excerpt)));
+  }
 });

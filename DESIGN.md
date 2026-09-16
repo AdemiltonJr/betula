@@ -71,3 +71,7 @@ Fundo de troncos centralizado com cover em toda a seção. Camada branca de 50% 
 ### Logo horizontal no cabeçalho
 
 Arquivo original 1044×250 do site oficial: logo-horizontal-oficial.png. Cabeçalho mantém altura de 92/80/74px; marca horizontal tem 260px no desktop e até 230px no celular. Em telas de até 600px, ação de contratação aparece no menu aberto e continua na abertura da página, liberando espaço para leitura da marca.
+
+### Equilíbrio de cabeçalho e avaliações
+
+Logo horizontal reduzido para 220px no desktop e até 205px no celular; tamanho das fontes e altura do menu preservados. Marca escrita como Bétula RH nos textos institucionais; citações literais preservadas. Abas Clientes/Candidatos com seleção por teclado. Texto integral substitui resumo em área de leitura de altura estável, rolável e focável, sem deslocar a seção seguinte. Sem JavaScript, todos os relatos e textos integrais ficam disponíveis.
