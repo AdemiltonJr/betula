@@ -79,3 +79,7 @@ A prévia em Vercel agora usa `noindex, follow` por padrão. O lançamento defin
 Faixas em toda a largura, Quem somos centralizado, Como fazemos compacto sobre verde e fundo original com troncos. Abertura com fotografias reais. Equipe inclui Keila; Jullyana aguarda foto e texto. Endereço fiscal removido do HTML e schema, agora Organization. Emails separados para empresas e candidatos. FAQ permanece aguardando respostas da cliente.
 
 Check, build e oito testes passaram. Inspeção visual e funcional em seis larguras de 320 a 1920px, sem overflow; logos em cores originais, arraste e avaliações preservados. Prévia continua noindex; domínio oficial não alterado.
+
+## Abertura revisada — fotografia provisória
+
+Por aprovação do usuário em 16/09/2026, os dois retratos foram retirados da abertura para evitar hierarquia entre integrantes. Título, mensagem e botão permanecem sobre branco; abaixo, faixa horizontal com bg-bosque.jpg, imagem existente e provisória para avaliação da composição. Retratos ficam somente na seção de equipe. A escolha definitiva da fotografia permanece pendente.

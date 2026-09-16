@@ -103,3 +103,7 @@ Ambas foram encontradas na biblioteca pública de mídia dos respectivos sites o
 
 Astro check: zero erros e avisos, com dois hints em scripts locais antigos. Build e oito testes passaram. Navegador em 320, 390, 768 e 1440px: sem overflow horizontal, 17 clientes, quatro retratos carregados, logos sem filtros, leitura completa dos relatos e arraste preservados. Menu móvel com contraste, abertura e Escape conferidos. Capturas e roteiro de inspeção em output/brand-audit (arquivos locais).
 
+
+## Abertura revisada — fotografia provisória
+
+Por aprovação do usuário em 16/09/2026, os dois retratos foram retirados da abertura para evitar hierarquia entre integrantes. Título, mensagem e botão permanecem sobre branco; abaixo, faixa horizontal com bg-bosque.jpg, imagem existente e provisória para avaliação da composição. Retratos ficam somente na seção de equipe. A escolha definitiva da fotografia permanece pendente.

@@ -51,3 +51,7 @@ Cobre #7A4A12 aplicado ao título de abertura, trechos destacados, molduras, sel
 Validação local: Astro check sem erros ou avisos; build e 7 testes passam. Playwright em 320, 390, 768, 1024 e 1440px sem overflow ou imagens com falha. Menu, teclado, FAQ, mensagem de WhatsApp, reduced-motion e fallback sem JS conferidos.
 
 Publicação autorizada pelo usuário no projeto Vercel Bétula para avaliação da cliente. Destino verificado: betula-seven.vercel.app.
+
+## Abertura revisada — fotografia provisória
+
+Por aprovação do usuário em 16/09/2026, os dois retratos foram retirados da abertura para evitar hierarquia entre integrantes. Título, mensagem e botão permanecem sobre branco; abaixo, faixa horizontal com bg-bosque.jpg, imagem existente e provisória para avaliação da composição. Retratos ficam somente na seção de equipe. A escolha definitiva da fotografia permanece pendente.
