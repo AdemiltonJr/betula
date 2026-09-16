@@ -59,3 +59,7 @@ Por aprovação do usuário em 16/09/2026, os dois retratos foram retirados da a
 ### Abertura em duas colunas — revisão aprovada
 
 Substitui a faixa abaixo do título: mensagem à esquerda, com título compacto e alinhamento à esquerda, e fotografia à direita, aproximadamente metade da composição. Em até 900px, texto e imagem empilham com intervalo compacto. Bosque permanece provisório; demais seções preservadas.
+
+### Textura de Quem somos
+
+Fundo de troncos centralizado com cover em toda a seção. Camada branca de 50% suaviza apenas a textura, preservando contraste e opacidade dos textos.

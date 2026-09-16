@@ -18,7 +18,7 @@
     .institutional-hero .hero-intro > p:first-child { font-size: 18px; }
     .institutional-hero .hero-bottom { margin-top: 16px; }
   }
-  .institutional-about { background: white url('/assets/img/bg-depoimentos.jpg') left center / auto 100% no-repeat; border-top: 24px solid var(--sand); }
+  .institutional-about { background: linear-gradient(rgb(255 255 255 / .5), rgb(255 255 255 / .5)), url('/assets/img/bg-depoimentos.jpg') center / cover no-repeat; background-color: white; border-top: 24px solid var(--sand); }
   .about-inner { text-align: center; padding-block: 80px; }
   .about-inner h2 { max-width: 820px; margin-inline: auto; }
   .about-copy { max-width: 720px; margin: 30px auto 24px; font-size: 19px; line-height: 1.65; color: var(--ink); }
