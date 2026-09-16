@@ -79,3 +79,13 @@
     .mobile-menu-contact { display: block; }
   }
 }
+
+@layer responsive {
+  .site-footer .footer-brand { width: 200px; }
+  .site-footer .footer-brand img { display: block; width: 100%; height: auto; }
+  .site-footer .footer-grid > nav { min-width: 0; }
+  @media (max-width: 600px) {
+    .site-footer .footer-brand { width: 180px; grid-column: 1 / -1; }
+    .site-footer .footer-grid { gap: 24px 32px; }
+  }
+}

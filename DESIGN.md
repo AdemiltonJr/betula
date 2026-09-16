@@ -75,3 +75,7 @@ Arquivo original 1044×250 do site oficial: logo-horizontal-oficial.png. Cabeça
 ### Equilíbrio de cabeçalho e avaliações
 
 Logo horizontal reduzido para 220px no desktop e até 205px no celular; tamanho das fontes e altura do menu preservados. Marca escrita como Bétula RH nos textos institucionais; citações literais preservadas. Abas Clientes/Candidatos com seleção por teclado. Texto integral substitui resumo em área de leitura de altura estável, rolável e focável, sem deslocar a seção seguinte. Sem JavaScript, todos os relatos e textos integrais ficam disponíveis.
+
+### Depoimentos de ponta a ponta e logo do rodapé
+
+Degradê e textura agora pertencem à seção inteira, com inset 0, sem margens brancas externas. Respiro dos textos preservado dentro do container. Pêssego parte da borda esquerda e termina em branco à direita. Logo vertical do rodapé preservado e ampliado para 200px no desktop e 180px no celular; no mobile ganha uma linha própria para não comprimir links.

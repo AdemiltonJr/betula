@@ -38,10 +38,10 @@ const groups = [
   </div>
 </section>
 <style>
-  .reviews-section { background: var(--paper); border-top: 24px solid var(--sand); }
+  .reviews-section { position: relative; isolation: isolate; background: var(--paper); border-top: 24px solid var(--sand); }
   .reviews-layout { display: grid; grid-template-columns: .9fr 1.15fr; gap: clamp(40px, 7vw, 110px); }
   .reviews-intro { position: relative; isolation: isolate; align-self: start; }
-  .reviews-intro::before { content: ''; position: absolute; z-index: -1; inset: -40px -30px -40px -40px; pointer-events: none; background: linear-gradient(rgb(248 214 196 / .7), rgb(248 214 196 / .7)), url('/assets/img/bg-depoimentos.jpg') 32% center / auto 145% no-repeat; background-blend-mode: multiply; opacity: .65; mask-image: linear-gradient(to right, black 45%, transparent 100%); }
+  .reviews-section::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(rgb(248 214 196 / .7), rgb(248 214 196 / .7)), url('/assets/img/bg-depoimentos.jpg') left center / cover no-repeat; background-blend-mode: multiply; opacity: .65; mask-image: linear-gradient(to right, black 15%, transparent 65%); }
   .reviews-intro h2 { font-size: clamp(36px, 3.5vw, 52px); }
   .reviews-intro > p { max-width: 360px; margin-top: 28px; color: var(--muted); font-size: 17px; }
   .review-category { margin-top: 38px; display: flex; gap: 15px; align-items: center; }
@@ -77,7 +77,7 @@ const groups = [
   @media (max-width: 900px) {
     .reviews-layout { gap: 40px; grid-template-columns: 1fr; }
     .reviews-intro { padding-bottom: 28px; }
-    .reviews-intro::before { inset: -28px -16px 0; background-size: auto, auto 165%; mask-image: linear-gradient(to bottom, black 55%, transparent 100%); }
+    .reviews-section::before { mask-image: linear-gradient(to right, black, transparent 100%); }
     .reviews-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .reviews-intro h2 { grid-row: span 2; }
     .reviews-intro > p, .review-category, .review-controls { margin-top: 0; }
