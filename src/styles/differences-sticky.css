@@ -1,0 +1,28 @@
+/* Bétula — alternativa de leitura vertical, restrita aos diferenciais. */
+[data-organic-proposal] #como-fazemos { --differences-header: 101px; padding-bottom: 0; }
+[data-organic-proposal] .differences-flow { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 10%; align-items: start; padding-block: clamp(72px, 8vw, 120px); }
+[data-organic-proposal] .differences-flow .institutional-values { position: sticky; top: calc(var(--differences-header) + 32px); align-self: start; min-width: 0; }
+[data-organic-proposal] .differences-flow .institutional-values h2 { margin: 0; max-width: 16ch; }
+[data-organic-proposal] .differences-reading { min-width: 0; }
+[data-organic-proposal] .differences-reading .values-description { margin: 0 0 56px; max-width: 60ch; }
+[data-organic-proposal] .differences-reading #diferenciais { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; width: 100%; margin: 0; padding: 0; }
+[data-organic-proposal] .differences-reading #diferenciais > li:nth-child(n) { grid-column: auto; margin: 0; padding: 32px 0 0; border: 0; border-top: 1px solid var(--organic-peach-line); }
+[data-organic-proposal] .differences-reading #diferenciais > li h3 { margin: 0 0 16px; }
+[data-organic-proposal] .differences-reading #diferenciais > li p { margin: 0; }
+@media (max-width: 900px) {
+  [data-organic-proposal] #como-fazemos { --differences-header: 85px; }
+  [data-organic-proposal] .differences-flow { display: block; padding-top: 32px; }
+  [data-organic-proposal] .differences-flow .institutional-values { top: var(--differences-header); z-index: 3; padding-block: 16px; margin-bottom: 32px; background: var(--organic-teal); border-bottom: 1px solid var(--organic-peach-line); }
+  [data-organic-proposal] .differences-flow .institutional-values h2 { font-size: clamp(24px, 4vw, 32px); line-height: 1.2; max-width: 26ch; text-wrap: balance; }
+  [data-organic-proposal] .differences-reading .values-description { margin-bottom: 40px; }
+  [data-organic-proposal] .differences-reading #diferenciais { scroll-margin-top: 220px; }
+}
+@media (max-width: 600px) {
+  [data-organic-proposal] #como-fazemos { --differences-header: 81px; }
+  [data-organic-proposal] .differences-reading #diferenciais { gap: 32px; }
+  [data-organic-proposal] .differences-flow .institutional-values h2 { font-size: 24px; }
+}
+/* Landscape curto e impressão priorizam espaço e leitura, sem sobreposição. */
+@media (max-height: 480px), print {
+  [data-organic-proposal] .differences-flow .institutional-values { position: static; }
+}
