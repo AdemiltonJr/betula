@@ -2,18 +2,33 @@ export function initTeamRail(root: HTMLElement) {
   const rail = root.querySelector<HTMLElement>('[data-team-rail]');
   const people = [...root.querySelectorAll<HTMLButtonElement>('[data-team-person]')];
   const panels = [...root.querySelectorAll<HTMLElement>('[data-team-panel]')];
+  const toggles = [...root.querySelectorAll<HTMLButtonElement>('[data-team-toggle]')];
+  const biographies = root.querySelector<HTMLElement>('[data-team-biographies]');
   const previous = root.querySelector<HTMLButtonElement>('[data-team-prev]');
   const next = root.querySelector<HTMLButtonElement>('[data-team-next]');
   const status = root.querySelector<HTMLElement>('[data-team-status]');
   if (!rail || !people.length) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let active = 0;
+  let biographyOpen = false;
   let programmaticScroll = false;
   let settleTimer: number | undefined;
   function select(index: number, scroll = true, focus = false) {
     active = Math.max(0, Math.min(people.length - 1, index));
     people.forEach((button, i) => button.setAttribute('aria-pressed', String(i === active)));
-    panels.forEach((panel, i) => { panel.hidden = i !== active; });
+    const revealed = biographyOpen && toggles.some(button => Number(button.dataset.index) === active);
+    root.dataset.teamOpen = String(revealed);
+    if (biographies) biographies.hidden = !revealed;
+    panels.forEach((panel, i) => { panel.hidden = !revealed || i !== active; });
+    toggles.forEach(button => {
+      const index = Number(button.dataset.index);
+      const expanded = revealed && index === active;
+      button.setAttribute('aria-expanded', String(expanded));
+      const verb = expanded ? 'Fechar' : 'Conhecer';
+      button.setAttribute('aria-label', `${verb} trajetória de ${people[index].querySelector('h3')?.textContent ?? ''}`);
+      const label = button.querySelector<HTMLElement>('[data-team-toggle-label]');
+      if (label) label.textContent = `${verb} trajetória`;
+    });
     if (previous) previous.disabled = active === 0;
     if (next) next.disabled = active === people.length - 1;
     if (status) status.textContent = `${active + 1} de ${people.length} — ${people[active].querySelector('h3')?.textContent ?? ''}`;
@@ -56,14 +71,26 @@ export function initTeamRail(root: HTMLElement) {
   rail.addEventListener('wheel', () => { programmaticScroll = false; }, { passive: true });
   let dragged = false;
   people.forEach((button, index) => button.addEventListener('click', () => { if (!dragged) select(index); }));
+  toggles.forEach(button => button.addEventListener('click', () => {
+    if (dragged) return;
+    const index = Number(button.dataset.index);
+    biographyOpen = !(biographyOpen && active === index);
+    select(index);
+  }));
   previous?.addEventListener('click', () => select(active - 1));
   next?.addEventListener('click', () => select(active + 1));
   rail.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && biographyOpen) {
+      biographyOpen = false;
+      select(active, false);
+      return;
+    }
     const delta = event.key === 'ArrowLeft' ? -1 : event.key === 'ArrowRight' ? 1 : 0;
     if (delta || event.key === 'Home' || event.key === 'End') {
       event.preventDefault();
       const focusedIndex = people.indexOf(event.target as HTMLButtonElement);
-      const origin = focusedIndex < 0 ? active : focusedIndex;
+      const toggleIndex = toggles.indexOf(event.target as HTMLButtonElement);
+      const origin = focusedIndex >= 0 ? focusedIndex : toggleIndex >= 0 ? Number(toggles[toggleIndex].dataset.index) : active;
       select(event.key === 'Home' ? 0 : event.key === 'End' ? people.length - 1 : origin + delta, true, true);
     }
   });

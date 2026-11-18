@@ -12,11 +12,11 @@ const { people } = Astro.props;
       <button type="button" class="team-person" data-team-person data-index={index} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`team-bio-${index}`}>
         <img src={`/assets/img/${person.image}`} alt="" width={person.name === 'Keila Assis' ? 716 : 560} height={person.name === 'Keila Assis' ? 716 : 560} loading="lazy" draggable="false" />
         <h3>{person.name}</h3>
-        {person.bio && <span class="profile-action">Conhecer trajetória <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>}
       </button>
+      {person.bio && <button type="button" class="profile-action" data-team-toggle data-index={index} aria-expanded="false" aria-controls={`team-bio-${index}`} aria-label={`Conhecer trajetória de ${person.name}`}><span data-team-toggle-label>Conhecer trajetória</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>}
     </article>)}
   </div>
-  <div class="team-biographies">
+  <div class="team-biographies" data-team-biographies>
     {people.map((person, index) => <div data-team-panel data-index={index} id={`team-bio-${index}`} class="team-biography" role="region" aria-label={person.name}>
       {person.bio && <><h3>{person.name}</h3><p>{person.bio}</p></>}
     </div>)}
@@ -37,7 +37,9 @@ const { people } = Astro.props;
   .team-person { border: 0; padding: 0 8px 12px; width: 100%; color: var(--teal); background: none; cursor: pointer; text-align: left; }
   .team-person img { width: 100%; aspect-ratio: 1; object-fit: cover; clip-path: url(#betula-portrait); transform-origin: 50% 70%; transition: transform 300ms cubic-bezier(.22,1,.36,1); margin-bottom: 24px; user-select: none; }
   .team-person h3 { font: 600 22px/1.3 var(--title); margin: 0; }
-  .profile-action { display: flex; gap: 12px; align-items: center; margin-top: 8px; min-height: 32px; font-size: 15px; }
+  .profile-action { display: flex; gap: 12px; align-items: center; margin: 4px 8px 0; min-height: 44px; font-size: 15px; background: none; border: 0; padding: 0; color: var(--teal); text-align: left; cursor: pointer; }
+  .profile-action:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+  :global(html.js) .organic-team:not([data-team-open="true"]) .team-biographies { display: none; }
   .profile-action svg { width: 18px; }
   .team-person[aria-pressed="true"] h3 { text-decoration: underline; text-underline-offset: 7px; }
   .team-person:focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; }
@@ -50,7 +52,7 @@ const { people } = Astro.props;
   [data-team-enhanced] .team-biography[hidden] { display: none; }
   .team-biography:empty { margin: 0; }
   .team-status { display: block; margin-top: 20px; font-size: 14px; }
-  html:not(.js) .team-arrows { display: none; }
+  :global(html:not(.js)) .team-arrows, :global(html:not(.js)) .profile-action { display: none; }
   @media (max-width: 600px) { .team-profile { flex-basis: 74%; } .team-portraits { gap: 20px; } .team-navigation { font-size: 14px; } .team-biography p { font-size: 18px; } }
   @media (prefers-reduced-motion: reduce) { .team-person img { transition: none; transform: none !important; } .team-portraits { scroll-behavior: auto; } }
 </style>
