@@ -28,6 +28,10 @@
 .organic-hero svg:not(.hero-branch-lines):not(.organic-definitions) { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; flex-shrink: 0; }
 .hero-location { font-size: 15px; margin-top: 24px; }
 .organic-hero-art { position: relative; min-width: 0; aspect-ratio: .96; isolation: isolate; }
+@media (min-width: 901px) {
+  .organic-hero-copy { padding-inline-start: clamp(24px, 3vw, 48px); }
+  .organic-hero-art { transform: translateX(calc(-1 * clamp(24px, 3vw, 48px))); }
+}
 .organic-bosque { margin: 0; position: absolute; inset: 3% 0 2% 0; clip-path: url(#betula-landscape); z-index: 1; }
 .organic-bosque img { width: 100%; height: 100%; object-fit: cover; object-position: 56% center; }
 .hero-original-emblem { position: absolute; width: 51%; height: auto; bottom: 0; right: -5%; z-index: 2; background: var(--organic-peach); border-radius: 50%; padding: 14px; }
@@ -38,15 +42,15 @@
 @keyframes organic-arrive { from { transform: translateY(16px); } to { transform: translateY(0); } }
 @keyframes organic-settle { from { transform: scale(1.05); } to { transform: scale(1); } }
 [data-organic-proposal] .institutional-about { border: 0; background: var(--organic-paper); position: relative; overflow: clip; }
-[data-organic-proposal] .about-inner { display: grid; grid-template-columns: 1fr 1.65fr; gap: 24px 8%; text-align: left; }
+[data-organic-proposal] .about-inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; text-align: left; }
 [data-organic-proposal] .about-inner h2 { margin: 0; font-size: clamp(36px, 4vw, 56px); }
 [data-organic-proposal] .about-copy { margin: 0; max-width: 70ch; font-size: 21px; line-height: 1.65; }
 [data-organic-proposal] .about-copy p + p { margin-top: 24px; }
-[data-organic-proposal] .about-inner > .text-link { grid-column: 2; justify-self: start; }
+[data-organic-proposal] .about-inner > .text-link { grid-column: auto; justify-self: start; }
 [data-organic-proposal] .institutional-differences { position: relative; isolation: isolate; overflow: clip; background: var(--organic-teal); color: var(--organic-paper); padding-bottom: 100px; }
 [data-organic-proposal] .institutional-values { background: none; }
-[data-organic-proposal] .institutional-values .section-space { display: grid; grid-template-columns: 1.15fr 1fr; gap: 8%; text-align: left; padding-bottom: 50px; align-items: start; }
-[data-organic-proposal] .institutional-values h2 { font-size: clamp(36px, 4vw, 55px); line-height: 1.12; max-width: 17ch; color: var(--organic-peach); }
+[data-organic-proposal] .institutional-values .section-space { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; text-align: left; padding-bottom: 50px; align-items: start; }
+[data-organic-proposal] .institutional-values h2 { font-size: clamp(36px, 4vw, 55px); line-height: 1.12; max-width: 26ch; color: var(--organic-peach); }
 [data-organic-proposal] .values-description { margin: 0; font-size: 20px; line-height: 1.65; }
 .method-branches { position: absolute; inset: 24% 0 0; width: 100%; height: 76%; pointer-events: none; stroke: var(--organic-peach); opacity: .19; stroke-width: 1; z-index: -1; }
 [data-organic-proposal] .institutional-differences ul.container { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 56px 0; padding-top: 30px; list-style: none; }
@@ -70,8 +74,8 @@
 [data-organic-proposal] .process-moment.is-current .step-leaf { --leaf-fill: var(--organic-teal); --leaf-outline: var(--organic-teal); --leaf-veins: var(--organic-paper); }
 [data-organic-proposal] [data-step="0"] .step-leaf { left: 22px; top: -14px; transform: rotate(12deg); }
 [data-organic-proposal] [data-step="1"] .step-leaf { left: 1px; top: -12px; width: 18px; height: 24px; transform: rotate(-58deg); }
-[data-organic-proposal] [data-step="2"] .step-leaf { left: 22px; top: 16px; width: 19px; height: 24px; transform: rotate(88deg); }
-[data-organic-proposal] [data-step="3"] .step-leaf { left: 0px; top: 16px; width: 18px; height: 23px; transform: rotate(-155deg); }
+[data-organic-proposal] [data-step="2"] .step-leaf { left: 19px; top: 8px; width: 19px; height: 24px; transform: rotate(88deg); }
+[data-organic-proposal] [data-step="3"] .step-leaf { left: 1px; top: 9px; width: 18px; height: 23px; transform: rotate(-155deg); }
 [data-organic-proposal] .process-moment p { font-size: 19px; line-height: 1.6; }
 .process-details { margin-top: 20px; padding-left: 20px; font-size: 16px; line-height: 1.65; color: var(--muted); }
 .process-details li + li { margin-top: 10px; }
