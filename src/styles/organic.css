@@ -1,5 +1,5 @@
 /* Terceira proposta — conexões orgânicas. Alternativa não aprovada. */
-:root { --organic-teal: #00525D; --organic-peach: #F8D6C4; --organic-paper: #FFFFFF; --organic-muted: #375f63; --organic-peach-line: rgb(248 214 196 / .25); --organic-teal-rule: rgb(0 82 93 / .3); --organic-teal-line: rgb(0 82 93 / .25); }
+:root { --organic-teal: #00525D; --organic-peach: #F8D6C4; --organic-paper: #FFFFFF; --organic-muted: #375f63; --organic-peach-line: rgb(248 214 196 / .25); --organic-teal-rule: rgb(0 82 93 / .3); --organic-teal-line: rgb(0 82 93 / .25); --organic-leaf-outline: #a6c0ad; }
 /* Unlayered rules intentionally own this proposal, leaving historical styles intact. */
 [data-organic-proposal] { --teal: var(--organic-teal); --sand: var(--organic-peach); --paper: var(--organic-paper); --ink: var(--organic-teal); --muted: var(--organic-muted); color: var(--ink); background: var(--organic-paper); }
 [data-organic-proposal] ::selection { background: var(--organic-peach); color: var(--organic-teal); }
@@ -64,9 +64,14 @@
 [data-organic-proposal] .process-intro { top: 130px; }
 [data-organic-proposal] .process-moment { padding-block: 18px 38px; }
 [data-organic-proposal] .process-moment::before { content: none; }
-[data-organic-proposal] .step-leaf { position: absolute; left: 23px; top: -14px; width: 18px; height: 24px; color: var(--organic-teal); pointer-events: none; }
-[data-organic-proposal] .step-leaf .leaf-blade { fill: var(--organic-paper); stroke: currentColor; stroke-width: 1.25; stroke-linejoin: round; }
-[data-organic-proposal] .step-leaf .leaf-veins { fill: none; stroke: currentColor; stroke-width: 1.15; stroke-linecap: round; }
+[data-organic-proposal] .step-leaf { --leaf-fill: var(--organic-paper); --leaf-outline: var(--organic-leaf-outline); --leaf-veins: var(--organic-muted); position: absolute; left: 22px; top: -14px; width: 20px; height: 25px; transform: rotate(12deg); transform-origin: 50% 80%; pointer-events: none; }
+[data-organic-proposal] .step-leaf .leaf-blade { fill: var(--leaf-fill); stroke: var(--leaf-outline); stroke-width: 1.15; stroke-linejoin: round; transition: fill .4s, stroke .4s; }
+[data-organic-proposal] .step-leaf .leaf-veins { fill: none; stroke: var(--leaf-veins); stroke-width: .85; stroke-linecap: round; transition: stroke .4s; }
+[data-organic-proposal] .process-moment.is-current .step-leaf { --leaf-fill: var(--organic-teal); --leaf-outline: var(--organic-teal); --leaf-veins: var(--organic-paper); }
+[data-organic-proposal] [data-step="0"] .step-leaf { left: 22px; top: -14px; transform: rotate(12deg); }
+[data-organic-proposal] [data-step="1"] .step-leaf { left: 1px; top: -12px; width: 18px; height: 24px; transform: rotate(-58deg); }
+[data-organic-proposal] [data-step="2"] .step-leaf { left: 22px; top: 16px; width: 19px; height: 24px; transform: rotate(88deg); }
+[data-organic-proposal] [data-step="3"] .step-leaf { left: 0px; top: 16px; width: 18px; height: 23px; transform: rotate(-155deg); }
 [data-organic-proposal] .process-moment p { font-size: 19px; line-height: 1.6; }
 .process-details { margin-top: 20px; padding-left: 20px; font-size: 16px; line-height: 1.65; color: var(--muted); }
 .process-details li + li { margin-top: 10px; }
