@@ -23,4 +23,9 @@ const { people } = Astro.props;
     .team-profile h3 { font-size: 17px; }
     .team-profile p { font-size: 14px; }
   }
+  @media (max-width: 600px) {
+    .team-profile { flex-basis: 100%; }
+    .team-profile p { font-size: 16px; line-height: 1.6; }
+    .team-portraits { gap: 40px; }
+  }
 </style>

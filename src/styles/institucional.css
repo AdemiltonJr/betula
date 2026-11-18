@@ -2,9 +2,10 @@
 @layer responsive {
   .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: stretch; margin-top: 32px; }
   .hero-copy { align-self: center; padding-block: 28px; min-width: 0; }
-  .institutional-hero h1 { margin: 0; text-align: left; font-size: clamp(36px, 3.35vw, 48px); line-height: 1.12; letter-spacing: -.045em; }
+  .institutional-hero h1 { margin: 0; text-align: left; font-size: clamp(36px, 3.35vw, 48px); line-height: 1.12; letter-spacing: -.045em; text-wrap: balance; }
   .institutional-hero .hero-composition { display: block; min-height: 0; margin-top: 25px; padding-bottom: 0; }
   .institutional-hero .hero-intro { padding-top: 0; max-width: none; margin: 0; text-align: left; }
+  .institutional-hero .hero-intro > .button { margin-top: 20px; }
   .institutional-hero .hero-intro > p:first-child { font-size: 20px; line-height: 1.5; }
   .hero-landscape { margin: 0; width: 100%; overflow: hidden; min-height: 450px; }
   .hero-landscape img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 52% center; }
