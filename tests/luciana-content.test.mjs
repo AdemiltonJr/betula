@@ -12,10 +12,10 @@ test('aplica cada linha do texto aprovado da Luciana literalmente', () => {
   for (const line of approved) assert.ok(text.includes(line), `Texto aprovado ausente: ${line}`);
 });
 
-test('preserva cinco integrantes sem inserir Jullyana na equipe', () => {
+test('preserva as cinco biografias e inclui Jullyana somente com o material autorizado', () => {
   const section = html.split('id="equipe"')[1].split('</section>')[0];
-  assert.equal((section.match(/class="team-profile"/g) ?? []).length, 5);
-  assert.doesNotMatch(section, /Jullyana|Julyanna/);
+  assert.equal((section.match(/class="team-profile"/g) ?? []).length, 6);
+  assert.match(section, />Jullyana<\/h3>/);
 });
 
 test('depoimentos permanecem UTF-8, sem mojibake ou caracteres de substituição', () => {

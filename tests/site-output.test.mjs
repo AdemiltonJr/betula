@@ -16,7 +16,7 @@ const html = await readBuiltHtml();
 test('publica apenas a lista revisada de clientes e preserva os relatos de candidatos', () => {
   for (const file of ['cli-renova.png', 'cli-bollhoff.png', 'cli-dellys.png', 'cli-enxuto.png', 'cli-eucatex.png', 'cli-vetnil.png']) assert.ok(!html.includes(file), `Cliente retirado reapareceu: ${file}`);
   assert.doesNotMatch(html, /Tamara Tordin|team-tamara-tordin|equipe-grupo-2\.jpg/);
-  assert.equal((html.match(/class="team-profile"/g) ?? []).length, 5);
+  assert.equal((html.match(/class="team-profile"/g) ?? []).length, 6);
   assert.doesNotMatch(html, /Paulo César|Sala 311|Villa Bella|PostalAddress/);
   assert.match(html, /Keila Assis/);
   const text = html.replace(/<[^>]+>/g, '').replace(/&#39;|&#x27;/g, "'").replace(/&amp;/g, '&');

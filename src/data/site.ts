@@ -171,6 +171,12 @@ export const team = [
     role: 'Avaliação psicológica',
     bio: 'Psicóloga e terapeuta, responsável pela condução de avaliações psicológicas e aplicação de testes voltados à avaliação da atenção, cognição e personalidade.',
   },
+  {
+    image: 'team-jullyana.jpg',
+    name: 'Jullyana',
+    role: '',
+    bio: '',
+  },
 ] as const;
 
 export const media = {

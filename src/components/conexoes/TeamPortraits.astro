@@ -8,7 +8,7 @@ const { people } = Astro.props;
   {people.map(person => <article class="team-profile">
     <img src={`/assets/img/${person.image}`} alt={person.name} width={person.name === 'Keila Assis' ? 716 : 560} height={person.name === 'Keila Assis' ? 716 : 560} loading="lazy" />
     <h3>{person.name}</h3>
-    <p>{person.bio}</p>
+    {person.bio && <p>{person.bio}</p>}
   </article>)}
 </div>
 <style>
