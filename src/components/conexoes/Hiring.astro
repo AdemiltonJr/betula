@@ -7,15 +7,15 @@ const needs = [
 ];
 ---
 <section class="hiring section-space" id="atuacao" aria-labelledby="hiring-title" data-hiring data-phone={contacts.primary.phone}>
-  <div class="section-heading reveal"><p class="eyebrow">Onde atuamos</p><h2 id="hiring-title">Seleção de profissionais<br />para diferentes perfis de cargos.</h2><p>Da operação à liderança, alinhamos a seleção às necessidades da sua empresa.</p></div>
-  <div class="hiring-workspace reveal">
+  <div class="section-heading"><h2 id="hiring-title">Seleção de profissionais<br />para diferentes perfis de cargos.</h2><p>Da operação à liderança, alinhamos a seleção às necessidades da sua empresa.</p></div>
+  <div class="hiring-workspace">
     <div class="need-options" role="group" aria-label="O que sua empresa precisa contratar?">
-      {needs.map((need, index) => <button type="button" class="need-option" data-need data-title={need.title} data-description={need.description} data-message={need.message} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls="need-result"><span class="option-number" aria-hidden="true">{need.symbol}</span><span><strong>{need.name}</strong><small>{need.detail}</small></span><span class="option-arrow" aria-hidden="true">↗</span></button>)}
+      {needs.map((need, index) => <button type="button" class="need-option" data-need data-title={need.title} data-description={need.description} data-message={need.message} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls="need-result"><span class="option-number" aria-hidden="true">{need.symbol}</span><span><strong>{need.name}</strong><small>{need.detail}</small></span><span class="option-arrow" aria-hidden="true"><svg class="action-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></span></button>)}
     </div>
     <div class="need-result" id="need-result">
       <div class="result-copy" aria-live="polite" aria-atomic="true"><h3 data-need-title>{needs[0].title}</h3><p data-need-description>{needs[0].description}</p></div>
       <div class="job-field"><label for="job-role">Já tem uma vaga em mente? <span>(opcional)</span></label><input type="text" name="cargo" id="job-role" placeholder="Ex.: analista financeiro, gerente comercial…" maxlength="160" autocomplete="off" /></div>
-      <a class="button button-primary" data-need-contact href={whatsappHref(contacts.primary.phone, needs[0].message)} target="_blank" rel="noopener">Conversar sobre essa contratação <span aria-hidden="true">↗</span></a>
+      <a class="button button-primary" data-need-contact href={whatsappHref(contacts.primary.phone, needs[0].message)} target="_blank" rel="noopener">Conversar sobre essa contratação <svg class="action-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></a>
       <p class="contact-note">Você continua a conversa no WhatsApp.</p>
     </div>
   </div>

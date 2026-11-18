@@ -68,14 +68,17 @@ test('imagens locais existem e possuem texto alternativo e dimensões', async ()
 test('processo completo é entregue sem depender do javascript', () => {
   assert.equal((html.match(/<article\b[^>]*data-process-step/g) ?? []).length, 4);
   for (const title of ['Compreensão', 'Busca', 'Avaliação', 'Acompanhamento']) assert.ok(html.includes(title));
-  assert.ok((html.match(/<details\b/g) ?? []).length >= 8);
+  const process = html.split('id="processo"')[1].split('</section>')[0];
+  assert.doesNotMatch(process, /<details\b/);
+  assert.equal((process.match(/class="process-details"/g) ?? []).length, 4);
 });
 
 test('contato direto funciona sem javascript e seletor tem estado inicial definido', () => {
   assert.match(html, /https:\/\/wa\.me\/5519981389865\?text=/);
   assert.match(html, /<noscript>/);
-  assert.equal((html.match(/<button\b[^>]*aria-pressed="true"/g) ?? []).length, 1);
-  assert.equal((html.match(/<button\b[^>]*aria-pressed="false"/g) ?? []).length, 2);
+  const hiringButtons = [...html.matchAll(/<button\b[^>]*data-need\s[^>]*>/g)].map(match => match[0]).join('');
+  assert.equal((hiringButtons.match(/aria-pressed="true"/g) ?? []).length, 1);
+  assert.equal((hiringButtons.match(/aria-pressed="false"/g) ?? []).length, 2);
   assert.match(html, /aria-live="polite"/);
   assert.match(html, /label for="job-role"/);
   assert.match(html, /mailto:curriculo@betularh.com.br/);

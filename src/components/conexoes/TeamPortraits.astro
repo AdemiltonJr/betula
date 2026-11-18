@@ -1,31 +1,60 @@
 ---
-interface Props {
-  people: ReadonlyArray<{ name: string; image: string; role: string; bio: string }>;
-}
+interface Props { people: ReadonlyArray<{ name: string; image: string; role: string; bio: string }>; }
 const { people } = Astro.props;
 ---
-<div class="team-portraits">
-  {people.map(person => <article class="team-profile">
-    <img src={`/assets/img/${person.image}`} alt={person.name} width={person.name === 'Keila Assis' ? 716 : 560} height={person.name === 'Keila Assis' ? 716 : 560} loading="lazy" />
-    <h3>{person.name}</h3>
-    {person.bio && <p>{person.bio}</p>}
-  </article>)}
+<div class="organic-team" data-team>
+  <svg class="portrait-definitions" width="0" height="0" aria-hidden="true"><defs>
+    <clipPath id="betula-portrait" clipPathUnits="objectBoundingBox"><path d="M .49 .015 C .72 -.025 .95 .10 .97 .34 C .99 .53 .86 .63 .88 .79 C .91 .95 .68 1 .46 .985 C .24 .97 .045 .90 .035 .69 C .025 .52 .12 .44 .105 .28 C .09 .12 .29 .04 .49 .015 Z" /></clipPath>
+  </defs></svg>
+  <div class="team-navigation"><span id="team-instructions">Arraste para conhecer a equipe</span><div class="team-arrows"><button type="button" data-team-prev aria-label="Pessoa anterior" aria-controls="team-rail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7M7 12h14" /></svg></button><button type="button" data-team-next aria-label="Próxima pessoa" aria-controls="team-rail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7M3 12h14" /></svg></button></div></div>
+  <div class="team-portraits" id="team-rail" data-team-rail role="group" aria-label="Profissionais Bétula RH" aria-describedby="team-instructions">
+    {people.map((person, index) => <article class="team-profile">
+      <button type="button" class="team-person" data-team-person data-index={index} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`team-bio-${index}`}>
+        <img src={`/assets/img/${person.image}`} alt="" width={person.name === 'Keila Assis' ? 716 : 560} height={person.name === 'Keila Assis' ? 716 : 560} loading="lazy" draggable="false" />
+        <h3>{person.name}</h3>
+        {person.bio && <span class="profile-action">Conhecer trajetória <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>}
+      </button>
+    </article>)}
+  </div>
+  <div class="team-biographies">
+    {people.map((person, index) => <div data-team-panel data-index={index} id={`team-bio-${index}`} class="team-biography" role="region" aria-label={person.name}>
+      {person.bio && <><h3>{person.name}</h3><p>{person.bio}</p></>}
+    </div>)}
+  </div>
+  <span class="team-status" data-team-status role="status" aria-live="polite" aria-atomic="true"></span>
 </div>
 <style>
-  .team-portraits { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 32px; max-width: 1080px; margin-inline: auto; }
-  .team-profile { min-width: 0; flex: 0 1 calc((100% - 64px) / 3); }
-  .team-profile img { width: min(100%, 220px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin: 0 auto 20px; }
-  .team-profile h3 { font-size: 20px; line-height: 1.3; margin-bottom: 10px; font-weight: 600; text-align: center; }
-  .team-profile p { font-size: 15px; line-height: 1.55; color: var(--muted); }
-  @media (max-width: 700px) {
-    .team-profile { flex-basis: calc((100% - 18px) / 2); }
-    .team-portraits { gap: 28px 18px; }
-    .team-profile h3 { font-size: 17px; }
-    .team-profile p { font-size: 14px; }
-  }
-  @media (max-width: 600px) {
-    .team-profile { flex-basis: 100%; }
-    .team-profile p { font-size: 16px; line-height: 1.6; }
-    .team-portraits { gap: 40px; }
-  }
+  .portrait-definitions { position: absolute; }
+  .organic-team { min-width: 0; }
+  .team-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 16px; }
+  .team-arrows { display: flex; gap: 10px; }
+  .team-arrows button { width: 48px; height: 48px; border: 1px solid currentColor; background: transparent; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: var(--teal); }
+  svg:not(.portrait-definitions) { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+  .team-arrows button:disabled { opacity: .35; cursor: default; }
+  .team-portraits { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 24px; padding: 42px 24px 30px; margin-inline: -24px; scrollbar-color: var(--teal) transparent; scrollbar-width: thin; touch-action: pan-x pan-y; cursor: grab; }
+  .team-portraits[data-dragging] { cursor: grabbing; scroll-snap-type: none; }
+  .team-profile { flex: 0 0 clamp(220px, 24vw, 290px); min-width: 0; scroll-snap-align: start; }
+  .team-person { border: 0; padding: 0 8px 12px; width: 100%; color: var(--teal); background: none; cursor: pointer; text-align: left; }
+  .team-person img { width: 100%; aspect-ratio: 1; object-fit: cover; clip-path: url(#betula-portrait); transform-origin: 50% 70%; transition: transform 300ms cubic-bezier(.22,1,.36,1); margin-bottom: 24px; user-select: none; }
+  .team-person h3 { font: 600 22px/1.3 var(--title); margin: 0; }
+  .profile-action { display: flex; gap: 12px; align-items: center; margin-top: 8px; min-height: 32px; font-size: 15px; }
+  .profile-action svg { width: 18px; }
+  .team-person[aria-pressed="true"] h3 { text-decoration: underline; text-underline-offset: 7px; }
+  .team-person:focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; }
+  .team-person:focus-visible img { transform: scale(1.075); }
+  [data-team-pointer="mouse"] .team-person:hover img { transform: scale(1.075); }
+  .team-biographies { border-top: 1px solid var(--organic-teal-line); padding-top: 28px; }
+  .team-biography { max-width: 75ch; margin-bottom: 28px; }
+  .team-biography h3 { font-size: 23px; margin-bottom: 12px; }
+  .team-biography p { font-size: 19px; line-height: 1.65; }
+  [data-team-enhanced] .team-biography[hidden] { display: none; }
+  .team-biography:empty { margin: 0; }
+  .team-status { display: block; margin-top: 20px; font-size: 14px; }
+  html:not(.js) .team-arrows { display: none; }
+  @media (max-width: 600px) { .team-profile { flex-basis: 74%; } .team-portraits { gap: 20px; } .team-navigation { font-size: 14px; } .team-biography p { font-size: 18px; } }
+  @media (prefers-reduced-motion: reduce) { .team-person img { transition: none; transform: none !important; } .team-portraits { scroll-behavior: auto; } }
 </style>
+<script>
+  import { initTeamRail } from '../../scripts/team-rail';
+  document.querySelectorAll<HTMLElement>('[data-team]').forEach(initTeamRail);
+</script>

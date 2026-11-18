@@ -1,4 +1,14 @@
-# Revisão vigente — 16/09/2026
+# Proposta alternativa — conexões orgânicas (18/11/2026)
+
+Esta branch contém uma terceira landing page para avaliação; a cliente ainda não aprovou a direção. Não substitui as duas prévias anteriores nem o site oficial.
+
+Identidade preservada: verde-petróleo #00525D, pêssego #F8D6C4 e branco, Manrope/Source Sans 3 locais e arquivos originais do logo. A mudança autorizada é de composição e interação: linhas ramificadas, contornos Bézier e equipe em faixa horizontal manual, sem cartões individuais. Mouse amplia retratos; clique, toque e teclado selecionam biografia integral em área compartilhada. Sem avanço automático; gesto vertical, movimento reduzido e leitura sem JS preservados. Jullyana somente foto e nome. Texto da Luciana não reescrito.
+
+Detalhes e provas: [PROPOSTA-CONEXOES-ORGANICAS.md](PROPOSTA-CONEXOES-ORGANICAS.md). Tokens da alternativa em src/styles/organic.css; fotografias preexistentes, sem alteração ou geração. As revisões abaixo são referência histórica e seguem recuperáveis nas branches anteriores.
+
+---
+
+# Revisão vigente anterior — 16/09/2026
 
 Preservar a paleta institucional da revisão de 11/09. Faixas pêssego ocupam toda a largura, com conteúdo alinhado ao container. Quem somos centralizado sobre o fundo original de troncos; Como fazemos em verde, compacto e centralizado. Fotografias reais de Luciana e Vanessa na abertura, sem molduras decorativas. Equipe com cinco retratos, incluindo Keila; Jullyana aguarda material. Biografias e textos longos mantêm alinhamento de leitura. Logos originais e interações preservados.
 
