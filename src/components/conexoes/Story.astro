@@ -23,9 +23,9 @@ const questions = [
   <div class="container differences-flow">
   <header class="institutional-values">
     <h2 id="values-title">Como trabalhamos e nossos diferenciais</h2>
+    <p class="values-description">Cada empresa tem necessidades específicas de contratação. Por isso, estruturamos nossos processos de Recrutamento e Seleção de acordo com cada demanda, considerando o contexto da organização, o perfil da posição e a dinâmica do mercado.</p>
   </header>
   <div class="differences-reading">
-    <p class="values-description">Cada empresa tem necessidades específicas de contratação. Por isso, estruturamos nossos processos de Recrutamento e Seleção de acordo com cada demanda, considerando o contexto da organização, o perfil da posição e a dinâmica do mercado.</p>
     <svg class="method-branches" viewBox="0 0 1000 1300" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M470 0C280 230 680 400 470 650S290 1010 540 1300M470 160C400 200 230 200 80 270M490 450C620 470 780 370 940 390M450 740C330 730 210 800 80 850M480 1010C660 1060 770 950 940 1000" /></svg>
   <ul class="container" id="diferenciais">
     <li><h3>Atendimento personalizado</h3><p>Compreendemos as particularidades de cada empresa, considerando a cultura organizacional, o perfil da vaga e as expectativas da contratação.</p></li>
@@ -38,13 +38,6 @@ const questions = [
   </div>
 </section>
 
-<section class="process section-space" id="processo" aria-labelledby="process-title" data-process-story>
-  <div class="process-intro"><h2 id="process-title">Etapas do<br /><span>processo seletivo.</span></h2><p>Do alinhamento da vaga ao acompanhamento do profissional admitido.</p></div>
-  <div class="process-branches">
-    {processMoments.map((moment, index) => <article class="process-moment" data-process-step data-step={index}><span class="branch-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}<svg class="step-leaf" viewBox="0 0 32 40" width="20" height="25" aria-hidden="true" focusable="false"><path class="leaf-blade" d="M12 31C8 31 5 28 5 24Q3 23 5 21Q3 19 6 17Q5 15 8 13Q8 10 12 9C16 7 20 7 23 2C23 8 28 12 26 17Q29 18 26 20Q27 22 24 24Q24 27 20 28Q18 32 12 31Z"/><path class="leaf-veins" d="M9 36C13 26 18 15 23 4M12 29l-4-5M15 23l7-2M17 18l-5-3M20 12l4-1"/></svg></span><div><h3>{moment.title}</h3><p>{moment.summary}</p><ul class="process-details">{moment.steps.map(step => <li>{step}</li>)}</ul></div></article>)}
-  </div>
-</section>
-
 <section class="institutional-team" id="equipe" aria-labelledby="team-title">
   <div class="section-band"><h2 class="container" id="team-title">Equipe Bétula RH</h2></div>
   <div class="section-space">
@@ -54,6 +47,13 @@ const questions = [
     <div class="team-caption"><span>Atendimento próximo em cada etapa.</span><a class="text-link" href={whatsappHref()} target="_blank" rel="noopener">Fale com a Bétula RH <svg class="action-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></a></div>
   </div>
 </div>
+</section>
+
+<section class="process section-space" id="processo" aria-labelledby="process-title" data-process-story>
+  <div class="process-intro"><h2 id="process-title">Etapas do<br /><span>processo seletivo.</span></h2><p>Do alinhamento da vaga ao acompanhamento do profissional admitido.</p></div>
+  <div class="process-branches">
+    {processMoments.map((moment, index) => <article class="process-moment" data-process-step data-step={index}><span class="branch-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}<svg class="step-leaf" viewBox="0 0 32 40" width="20" height="25" aria-hidden="true" focusable="false"><path class="leaf-blade" d="M12 31C8 31 5 28 5 24Q3 23 5 21Q3 19 6 17Q5 15 8 13Q8 10 12 9C16 7 20 7 23 2C23 8 28 12 26 17Q29 18 26 20Q27 22 24 24Q24 27 20 28Q18 32 12 31Z"/><path class="leaf-veins" d="M9 36C13 26 18 15 23 4M12 29l-4-5M15 23l7-2M17 18l-5-3M20 12l4-1"/></svg></span><div><h3>{moment.title}</h3><p>{moment.summary}</p><ul class="process-details">{moment.steps.map(step => <li>{step}</li>)}</ul></div></article>)}
+  </div>
 </section>
 
 <ClientRoster />

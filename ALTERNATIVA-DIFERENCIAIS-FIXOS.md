@@ -1,5 +1,7 @@
 # Alternativa — diferenciais com título fixo
 
+> Registro da primeira alternativa. A revisão vigente está em [INVERSAO-DIFERENCIAIS-E-RITMO.md](INVERSAO-DIFERENCIAIS-E-RITMO.md): título e descrição à direita, tópicos à esquerda e equipe entre diferenciais e etapas.
+
 Autorização do Ademilton: criar outra versão mudando somente a seção Como trabalhamos e nossos diferenciais. A proposta orgânica de referência permanece intacta em branch, tag e prévia. Não autoriza produção.
 
 ## Composição
