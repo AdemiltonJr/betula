@@ -43,7 +43,7 @@ test('preserva SEO local e canonical e não inventa reviews', () => {
   assert.match(html, /<title>Recrutamento e Seleção em Campinas \| Bétula RH<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/betularh\.com\.br\/"/);
   assert.match(html, /"@type":"Organization"/);
-  assert.match(html, /<h1[^>]*>Recrutamento e seleção/);
+  assert.match(html, /<h1[^>]*>Recrutamento e Seleção/);
   if (process.env.PUBLIC_SITE_INDEXABLE !== 'true') assert.match(html, /name="robots" content="noindex, follow"/);
   assert.doesNotMatch(html, /"@type":"Review"/);
 });

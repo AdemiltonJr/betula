@@ -145,31 +145,31 @@ export const team = [
     image: 'team-luciana-alvim.jpg',
     name: 'Luciana Alvim',
     role: 'Fundadora e especialista em seleção',
-    bio: 'Psicóloga responsável pela estratégia, métodos, processos, novos negócios e relações com clientes.',
+    bio: 'Psicóloga e fundadora da Bétula RH, responsável pela gestão e liderança técnica da consultoria. Atua na definição de metodologias, processos e critérios de trabalho, na estratégia do negócio, no desenvolvimento de novos negócios e no relacionamento com clientes.',
   },
   {
     image: 'team-vanessa-luiz.jpg',
     name: 'Vanessa Luiz',
     role: 'Operação e processos seletivos',
-    bio: 'Administradora com carreira consolidada em Recursos Humanos, responsável pela operação e pelos indicadores da consultoria.',
+    bio: 'Administradora com experiência em Recursos Humanos em empresas multinacionais e de serviços. Atua na condução dos processos de Recrutamento e Seleção e na gestão operacional da consultoria, incluindo o acompanhamento de indicadores.',
   },
   {
     image: 'team-elaine-souza.jpg',
     name: 'Elaine Souza',
     role: 'Recursos Humanos e seleção',
-    bio: 'Administradora com experiência generalista em Recursos Humanos, Departamento Pessoal, recrutamento e seleção.',
+    bio: 'Administradora com sólida experiência na gestão de Recursos Humanos em empresa multinacional e na implantação de estruturas e processos de RH e Departamento Pessoal. Especialista em Recrutamento e Seleção.',
   },
   {
     image: 'team-georgia-frattini.jpg',
     name: 'Georgia Frattini',
     role: 'Desenvolvimento de pessoas e seleção',
-    bio: 'Administradora com experiência em desenvolvimento de pessoas, recrutamento e seleção.',
+    bio: 'Administradora com experiência nas áreas de Treinamento e Desenvolvimento e Recrutamento e Seleção. Especialista em processos seletivos.',
   },
   {
     image: 'team-keila-oficial.jpg',
     name: 'Keila Assis',
     role: 'Avaliação psicológica',
-    bio: 'Psicóloga e terapeuta que conduz avaliações e testes de atenção, cognição e personalidade.',
+    bio: 'Psicóloga e terapeuta, responsável pela condução de avaliações psicológicas e aplicação de testes voltados à avaliação da atenção, cognição e personalidade.',
   },
 ] as const;
 
