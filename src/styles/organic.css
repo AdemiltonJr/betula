@@ -63,6 +63,10 @@
 [data-organic-proposal] .process-intro h2 { font-size: clamp(34px, 3.8vw, 52px); }
 [data-organic-proposal] .process-intro { top: 130px; }
 [data-organic-proposal] .process-moment { padding-block: 18px 38px; }
+[data-organic-proposal] .process-moment::before { content: none; }
+[data-organic-proposal] .step-leaf { position: absolute; left: 23px; top: -14px; width: 18px; height: 24px; color: var(--organic-teal); pointer-events: none; }
+[data-organic-proposal] .step-leaf .leaf-blade { fill: var(--organic-paper); stroke: currentColor; stroke-width: 1.25; stroke-linejoin: round; }
+[data-organic-proposal] .step-leaf .leaf-veins { fill: none; stroke: currentColor; stroke-width: 1.15; stroke-linecap: round; }
 [data-organic-proposal] .process-moment p { font-size: 19px; line-height: 1.6; }
 .process-details { margin-top: 20px; padding-left: 20px; font-size: 16px; line-height: 1.65; color: var(--muted); }
 .process-details li + li { margin-top: 10px; }

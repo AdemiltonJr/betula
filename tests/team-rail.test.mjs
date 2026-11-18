@@ -17,7 +17,7 @@ class ElementStub {
   releasePointerCapture() { this.captured = null; }
 }
 function fixture(reduced = false) {
-  globalThis.window = { matchMedia: () => ({ matches: reduced }), setTimeout };
+  globalThis.window = { matchMedia: () => ({ matches: reduced }), setTimeout, clearTimeout };
   const rail = new ElementStub(), prev = new ElementStub(), next = new ElementStub(), status = new ElementStub();
   const people = ['Luciana Alvim', 'Vanessa Luiz', 'Elaine Souza', 'Georgia Frattini', 'Keila Assis', 'Jullyana'].map((n, i) => new ElementStub(n, 24 + i * 300));
   const panels = people.map(() => new ElementStub());
@@ -25,6 +25,33 @@ function fixture(reduced = false) {
   initTeamRail(root);
   return { root, rail, prev, next, status, people, panels };
 }
+test('rolagem manual sincroniza a biografia sem novo scroll nem mudança de foco', async () => {
+  const { rail, people, panels } = fixture();
+  rail.clientWidth = 340; rail.scrollWidth = 1788;
+  rail.getBoundingClientRect = () => ({ left: 0, right: 340, width: 340 });
+  people.forEach((person, i) => { person.getBoundingClientRect = () => ({ left: 24 + i * 300 - rail.scrollLeft, right: 264 + i * 300 - rail.scrollLeft, width: 240 }); });
+  rail.scrollLeft = 300; rail.fire('scroll');
+  await new Promise(resolve => setTimeout(resolve, 220));
+  assert.equal(people[1].attributes['aria-pressed'], 'true');
+  assert.equal(panels[1].hidden, false);
+  assert.equal(rail.lastScroll, undefined);
+  assert.equal(people[1].focused, undefined);
+  rail.scrollLeft = 1448; rail.fire('scrollend');
+  assert.equal(people[5].attributes['aria-pressed'], 'true');
+  assert.equal(panels[5].hidden, false);
+  rail.scrollLeft = 0; rail.fire('scrollend');
+  assert.equal(people[0].attributes['aria-pressed'], 'true');
+});
+test('rolagem suave de botão não sobrescreve a pessoa escolhida', async () => {
+  const { rail, people } = fixture();
+  rail.clientWidth = 1000; rail.scrollWidth = 1800;
+  rail.getBoundingClientRect = () => ({ left: 0, right: 1000, width: 1000 });
+  people.forEach((person, i) => { person.getBoundingClientRect = () => ({ left: 24 + i * 300 - rail.scrollLeft, right: 264 + i * 300 - rail.scrollLeft, width: 240 }); });
+  people[3].fire('click');
+  rail.scrollLeft = 300; rail.fire('scroll');
+  await new Promise(resolve => setTimeout(resolve, 220));
+  assert.equal(people[3].attributes['aria-pressed'], 'true');
+});
 test('rail seleciona biografias, limita setas e navega pelo teclado sem mover página vertical', () => {
   const { rail, prev, next, status, people, panels } = fixture();
   assert.equal(prev.disabled, true);
